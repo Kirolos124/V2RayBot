@@ -1,0 +1,88 @@
+name: Update Working Proxies
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'   # every 6 hours
+  workflow_dispatch:
+    inputs:
+      sni:
+        description: 'Target SNI'
+        required: false
+        default: 'speedtest.net'
+
+permissions:
+  contents: write
+
+jobs:
+  update-proxies:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install sing-box
+        run: |
+          MAX_RETRIES=3
+          RETRY_COUNT=0
+          while [ $RETRY_COUNT -lt $MAX_RETRIES ]; do
+            LATEST_URL=$(curl -sL "https://api.github.com/repos/SagerNet/sing-box/releases/latest" | jq -r '.assets[] | select(.name | endswith("linux-amd64.tar.gz")) | .browser_download_url' | head -1)
+            if [ -n "$LATEST_URL" ] && [ "$LATEST_URL" != "null" ]; then
+              wget -q --timeout=30 --tries=3 -O sing-box.tar.gz "$LATEST_URL" && \
+              tar -xzf sing-box.tar.gz && \
+              DIR=$(find . -maxdepth 1 -type d -name "sing-box-*linux-amd64*" | head -1) && \
+              sudo mv "$DIR/sing-box" /usr/local/bin/sing-box && \
+              sudo chmod +x /usr/local/bin/sing-box && \
+              sing-box version && break
+            fi
+            RETRY_COUNT=$((RETRY_COUNT + 1))
+            echo "Retry $RETRY_COUNT/$MAX_RETRIES in 30s..."
+            sleep 30
+          done
+          [ $RETRY_COUNT -lt $MAX_RETRIES ] || { echo "sing-box install failed"; exit 1; }
+
+      - name: Run proxy tester (multi-source)
+        env:
+          CI: "true"
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+          GITHUB_REPO: Kirolos124/V2RayBot
+        run: |
+          SNI="${{ github.event.inputs.sni || 'speedtest.net' }}"
+          python v2ray_sni_updater.py "$SNI" sources.txt --retest=50
+
+      - name: Commit results in this repo (private mirror)
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add working_proxies.txt working_subscription.txt singbox_config.json clash_config.yaml working_sni_matched.txt working_sni_matched_subscription.txt singbox_sni_matched.json clash_sni_matched.yaml singbox_sni_matched.json clash_sni_matched.yaml
+          
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          
+          git commit -m "Update working proxies ($(date -u '+%Y-%m-%d %H:%M UTC'))"
+          
+          max_retries=5
+          retry_count=0
+          while [ $retry_count -lt $max_retries ]; do
+            if git push origin HEAD:main; then
+              echo "Successfully pushed changes"
+              exit 0
+            fi
+            retry_count=$((retry_count + 1))
+            echo "Push failed, retrying in 30s... ($retry_count/$max_retries)"
+            sleep 30
+            git fetch origin main
+            git rebase --autostash origin/main
+          done
+          echo "Failed to push after $max_retries attempts"
+          exit 1
