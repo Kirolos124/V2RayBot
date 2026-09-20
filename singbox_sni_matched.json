@@ -51,120 +51,16 @@
         "m27",
         "m28",
         "m29",
-        "m30",
-        "m31",
-        "m32",
-        "m33",
-        "m34",
-        "m35",
-        "m36",
-        "m37",
-        "m38",
-        "m39",
-        "m40",
-        "m41",
-        "m42",
-        "m43",
-        "m44",
-        "m45",
-        "m46",
-        "m47",
-        "m48",
-        "m49",
-        "m50",
-        "m51",
-        "m52"
+        "m30"
       ],
       "url": "http://cp.cloudflare.com/generate_204",
       "interval": "10m",
       "tolerance": 50
     },
     {
-      "type": "vless",
-      "tag": "m0",
-      "server": "95.129.236.216",
-      "server_port": 443,
-      "tls": {
-        "enabled": true,
-        "server_name": "speedtest.net",
-        "insecure": true,
-        "alpn": [
-          "http/1.1"
-        ],
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "uuid": "f35f4fe5-ef76-4a7d-80f6-60a6c93d27f0",
-      "transport": {
-        "type": "ws",
-        "path": "/origin/190546791/fetch",
-        "headers": {
-          "Host": "crm.hourtley.com"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "m1",
-      "server": "199.232.237.79",
-      "server_port": 443,
-      "tls": {
-        "enabled": true,
-        "server_name": "speedtest.net",
-        "insecure": true,
-        "alpn": [
-          "h3",
-          "h2",
-          "http/1.1"
-        ],
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      },
-      "uuid": "turboo-server",
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "turboo-server-telegram.com"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "m2",
-      "server": "199.232.237.79",
-      "server_port": 443,
-      "tls": {
-        "enabled": true,
-        "server_name": "speedtest.net",
-        "insecure": true,
-        "alpn": [
-          "h3",
-          "h2",
-          "http/1.1"
-        ],
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      },
-      "uuid": "turboo-server",
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "turboo-server-telegram.com"
-        }
-      }
-    },
-    {
       "type": "vmess",
-      "tag": "m3",
-      "server": "dee2309db4se3g5sds35g4s3dg.oylfmxz.cn",
+      "tag": "m0",
+      "server": "dee2309db4944c248b6d4372c6641e25.oylfmxz.cn",
       "server_port": 443,
       "uuid": "d90e4077-bc7e-414d-a650-70bf1baae4d6",
       "security": "auto",
@@ -178,25 +74,65 @@
         "type": "ws",
         "path": "/",
         "headers": {
-          "Host": "dee2309db4se3g5sds35g4s3dg.oylfmxz.cn"
+          "Host": "dee2309db4944c248b6d4372c6641e25.oylfmxz.cn"
         }
       }
     },
     {
-      "type": "trojan",
-      "tag": "m4",
-      "server": "100.42.228.109",
+      "type": "vmess",
+      "tag": "m1",
+      "server": "141.95.65.9",
+      "server_port": 1234,
+      "uuid": "5c040f1d-45db-43bd-8d46-e4950e433735",
+      "security": "aes-128-gcm",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "speedtest.net",
+        "insecure": true
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "m2",
+      "server": "lizca2.footballfantasyforum.com",
       "server_port": 443,
       "tls": {
         "enabled": true,
         "server_name": "speedtest.net",
         "insecure": true
       },
-      "password": "BxceQaOe"
+      "uuid": "716426fa-bcb7-4eb9-b460-36399ebf740d"
     },
     {
       "type": "trojan",
-      "tag": "m5",
+      "tag": "m3",
+      "server": "151.101.56.56",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "speedtest.net",
+        "insecure": true,
+        "alpn": [
+          "http/1.1"
+        ],
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "password": "MiTIVPN",
+      "transport": {
+        "type": "ws",
+        "path": "/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/NLSs---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN",
+        "headers": {
+          "Host": "mitivpn---ss--s---mitivpn-66e.global.ssl.fastly.net"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "m4",
       "server": "109.206.241.10",
       "server_port": 449,
       "tls": {
@@ -212,30 +148,7 @@
     },
     {
       "type": "vless",
-      "tag": "m6",
-      "server": "31.76.88.10",
-      "server_port": 443,
-      "tls": {
-        "enabled": true,
-        "server_name": "speedtest.net",
-        "insecure": true,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      },
-      "uuid": "03c48eca-e0aa-4e18-998c-1f53f1de293c",
-      "transport": {
-        "type": "ws",
-        "path": "/cdn/v3/live",
-        "headers": {
-          "Host": "cf5.rumedia-cdn.com"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "m7",
+      "tag": "m5",
       "server": "195.58.144.56",
       "server_port": 11907,
       "tls": {
@@ -255,17 +168,13 @@
     },
     {
       "type": "vless",
-      "tag": "m8",
+      "tag": "m6",
       "server": "151.242.2.81",
       "server_port": 443,
       "tls": {
         "enabled": true,
         "server_name": "speedtest.net",
-        "insecure": true,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
+        "insecure": true
       },
       "uuid": "0a2dde28-70da-4863-a06f-35d007d94d35",
       "transport": {
@@ -278,7 +187,7 @@
     },
     {
       "type": "vless",
-      "tag": "m9",
+      "tag": "m7",
       "server": "2.26.125.38",
       "server_port": 2096,
       "tls": {
@@ -301,7 +210,7 @@
     },
     {
       "type": "vless",
-      "tag": "m10",
+      "tag": "m8",
       "server": "46.8.200.91",
       "server_port": 443,
       "tls": {
@@ -310,7 +219,7 @@
         "insecure": true,
         "utls": {
           "enabled": true,
-          "fingerprint": "firefox"
+          "fingerprint": "chrome"
         }
       },
       "uuid": "0a2dde28-70da-4863-a06f-35d007d94d35",
@@ -324,201 +233,45 @@
     },
     {
       "type": "vless",
-      "tag": "m11",
-      "server": "177.3.208.65",
+      "tag": "m9",
+      "server": "simia.northforex.ir",
+      "server_port": 8443,
+      "tls": {
+        "enabled": true,
+        "server_name": "speedtest.net",
+        "insecure": true
+      },
+      "uuid": "22ac8d19-9eec-493d-a492-e024cdba594b"
+    },
+    {
+      "type": "vless",
+      "tag": "m10",
+      "server": "140.248.186.45",
       "server_port": 443,
       "tls": {
         "enabled": true,
         "server_name": "speedtest.net",
         "insecure": true,
+        "alpn": [
+          "http/1.1"
+        ],
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
         }
       },
-      "uuid": "4f34bc04-479c-49ba-91a8-6bb9ed15031c",
+      "uuid": "XpnTeam-11",
       "transport": {
         "type": "ws",
-        "path": "/vless-il",
+        "path": "/",
         "headers": {
-          "Host": "tgmansion.site"
+          "Host": "Appxdn.global.ssl.fastly.net"
         }
       }
     },
     {
       "type": "vless",
-      "tag": "m12",
-      "server": "192.145.31.5",
-      "server_port": 8443,
-      "tls": {
-        "enabled": true,
-        "server_name": "speedtest.net",
-        "insecure": true,
-        "alpn": [
-          "h2",
-          "http/1.1"
-        ],
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      },
-      "uuid": "9f73cf9a-c68f-4e6d-90f0-e66b64f52f8a"
-    },
-    {
-      "type": "vless",
-      "tag": "m13",
-      "server": "neth9.lunariai.ru",
-      "server_port": 8443,
-      "tls": {
-        "enabled": true,
-        "server_name": "speedtest.net",
-        "insecure": true,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      },
-      "uuid": "9f73cf9a-c68f-4e6d-90f0-e66b64f52f8a"
-    },
-    {
-      "type": "vless",
-      "tag": "m14",
-      "server": "neth9.lunariai.ru",
-      "server_port": 8443,
-      "tls": {
-        "enabled": true,
-        "server_name": "speedtest.net",
-        "insecure": true,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      },
-      "uuid": "9f73cf9a-c68f-4e6d-90f0-e66b64f52f8a"
-    },
-    {
-      "type": "vless",
-      "tag": "m15",
-      "server": "neth9.lunariai.ru",
-      "server_port": 8443,
-      "tls": {
-        "enabled": true,
-        "server_name": "speedtest.net",
-        "insecure": true,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      },
-      "uuid": "9f73cf9a-c68f-4e6d-90f0-e66b64f52f8a"
-    },
-    {
-      "type": "vless",
-      "tag": "m16",
-      "server": "neth9.lunariai.ru",
-      "server_port": 8443,
-      "tls": {
-        "enabled": true,
-        "server_name": "speedtest.net",
-        "insecure": true
-      },
-      "uuid": "9f73cf9a-c68f-4e6d-90f0-e66b64f52f8a"
-    },
-    {
-      "type": "vless",
-      "tag": "m17",
-      "server": "neth9.lunariai.ru",
-      "server_port": 8443,
-      "tls": {
-        "enabled": true,
-        "server_name": "speedtest.net",
-        "insecure": true,
-        "alpn": [
-          "h2"
-        ]
-      },
-      "uuid": "9f73cf9a-c68f-4e6d-90f0-e66b64f52f8a"
-    },
-    {
-      "type": "vless",
-      "tag": "m18",
-      "server": "neth9.lunariai.ru",
-      "server_port": 8443,
-      "tls": {
-        "enabled": true,
-        "server_name": "speedtest.net",
-        "insecure": true,
-        "alpn": [
-          "h2",
-          "http/1.1"
-        ],
-        "utls": {
-          "enabled": true,
-          "fingerprint": "edge"
-        }
-      },
-      "uuid": "9f73cf9a-c68f-4e6d-90f0-e66b64f52f8a"
-    },
-    {
-      "type": "vless",
-      "tag": "m19",
-      "server": "neth9.lunariai.ru",
-      "server_port": 8443,
-      "tls": {
-        "enabled": true,
-        "server_name": "speedtest.net",
-        "insecure": true,
-        "alpn": [
-          "h2",
-          "http/1.1"
-        ],
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      },
-      "uuid": "9f73cf9a-c68f-4e6d-90f0-e66b64f52f8a"
-    },
-    {
-      "type": "vless",
-      "tag": "m20",
-      "server": "neth9.lunariai.ru",
-      "server_port": 8443,
-      "tls": {
-        "enabled": true,
-        "server_name": "speedtest.net",
-        "insecure": true
-      },
-      "uuid": "9f73cf9a-c68f-4e6d-90f0-e66b64f52f8a"
-    },
-    {
-      "type": "vless",
-      "tag": "m21",
-      "server": "neth9.lunariai.ru",
-      "server_port": 8443,
-      "tls": {
-        "enabled": true,
-        "server_name": "speedtest.net",
-        "insecure": true
-      },
-      "uuid": "9f73cf9a-c68f-4e6d-90f0-e66b64f52f8a"
-    },
-    {
-      "type": "vless",
-      "tag": "m22",
-      "server": "neth9.lunariai.ru",
-      "server_port": 8443,
-      "tls": {
-        "enabled": true,
-        "server_name": "speedtest.net",
-        "insecure": true
-      },
-      "uuid": "9f73cf9a-c68f-4e6d-90f0-e66b64f52f8a"
-    },
-    {
-      "type": "vless",
-      "tag": "m23",
+      "tag": "m11",
       "server": "149.202.58.99",
       "server_port": 443,
       "tls": {
@@ -541,64 +294,27 @@
     },
     {
       "type": "vless",
-      "tag": "m24",
-      "server": "144.31.2.33",
+      "tag": "m12",
+      "server": "bab-6.site",
       "server_port": 443,
       "tls": {
         "enabled": true,
         "server_name": "speedtest.net",
-        "insecure": true,
-        "alpn": [
-          "h2"
-        ],
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
+        "insecure": true
+      },
+      "uuid": "b585dc5e-55bf-4a8b-913a-27c9ccac05c3",
+      "transport": {
+        "type": "ws",
+        "path": "/vws/",
+        "headers": {
+          "Host": "bab-6.site"
         }
-      },
-      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
-      "flow": "xtls-rprx-vision"
+      }
     },
     {
       "type": "vless",
-      "tag": "m25",
-      "server": "144.31.5.3",
-      "server_port": 443,
-      "tls": {
-        "enabled": true,
-        "server_name": "speedtest.net",
-        "insecure": true,
-        "alpn": [
-          "h2"
-        ],
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      },
-      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
-      "flow": "xtls-rprx-vision"
-    },
-    {
-      "type": "vless",
-      "tag": "m26",
-      "server": "144.31.5.64",
-      "server_port": 443,
-      "tls": {
-        "enabled": true,
-        "server_name": "speedtest.net",
-        "insecure": true,
-        "alpn": [
-          "h2"
-        ]
-      },
-      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
-      "flow": "xtls-rprx-vision"
-    },
-    {
-      "type": "vless",
-      "tag": "m27",
-      "server": "31.76.5.42",
+      "tag": "m13",
+      "server": "bab-6.site",
       "server_port": 443,
       "tls": {
         "enabled": true,
@@ -606,106 +322,18 @@
         "insecure": true,
         "utls": {
           "enabled": true,
-          "fingerprint": "firefox"
+          "fingerprint": "chrome"
         }
       },
-      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
-      "flow": "xtls-rprx-vision"
+      "uuid": "b585dc5e-55bf-4a8b-913a-27c9ccac05c3",
+      "transport": {
+        "type": "ws",
+        "path": "/vws/"
+      }
     },
     {
       "type": "vless",
-      "tag": "m28",
-      "server": "50.7.120.162",
-      "server_port": 443,
-      "tls": {
-        "enabled": true,
-        "server_name": "speedtest.net",
-        "insecure": true,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
-      "flow": "xtls-rprx-vision"
-    },
-    {
-      "type": "vless",
-      "tag": "m29",
-      "server": "50.7.184.122",
-      "server_port": 443,
-      "tls": {
-        "enabled": true,
-        "server_name": "speedtest.net",
-        "insecure": true,
-        "alpn": [
-          "h2"
-        ],
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
-      "flow": "xtls-rprx-vision"
-    },
-    {
-      "type": "vless",
-      "tag": "m30",
-      "server": "50.7.227.251",
-      "server_port": 443,
-      "tls": {
-        "enabled": true,
-        "server_name": "speedtest.net",
-        "insecure": true,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
-      "flow": "xtls-rprx-vision"
-    },
-    {
-      "type": "vless",
-      "tag": "m31",
-      "server": "ir-new.failspace.top",
-      "server_port": 443,
-      "tls": {
-        "enabled": true,
-        "server_name": "speedtest.net",
-        "insecure": true,
-        "alpn": [
-          "h2"
-        ],
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
-      "flow": "xtls-rprx-vision"
-    },
-    {
-      "type": "vless",
-      "tag": "m32",
-      "server": "ir-new.failspace.top",
-      "server_port": 443,
-      "tls": {
-        "enabled": true,
-        "server_name": "speedtest.net",
-        "insecure": true,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "safari"
-        }
-      },
-      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
-      "flow": "xtls-rprx-vision"
-    },
-    {
-      "type": "vless",
-      "tag": "m33",
+      "tag": "m14",
       "server": "norw-2.failspace.top",
       "server_port": 443,
       "tls": {
@@ -725,7 +353,7 @@
     },
     {
       "type": "vless",
-      "tag": "m34",
+      "tag": "m15",
       "server": "norw-mori-3.failspace.top",
       "server_port": 443,
       "tls": {
@@ -742,7 +370,7 @@
     },
     {
       "type": "vless",
-      "tag": "m35",
+      "tag": "m16",
       "server": "norw.failspace.top",
       "server_port": 443,
       "tls": {
@@ -762,7 +390,7 @@
     },
     {
       "type": "vless",
-      "tag": "m36",
+      "tag": "m17",
       "server": "norway-2.failspace.top",
       "server_port": 443,
       "tls": {
@@ -782,7 +410,47 @@
     },
     {
       "type": "vless",
-      "tag": "m37",
+      "tag": "m18",
+      "server": "norway.failspace.top",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "speedtest.net",
+        "insecure": true,
+        "alpn": [
+          "h2"
+        ],
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        }
+      },
+      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
+      "flow": "xtls-rprx-vision"
+    },
+    {
+      "type": "vless",
+      "tag": "m19",
+      "server": "pl3.moritech.net",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "speedtest.net",
+        "insecure": true,
+        "alpn": [
+          "h2"
+        ],
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        }
+      },
+      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
+      "flow": "xtls-rprx-vision"
+    },
+    {
+      "type": "vless",
+      "tag": "m20",
       "server": "pl3.moritech.net",
       "server_port": 443,
       "tls": {
@@ -802,7 +470,84 @@
     },
     {
       "type": "vless",
-      "tag": "m38",
+      "tag": "m21",
+      "server": "pl3.moritech.net",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "speedtest.net",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
+      "flow": "xtls-rprx-vision"
+    },
+    {
+      "type": "vless",
+      "tag": "m22",
+      "server": "pl3.moritech.net",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "speedtest.net",
+        "insecure": true,
+        "alpn": [
+          "h2"
+        ],
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
+      "flow": "xtls-rprx-vision"
+    },
+    {
+      "type": "vless",
+      "tag": "m23",
+      "server": "pl3.moritech.net",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "speedtest.net",
+        "insecure": true,
+        "alpn": [
+          "h2"
+        ],
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        }
+      },
+      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
+      "flow": "xtls-rprx-vision"
+    },
+    {
+      "type": "vless",
+      "tag": "m24",
+      "server": "pl4.moritech.net",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "speedtest.net",
+        "insecure": true,
+        "alpn": [
+          "h2"
+        ],
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
+      "flow": "xtls-rprx-vision"
+    },
+    {
+      "type": "vless",
+      "tag": "m25",
       "server": "pl6.moritech.net",
       "server_port": 443,
       "tls": {
@@ -814,7 +559,7 @@
         ],
         "utls": {
           "enabled": true,
-          "fingerprint": "edge"
+          "fingerprint": "chrome"
         }
       },
       "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
@@ -822,8 +567,8 @@
     },
     {
       "type": "vless",
-      "tag": "m39",
-      "server": "uk-dedic-new-1.failspace.top",
+      "tag": "m26",
+      "server": "pl6.moritech.net",
       "server_port": 443,
       "tls": {
         "enabled": true,
@@ -832,170 +577,17 @@
         "alpn": [
           "h2"
         ],
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
-      "flow": "xtls-rprx-vision"
-    },
-    {
-      "type": "vless",
-      "tag": "m40",
-      "server": "uk-dedic-new-1.failspace.top",
-      "server_port": 443,
-      "tls": {
-        "enabled": true,
-        "server_name": "speedtest.net",
-        "insecure": true,
-        "alpn": [
-          "h2"
-        ],
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
-      "flow": "xtls-rprx-vision"
-    },
-    {
-      "type": "vless",
-      "tag": "m41",
-      "server": "uk-dedic-new-1.failspace.top",
-      "server_port": 443,
-      "tls": {
-        "enabled": true,
-        "server_name": "speedtest.net",
-        "insecure": true,
-        "alpn": [
-          "h2"
-        ],
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
-      "flow": "xtls-rprx-vision"
-    },
-    {
-      "type": "vless",
-      "tag": "m42",
-      "server": "uk-dedic-new-1.failspace.top",
-      "server_port": 443,
-      "tls": {
-        "enabled": true,
-        "server_name": "speedtest.net",
-        "insecure": true,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
-      "flow": "xtls-rprx-vision"
-    },
-    {
-      "type": "vless",
-      "tag": "m43",
-      "server": "viper-23.moriarty-web.com",
-      "server_port": 443,
-      "tls": {
-        "enabled": true,
-        "server_name": "speedtest.net",
-        "insecure": true,
-        "alpn": [
-          "h2"
-        ],
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
-      "flow": "xtls-rprx-vision"
-    },
-    {
-      "type": "vless",
-      "tag": "m44",
-      "server": "viper-25.moriarty-web.com",
-      "server_port": 443,
-      "tls": {
-        "enabled": true,
-        "server_name": "speedtest.net",
-        "insecure": true,
-        "alpn": [
-          "h2"
-        ],
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
-      "flow": "xtls-rprx-vision"
-    },
-    {
-      "type": "vless",
-      "tag": "m45",
-      "server": "viper-26.moriarty-web.com",
-      "server_port": 443,
-      "tls": {
-        "enabled": true,
-        "server_name": "speedtest.net",
-        "insecure": true,
-        "alpn": [
-          "h2"
-        ],
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
-      "flow": "xtls-rprx-vision"
-    },
-    {
-      "type": "vless",
-      "tag": "m46",
-      "server": "31.76.76.28",
-      "server_port": 8443,
-      "tls": {
-        "enabled": true,
-        "server_name": "speedtest.net",
-        "insecure": true,
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
         }
       },
-      "uuid": "de5906f3-df38-4463-aa9d-2b01320cc6ea"
+      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
-      "tag": "m47",
-      "server": "srv-21bac9.vless.monster",
-      "server_port": 2087,
-      "tls": {
-        "enabled": true,
-        "server_name": "speedtest.net",
-        "insecure": true,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "uuid": "df9f5aca-eda0-428f-a752-e53866153d12",
-      "transport": {
-        "type": "grpc",
-        "service_name": "freegrpc"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "m48",
+      "tag": "m27",
       "server": "60.248.219.52",
       "server_port": 443,
       "tls": {
@@ -1017,58 +609,28 @@
       }
     },
     {
-      "type": "vmess",
-      "tag": "m49",
-      "server": "159.223.13.109",
-      "server_port": 1234,
-      "uuid": "5c040f1d-45db-43bd-8d46-e4950e433735",
-      "security": "aes-128-gcm",
-      "alter_id": 0,
+      "type": "vless",
+      "tag": "m28",
+      "server": "78.17.213.86",
+      "server_port": 443,
       "tls": {
         "enabled": true,
         "server_name": "speedtest.net",
         "insecure": true,
+        "alpn": [
+          "h2"
+        ],
         "utls": {
           "enabled": true,
-          "fingerprint": "chrome"
+          "fingerprint": "safari"
         }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "m50",
-      "server": "144.31.5.64",
-      "server_port": 443,
-      "tls": {
-        "enabled": true,
-        "server_name": "speedtest.net",
-        "insecure": true,
-        "alpn": [
-          "h2"
-        ]
       },
-      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
+      "uuid": "ffc3fba4-1701-43c1-8c51-31d592cf769e",
       "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
-      "tag": "m51",
-      "server": "144.31.5.64",
-      "server_port": 443,
-      "tls": {
-        "enabled": true,
-        "server_name": "speedtest.net",
-        "insecure": true,
-        "alpn": [
-          "h2"
-        ]
-      },
-      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
-      "flow": "xtls-rprx-vision"
-    },
-    {
-      "type": "vless",
-      "tag": "m52",
+      "tag": "m29",
       "server": "31.76.76.28",
       "server_port": 8443,
       "tls": {
@@ -1081,6 +643,22 @@
         }
       },
       "uuid": "de5906f3-df38-4463-aa9d-2b01320cc6ea"
+    },
+    {
+      "type": "vless",
+      "tag": "m30",
+      "server": "144.31.5.64",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "speedtest.net",
+        "insecure": true,
+        "alpn": [
+          "h2"
+        ]
+      },
+      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "direct",
