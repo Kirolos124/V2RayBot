@@ -43,11 +43,25 @@ API_PORT_BASE = 19090      # clash api ports: base + batch*2
 MAX_BATCHES_PORTS = 40     # rotate ports after this many batches
 FETCH_RETRIES = 3          # download attempts with exponential backoff
 
+# Regional latency test endpoints (DynamoDB per AWS region) - added alongside global Auto-Best-Ping
+REGIONAL_TEST_URLS = [
+    ("🇫🇷 Paris (EU West)",        "https://dynamodb.eu-west-3.amazonaws.com"),
+    ("🇩🇪 Frankfurt (EU Central)", "https://dynamodb.eu-central-1.amazonaws.com"),
+    ("🇸🇪 Stockholm (EU North)",   "https://dynamodb.eu-north-1.amazonaws.com"),
+    ("🇺🇸 Ashburn (NA East)",      "https://dynamodb.us-east-1.amazonaws.com"),
+    ("🇺🇸 Chicago (NA Central)",   "https://dynamodb.us-east-2.amazonaws.com"),
+    ("🇺🇸 San Jose (NA West)",     "https://dynamodb.us-west-1.amazonaws.com"),
+    ("🇺🇸 Portland (NA NW)",       "https://dynamodb.us-west-2.amazonaws.com"),
+    ("🇯🇵 Tokyo (Asia West)",      "https://dynamodb.ap-northeast-1.amazonaws.com"),
+    ("🇰🇷 Seoul (Asia North)",     "https://dynamodb.ap-northeast-2.amazonaws.com"),
+    ("🇦🇺 Sydney (OCE)",           "https://dynamodb.ap-southeast-2.amazonaws.com"),
+]
+
 # --- GITHUB CONFIGURATION ---
 # Token read from environment variable GITHUB_TOKEN (never hardcode secrets).
 # Needed only for --upload mode; Actions workflow commits via git instead.
 GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "")
-GITHUB_REPO = os.environ.get("GITHUB_REPO", "Kirolos124/multi-proxy")
+GITHUB_REPO = os.environ.get("GITHUB_REPO", "Kirolos124/V2RayBot")
 
 SINGBOX_PATHS = [
     os.path.join(os.path.dirname(os.path.abspath(__file__)),
@@ -429,6 +443,31 @@ def build_outbound(link, custom_sni, idx, force_sni=False):
         return None
 
 
+def clone_with_sni(link, new_sni):
+    """Return exact copy of link with SNI replaced — no validation, no re-test."""
+    try:
+        scheme = urllib.parse.urlparse(link).scheme.lower()
+        if scheme == "vmess":
+            data = _b64_json_vmess(link)
+            data["sni"] = new_sni
+            return f"vmess://{base64.b64encode(json.dumps(data).encode()).decode()}"
+        if scheme in ("vless", "trojan"):
+            parsed = urllib.parse.urlparse(link)
+            q = dict(urllib.parse.parse_qsl(parsed.query))
+            q["sni"] = new_sni
+            # keep insecure flags consistent
+            if q.get("security", "").lower() == "tls" or scheme == "trojan":
+                q["allowInsecure"] = "1"
+                q["insecure"] = "1"
+            return urllib.parse.ParseResult(
+                scheme=parsed.scheme, netloc=parsed.netloc, path=parsed.path,
+                params=parsed.params, query=urllib.parse.urlencode(q),
+                fragment=parsed.fragment).geturl()
+        return link
+    except Exception:
+        return link
+
+
 def dedup_links(links):
     """Remove duplicate nodes by protocol|server|port|identity.
     Never discards a link on parse failure — falls back to raw-string identity
@@ -664,6 +703,13 @@ def build_clash_config(node_outbounds):
         proxies.append(p)
         names.append(tag)
 
+    # Regional url-test groups (same proxies, different test URLs) — added alongside Auto-Best-Ping
+    regional_groups = [
+        {"name": rname, "type": "url-test", "proxies": list(names),
+         "url": rurl, "interval": 300, "tolerance": 50}
+        for rname, rurl in REGIONAL_TEST_URLS
+    ]
+
     return {
         "mixed-port": 7890,
         "allow-lan": False,
@@ -682,9 +728,10 @@ def build_clash_config(node_outbounds):
         "proxies": proxies,
         "proxy-groups": [
             {"name": "PROXY", "type": "select",
-             "proxies": ["Auto-Best-Ping"] + names + ["DIRECT"]},
+             "proxies": ["Auto-Best-Ping"] + [r[0] for r in REGIONAL_TEST_URLS] + names + ["DIRECT"]},
             {"name": "Auto-Best-Ping", "type": "url-test",
              "proxies": names, "url": TEST_URL, "interval": 180, "tolerance": 50},
+            *regional_groups,
         ],
         "rules": ["GEOIP,lan,DIRECT,no-resolve", "MATCH,PROXY"],
     }
@@ -814,6 +861,13 @@ def main():
     timeout_ms = TIMEOUT_MS
     retest_count = 50  # 0 disables the second verification pass
     force_sni = '--force-sni' in flags
+    extra_snis = []
+    for flag in flags:
+        if flag.startswith('--extra-sni='):
+            try:
+                extra_snis.extend([s.strip() for s in flag.split('=', 1)[1].split(',') if s.strip()])
+            except Exception:
+                pass
     for flag in flags:
         if flag.startswith('--batch='):
             try:
@@ -867,6 +921,25 @@ def main():
             input_urls = [u.strip() for u in url_input.split(',') if u.strip()]
         else:
             input_urls = [url_input]
+
+    # Support comma-separated SNIs: first is primary tested, rest are exact clones
+    if ',' in custom_sni:
+        parts = [s.strip() for s in custom_sni.split(',') if s.strip()]
+        custom_sni = parts[0]
+        extra_snis.extend(parts[1:])
+        # dedup preserving order
+        seen = set()
+        deduped = []
+        for s in extra_snis:
+            if s.lower() not in seen:
+                seen.add(s.lower())
+                deduped.append(s)
+        extra_snis = deduped
+        print(f"[+] Extra SNIs (clone without re-test): {', '.join(extra_snis) if extra_snis else 'none'}")
+    # default demonstrative extra when none supplied and primary is speedtest.net
+    if not extra_snis and custom_sni.lower() == "speedtest.net":
+        extra_snis = ["ekb.eg"]
+        print(f"[+] Auto extra SNI clone: ekb.eg (exact copy, different SNI)")
 
     # --- Fetch ---
     all_links = []
@@ -1047,6 +1120,7 @@ def main():
     print(f"[+] Saved base64 subscription to '{sub_filename}'.")
 
     # --- Dedicated file: nodes confirmed working with the custom SNI ---
+    sni_links_sorted = []
     try:
         sni_txt = "working_sni_matched.txt"
         sni_sub = "working_sni_matched_subscription.txt"
@@ -1058,6 +1132,20 @@ def main():
             f.write(enc2)
         print(f"[+] Saved {len(sni_links_sorted)} nodes verified on '{custom_sni}' "
               f"to '{sni_txt}' (+ base64).")
+        # --- Extra SNI exact clones (same nodes, different SNI, no re-test) ---
+        for esni in extra_snis:
+            safe = re.sub(r'[^a-zA-Z0-9]+', '_', esni.split('.')[0].strip().lower()) or "extra"
+            try:
+                ekb_links = [clone_with_sni(l, esni) for l in sni_links_sorted]
+                ekb_txt = f"working_sni_{safe}_matched.txt"
+                ekb_sub = f"working_sni_{safe}_matched_subscription.txt"
+                with open(ekb_txt, "w", encoding="utf-8") as f:
+                    f.write("\n".join(ekb_links) + "\n")
+                with open(ekb_sub, "w", encoding="utf-8") as f:
+                    f.write(base64.b64encode("\n".join(ekb_links).encode('utf-8')).decode('utf-8'))
+                print(f"[+] Saved {len(ekb_links)} exact clones with SNI '{esni}' to '{ekb_txt}' (+ base64).")
+            except Exception as e:
+                print(f"[-] Failed to write extra SNI files for '{esni}': {e}")
     except Exception as e:
         print(f"[-] Failed to write SNI-matched files: {e}")
 
@@ -1149,6 +1237,32 @@ def main():
                 json.dump(clash_m, f, indent=2, ensure_ascii=False)
             print(f"[+] Saved SNI-matched configs: '{sbm_filename}' + '{ccm_filename}' "
                   f"({len(mb)} nodes on '{custom_sni}').")
+            # --- Extra SNI exact clones (same nodes, different SNI, no re-test) ---
+            for esni in extra_snis:
+                safe = re.sub(r'[^a-zA-Z0-9]+', '_', esni.split('.')[0].strip().lower()) or "extra"
+                try:
+                    eb = [dict(o) for o in mb]
+                    for o in eb:
+                        if o.get("tls", {}).get("enabled"):
+                            o["tls"]["server_name"] = esni
+                    sbm2 = f"singbox_sni_{safe}_matched.json"
+                    ccm2 = f"clash_sni_{safe}_matched.yaml"
+                    for i, o in enumerate(eb):
+                        o["tag"] = f"m{i}"
+                    sbm_cfg2 = {
+                        "log": {"level": "warn"},
+                        "experimental": {"clash_api": {"external_controller": "127.0.0.1:9090", "default_mode": "rule"}},
+                        "inbounds": [{"type": "mixed", "tag": "in", "listen": "127.0.0.1", "listen_port": 2080}],
+                        "outbounds": ([{"type": "urltest", "tag": "auto", "outbounds": [o["tag"] for o in eb], "url": TEST_URL, "interval": "10m", "tolerance": 50}] + eb + [{"type": "direct", "tag": "direct"}]),
+                        "route": {"rules": [], "final": "auto"},
+                    }
+                    with open(sbm2, "w", encoding="utf-8") as f:
+                        json.dump(sbm_cfg2, f, indent=2, ensure_ascii=False)
+                    with open(ccm2, "w", encoding="utf-8") as f:
+                        json.dump(build_clash_config([dict(o) for o in eb]), f, indent=2, ensure_ascii=False)
+                    print(f"[+] Saved extra SNI configs for '{esni}': '{sbm2}' + '{ccm2}' ({len(eb)} nodes).")
+                except Exception as e:
+                    print(f"[-] Failed to write extra SNI configs for '{esni}': {e}")
     except Exception as e:
         print(f"[-] Failed to write SNI-matched configs: {e}")
 
@@ -1166,6 +1280,14 @@ def main():
                 (sni_txt, open(sni_txt, "rb").read(), f"Update SNI-matched proxies ({len(sni_matched)} nodes on {custom_sni})"),
                 (sni_sub, open(sni_sub, "rb").read(), f"Update SNI-matched subscription ({len(sni_matched)} nodes on {custom_sni})"),
             ]
+            # Extra SNI clones (exact copies, different SNI)
+            for esni in extra_snis:
+                safe = re.sub(r'[^a-zA-Z0-9]+', '_', esni.split('.')[0].strip().lower()) or "extra"
+                for ename in [f"working_sni_{safe}_matched.txt", f"working_sni_{safe}_matched_subscription.txt",
+                              f"singbox_sni_{safe}_matched.json", f"clash_sni_{safe}_matched.yaml"]:
+                    if os.path.exists(ename):
+                        with open(ename, "rb") as f:
+                            upload_entries.append((ename, f.read(), f"Update {ename} ({esni} SNI)"))
             for extra_name, extra_msg in [
                 ("singbox_config.json", f"Update sing-box ready config ({len(results)} working nodes)"),
                 ("clash_config.yaml", f"Update Clash ready config ({len(results)} working nodes)"),
