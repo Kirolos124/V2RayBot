@@ -20,151 +20,44 @@
     {
       "name": "m0",
       "type": "vless",
-      "server": "149.202.58.99",
-      "port": 443,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/vws/"
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "uuid": "b585dc5e-55bf-4a8b-913a-27c9ccac05c3"
-    },
-    {
-      "name": "m1",
-      "type": "vless",
-      "server": "pl4.moritech.net",
-      "port": 443,
+      "server": "196.240.125.254",
+      "port": 8443,
       "network": "tcp",
       "tls": true,
       "servername": "ekb.eg",
       "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "alpn": [
-        "h2"
-      ],
-      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
+      "client-fingerprint": "qq",
+      "uuid": "7ce6f974-8290-48c2-b6ed-2c4c557dcebb",
       "flow": "xtls-rprx-vision"
     },
     {
-      "name": "m2",
+      "name": "m1",
       "type": "vmess",
-      "server": "dee2309db4944c248b6d4372c6641e25.oylfmxz.cn",
-      "port": 443,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/",
-        "headers": {
-          "Host": "dee2309db4944c248b6d4372c6641e25.oylfmxz.cn"
-        }
-      },
+      "server": "45.90.106.24",
+      "port": 1234,
+      "network": "tcp",
       "tls": true,
       "servername": "ekb.eg",
       "skip-cert-verify": true,
       "client-fingerprint": "chrome",
-      "uuid": "d90e4077-bc7e-414d-a650-70bf1baae4d6",
+      "uuid": "5c040f1d-45db-43bd-8d46-e4950e433735",
       "alterId": 0,
-      "cipher": "auto"
+      "cipher": "aes-128-gcm"
+    },
+    {
+      "name": "m2",
+      "type": "trojan",
+      "server": "47.250.84.25",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "password": "5931134d1cde66bf83a54acdfebe7ab2"
     },
     {
       "name": "m3",
-      "type": "vmess",
-      "server": "dee2309db4se3g5sds35g4s3dg.oylfmxz.cn",
-      "port": 443,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/",
-        "headers": {
-          "Host": "dee2309db4se3g5sds35g4s3dg.oylfmxz.cn"
-        }
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "uuid": "d90e4077-bc7e-414d-a650-70bf1baae4d6",
-      "alterId": 0,
-      "cipher": "auto"
-    },
-    {
-      "name": "m4",
-      "type": "vmess",
-      "server": "dee2309db4se3grs6e8hg4w61sd53g1.oylfmxz.cn",
-      "port": 443,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/"
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "uuid": "d90e4077-bc7e-414d-a650-70bf1baae4d6",
-      "alterId": 0,
-      "cipher": "auto"
-    },
-    {
-      "name": "m5",
-      "type": "vless",
-      "server": "60.248.219.53",
-      "port": 443,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/81574b6b-c9d7-44a0-b83d-dad56e8cb530",
-        "headers": {
-          "Host": "ty986gfazs.cainiaohub.xyz"
-        }
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "uuid": "f1d247db-d7ce-4eb8-9c0d-7b10603cd0b4"
-    },
-    {
-      "name": "m6",
-      "type": "trojan",
-      "server": "100.42.228.109",
-      "port": 443,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "password": "BxceQaOe"
-    },
-    {
-      "name": "m7",
-      "type": "trojan",
-      "server": "nl2.pleiades.codes",
-      "port": 2053,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "password": "d5bee0afdbc500b8cda02d80"
-    },
-    {
-      "name": "m8",
-      "type": "trojan",
-      "server": "nl2.pleiades.codes",
-      "port": 2053,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "alpn": [
-        "h2",
-        "http/1.1"
-      ],
-      "password": "d5bee0afdbc500b8cda02d80"
-    },
-    {
-      "name": "m9",
       "type": "trojan",
       "server": "109.206.241.10",
       "port": 449,
@@ -176,74 +69,43 @@
       "password": "oiiaB38ywjEHCWRs_O_a_1113_Il_KeyyyHop_Bes1"
     },
     {
-      "name": "m10",
-      "type": "trojan",
-      "server": "64.120.95.203",
-      "port": 119,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "password": "skynet"
-    },
-    {
-      "name": "m11",
-      "type": "trojan",
-      "server": "cloud.lakshan.us",
-      "port": 119,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "password": "skynet"
-    },
-    {
-      "name": "m12",
-      "type": "trojan",
-      "server": "86.38.247.109",
-      "port": 2087,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "password": "sshs8_6481354771"
-    },
-    {
-      "name": "m13",
+      "name": "m4",
       "type": "vless",
-      "server": "195.58.144.56",
-      "port": 11907,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "alpn": [
-        "h2",
-        "http/1.1"
-      ],
-      "uuid": "07cb07b9-0c4d-46c1-a15a-b147511b6b07"
-    },
-    {
-      "name": "m14",
-      "type": "vless",
-      "server": "ov-canada1.09vpn.com",
+      "server": "milan.adaspoloandco.com",
       "port": 8443,
       "network": "ws",
       "ws-opts": {
-        "path": "/vless/"
+        "path": "/RoBeRt",
+        "headers": {
+          "Host": "milan.adaspoloandco.com"
+        }
       },
       "tls": true,
       "servername": "ekb.eg",
       "skip-cert-verify": true,
       "client-fingerprint": "chrome",
-      "uuid": "08f96221-9b7b-4e6f-8ffe-aee8b9c9b504"
+      "uuid": "69ac162b-1643-4acb-9f49-09d8b0fad609"
     },
     {
-      "name": "m15",
+      "name": "m5",
+      "type": "vless",
+      "server": "milan.adaspoloandco.com",
+      "port": 8443,
+      "network": "ws",
+      "ws-opts": {
+        "path": "/RoBeRt",
+        "headers": {
+          "Host": "milan.adaspoloandco.com"
+        }
+      },
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "uuid": "69ac162b-1643-4acb-9f49-09d8b0fad609"
+    },
+    {
+      "name": "m6",
       "type": "vless",
       "server": "milan.adaspoloandco.com",
       "port": 8443,
@@ -254,64 +116,13 @@
       "tls": true,
       "servername": "ekb.eg",
       "skip-cert-verify": true,
-      "client-fingerprint": "qq",
+      "client-fingerprint": "chrome",
       "uuid": "69ac162b-1643-4acb-9f49-09d8b0fad609"
     },
     {
-      "name": "m16",
+      "name": "m7",
       "type": "vless",
-      "server": "149.202.58.99",
-      "port": 443,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/vws/",
-        "headers": {
-          "Host": "bab-6.site"
-        }
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "uuid": "b585dc5e-55bf-4a8b-913a-27c9ccac05c3"
-    },
-    {
-      "name": "m17",
-      "type": "vless",
-      "server": "bab-6.site",
-      "port": 443,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/vws/",
-        "headers": {
-          "Host": "bab-6.site"
-        }
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "uuid": "b585dc5e-55bf-4a8b-913a-27c9ccac05c3"
-    },
-    {
-      "name": "m18",
-      "type": "vless",
-      "server": "bab-6.site",
-      "port": 443,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/vws/"
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "uuid": "b585dc5e-55bf-4a8b-913a-27c9ccac05c3"
-    },
-    {
-      "name": "m19",
-      "type": "vless",
-      "server": "pl3.moritech.net",
+      "server": "roskaa6.api3-max.ru",
       "port": 443,
       "network": "tcp",
       "tls": true,
@@ -319,284 +130,39 @@
       "skip-cert-verify": true,
       "client-fingerprint": "firefox",
       "alpn": [
-        "h2"
-      ],
-      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
-      "flow": "xtls-rprx-vision"
-    },
-    {
-      "name": "m20",
-      "type": "vless",
-      "server": "pl3.moritech.net",
-      "port": 443,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "alpn": [
-        "h2"
-      ],
-      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
-      "flow": "xtls-rprx-vision"
-    },
-    {
-      "name": "m21",
-      "type": "vless",
-      "server": "pl3.moritech.net",
-      "port": 443,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
-      "flow": "xtls-rprx-vision"
-    },
-    {
-      "name": "m22",
-      "type": "vless",
-      "server": "pl3.moritech.net",
-      "port": 443,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "alpn": [
-        "h2"
-      ],
-      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
-      "flow": "xtls-rprx-vision"
-    },
-    {
-      "name": "m23",
-      "type": "vless",
-      "server": "pl3.moritech.net",
-      "port": 443,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "firefox",
-      "alpn": [
-        "h2"
-      ],
-      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
-      "flow": "xtls-rprx-vision"
-    },
-    {
-      "name": "m24",
-      "type": "vless",
-      "server": "pl3.moritech.net",
-      "port": 443,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
-      "flow": "xtls-rprx-vision"
-    },
-    {
-      "name": "m25",
-      "type": "vless",
-      "server": "pl4.moritech.net",
-      "port": 443,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "alpn": [
-        "h2"
-      ],
-      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
-      "flow": "xtls-rprx-vision"
-    },
-    {
-      "name": "m26",
-      "type": "vless",
-      "server": "pl6.moritech.net",
-      "port": 443,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "edge",
-      "alpn": [
-        "h2"
-      ],
-      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
-      "flow": "xtls-rprx-vision"
-    },
-    {
-      "name": "m27",
-      "type": "vless",
-      "server": "pl6.moritech.net",
-      "port": 443,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "alpn": [
-        "h2"
-      ],
-      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
-      "flow": "xtls-rprx-vision"
-    },
-    {
-      "name": "m28",
-      "type": "vless",
-      "server": "pl6.moritech.net",
-      "port": 443,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "alpn": [
-        "h2"
-      ],
-      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
-      "flow": "xtls-rprx-vision"
-    },
-    {
-      "name": "m29",
-      "type": "vless",
-      "server": "pl6.moritech.net",
-      "port": 443,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "alpn": [
-        "h2"
-      ],
-      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
-      "flow": "xtls-rprx-vision"
-    },
-    {
-      "name": "m30",
-      "type": "vless",
-      "server": "pl6.moritech.net",
-      "port": 443,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "alpn": [
-        "h2"
-      ],
-      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
-      "flow": "xtls-rprx-vision"
-    },
-    {
-      "name": "m31",
-      "type": "vless",
-      "server": "pl6.moritech.net",
-      "port": 443,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "alpn": [
-        "h2"
-      ],
-      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
-      "flow": "xtls-rprx-vision"
-    },
-    {
-      "name": "m32",
-      "type": "vless",
-      "server": "pl6.moritech.net",
-      "port": 443,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "safari",
-      "alpn": [
-        "h2"
-      ],
-      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
-      "flow": "xtls-rprx-vision"
-    },
-    {
-      "name": "m33",
-      "type": "vless",
-      "server": "uk-dedic-new-1.failspace.top",
-      "port": 443,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "firefox",
-      "alpn": [
-        "h2"
-      ],
-      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
-      "flow": "xtls-rprx-vision"
-    },
-    {
-      "name": "m34",
-      "type": "vless",
-      "server": "uk-dedic-new-1.failspace.top",
-      "port": 443,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "firefox",
-      "alpn": [
-        "h2"
-      ],
-      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
-      "flow": "xtls-rprx-vision"
-    },
-    {
-      "name": "m35",
-      "type": "vless",
-      "server": "uk-dedic-new-1.failspace.top",
-      "port": 443,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "firefox",
-      "alpn": [
-        "h2"
-      ],
-      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
-      "flow": "xtls-rprx-vision"
-    },
-    {
-      "name": "m36",
-      "type": "vless",
-      "server": "69.46.46.192",
-      "port": 443,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/ws/d3d4eb9c-1e95-f0ca-6340-b5465e61c435",
-        "headers": {
-          "Host": "vodiwalkerpanel-production-60f4.up.railway.app"
-        }
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "alpn": [
+        "h2",
         "http/1.1"
       ],
-      "uuid": "d3d4eb9c-1e95-f0ca-6340-b5465e61c435"
+      "uuid": "cdd6bfce-781a-4454-b7d5-4778abb5c24f",
+      "flow": "xtls-rprx-vision"
     },
     {
-      "name": "m37",
+      "name": "m8",
+      "type": "vless",
+      "server": "roskaa6.api3-max.ru",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "firefox",
+      "uuid": "cdd6bfce-781a-4454-b7d5-4778abb5c24f",
+      "flow": "xtls-rprx-vision"
+    },
+    {
+      "name": "m9",
+      "type": "vless",
+      "server": "31.76.76.28",
+      "port": 8443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "uuid": "de5906f3-df38-4463-aa9d-2b01320cc6ea"
+    },
+    {
+      "name": "m10",
       "type": "vless",
       "server": "srv-21bac9.vless.monster",
       "port": 2087,
@@ -614,7 +180,7 @@
       "uuid": "df9f5aca-eda0-428f-a752-e53866153d12"
     },
     {
-      "name": "m38",
+      "name": "m11",
       "type": "vless",
       "server": "srv-21bac9.vless.monster",
       "port": 2087,
@@ -632,7 +198,7 @@
       "uuid": "df9f5aca-eda0-428f-a752-e53866153d12"
     },
     {
-      "name": "m39",
+      "name": "m12",
       "type": "vless",
       "server": "srv-21bac9.vless.monster",
       "port": 2087,
@@ -647,7 +213,21 @@
       "uuid": "df9f5aca-eda0-428f-a752-e53866153d12"
     },
     {
-      "name": "m40",
+      "name": "m13",
+      "type": "vmess",
+      "server": "159.223.13.109",
+      "port": 1234,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "uuid": "5c040f1d-45db-43bd-8d46-e4950e433735",
+      "alterId": 0,
+      "cipher": "aes-128-gcm"
+    },
+    {
+      "name": "m14",
       "type": "trojan",
       "server": "cloud.lakshan.us",
       "port": 119,
@@ -659,7 +239,7 @@
       "password": "skynet"
     },
     {
-      "name": "m41",
+      "name": "m15",
       "type": "trojan",
       "server": "64.120.95.203",
       "port": 119,
@@ -671,7 +251,7 @@
       "password": "skynet"
     },
     {
-      "name": "m42",
+      "name": "m16",
       "type": "trojan",
       "server": "cloud.lakshan.us",
       "port": 119,
@@ -683,7 +263,7 @@
       "password": "skynet"
     },
     {
-      "name": "m43",
+      "name": "m17",
       "type": "trojan",
       "server": "cloud.lakshan.us",
       "port": 119,
@@ -695,40 +275,7 @@
       "password": "skynet"
     },
     {
-      "name": "m44",
-      "type": "trojan",
-      "server": "nl2.pleiades.codes",
-      "port": 2053,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "password": "d5bee0afdbc500b8cda02d80"
-    },
-    {
-      "name": "m45",
-      "type": "vless",
-      "server": "95.129.236.239",
-      "port": 443,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/stream/615428/socket",
-        "headers": {
-          "Host": "wiki.solarinfra.net"
-        }
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "alpn": [
-        "http/1.1"
-      ],
-      "uuid": "c3b33f37-d3a3-4f42-aee9-d500d43e13a5"
-    },
-    {
-      "name": "m46",
+      "name": "m18",
       "type": "vless",
       "server": "144.31.5.64",
       "port": 443,
@@ -744,7 +291,7 @@
       "flow": "xtls-rprx-vision"
     },
     {
-      "name": "m47",
+      "name": "m19",
       "type": "vless",
       "server": "144.31.5.64",
       "port": 443,
@@ -758,6 +305,18 @@
       ],
       "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
       "flow": "xtls-rprx-vision"
+    },
+    {
+      "name": "m20",
+      "type": "vless",
+      "server": "31.76.76.28",
+      "port": 8443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "uuid": "de5906f3-df38-4463-aa9d-2b01320cc6ea"
     }
   ],
   "proxy-groups": [
@@ -797,33 +356,6 @@
         "m18",
         "m19",
         "m20",
-        "m21",
-        "m22",
-        "m23",
-        "m24",
-        "m25",
-        "m26",
-        "m27",
-        "m28",
-        "m29",
-        "m30",
-        "m31",
-        "m32",
-        "m33",
-        "m34",
-        "m35",
-        "m36",
-        "m37",
-        "m38",
-        "m39",
-        "m40",
-        "m41",
-        "m42",
-        "m43",
-        "m44",
-        "m45",
-        "m46",
-        "m47",
         "DIRECT"
       ]
     },
@@ -851,34 +383,7 @@
         "m17",
         "m18",
         "m19",
-        "m20",
-        "m21",
-        "m22",
-        "m23",
-        "m24",
-        "m25",
-        "m26",
-        "m27",
-        "m28",
-        "m29",
-        "m30",
-        "m31",
-        "m32",
-        "m33",
-        "m34",
-        "m35",
-        "m36",
-        "m37",
-        "m38",
-        "m39",
-        "m40",
-        "m41",
-        "m42",
-        "m43",
-        "m44",
-        "m45",
-        "m46",
-        "m47"
+        "m20"
       ],
       "url": "http://cp.cloudflare.com/generate_204",
       "interval": 180,
@@ -908,34 +413,7 @@
         "m17",
         "m18",
         "m19",
-        "m20",
-        "m21",
-        "m22",
-        "m23",
-        "m24",
-        "m25",
-        "m26",
-        "m27",
-        "m28",
-        "m29",
-        "m30",
-        "m31",
-        "m32",
-        "m33",
-        "m34",
-        "m35",
-        "m36",
-        "m37",
-        "m38",
-        "m39",
-        "m40",
-        "m41",
-        "m42",
-        "m43",
-        "m44",
-        "m45",
-        "m46",
-        "m47"
+        "m20"
       ],
       "url": "https://dynamodb.eu-west-3.amazonaws.com",
       "interval": 300,
@@ -965,34 +443,7 @@
         "m17",
         "m18",
         "m19",
-        "m20",
-        "m21",
-        "m22",
-        "m23",
-        "m24",
-        "m25",
-        "m26",
-        "m27",
-        "m28",
-        "m29",
-        "m30",
-        "m31",
-        "m32",
-        "m33",
-        "m34",
-        "m35",
-        "m36",
-        "m37",
-        "m38",
-        "m39",
-        "m40",
-        "m41",
-        "m42",
-        "m43",
-        "m44",
-        "m45",
-        "m46",
-        "m47"
+        "m20"
       ],
       "url": "https://dynamodb.eu-central-1.amazonaws.com",
       "interval": 300,
@@ -1022,34 +473,7 @@
         "m17",
         "m18",
         "m19",
-        "m20",
-        "m21",
-        "m22",
-        "m23",
-        "m24",
-        "m25",
-        "m26",
-        "m27",
-        "m28",
-        "m29",
-        "m30",
-        "m31",
-        "m32",
-        "m33",
-        "m34",
-        "m35",
-        "m36",
-        "m37",
-        "m38",
-        "m39",
-        "m40",
-        "m41",
-        "m42",
-        "m43",
-        "m44",
-        "m45",
-        "m46",
-        "m47"
+        "m20"
       ],
       "url": "https://dynamodb.eu-north-1.amazonaws.com",
       "interval": 300,
@@ -1079,34 +503,7 @@
         "m17",
         "m18",
         "m19",
-        "m20",
-        "m21",
-        "m22",
-        "m23",
-        "m24",
-        "m25",
-        "m26",
-        "m27",
-        "m28",
-        "m29",
-        "m30",
-        "m31",
-        "m32",
-        "m33",
-        "m34",
-        "m35",
-        "m36",
-        "m37",
-        "m38",
-        "m39",
-        "m40",
-        "m41",
-        "m42",
-        "m43",
-        "m44",
-        "m45",
-        "m46",
-        "m47"
+        "m20"
       ],
       "url": "https://dynamodb.us-east-1.amazonaws.com",
       "interval": 300,
@@ -1136,34 +533,7 @@
         "m17",
         "m18",
         "m19",
-        "m20",
-        "m21",
-        "m22",
-        "m23",
-        "m24",
-        "m25",
-        "m26",
-        "m27",
-        "m28",
-        "m29",
-        "m30",
-        "m31",
-        "m32",
-        "m33",
-        "m34",
-        "m35",
-        "m36",
-        "m37",
-        "m38",
-        "m39",
-        "m40",
-        "m41",
-        "m42",
-        "m43",
-        "m44",
-        "m45",
-        "m46",
-        "m47"
+        "m20"
       ],
       "url": "https://dynamodb.us-east-2.amazonaws.com",
       "interval": 300,
@@ -1193,34 +563,7 @@
         "m17",
         "m18",
         "m19",
-        "m20",
-        "m21",
-        "m22",
-        "m23",
-        "m24",
-        "m25",
-        "m26",
-        "m27",
-        "m28",
-        "m29",
-        "m30",
-        "m31",
-        "m32",
-        "m33",
-        "m34",
-        "m35",
-        "m36",
-        "m37",
-        "m38",
-        "m39",
-        "m40",
-        "m41",
-        "m42",
-        "m43",
-        "m44",
-        "m45",
-        "m46",
-        "m47"
+        "m20"
       ],
       "url": "https://dynamodb.us-west-1.amazonaws.com",
       "interval": 300,
@@ -1250,34 +593,7 @@
         "m17",
         "m18",
         "m19",
-        "m20",
-        "m21",
-        "m22",
-        "m23",
-        "m24",
-        "m25",
-        "m26",
-        "m27",
-        "m28",
-        "m29",
-        "m30",
-        "m31",
-        "m32",
-        "m33",
-        "m34",
-        "m35",
-        "m36",
-        "m37",
-        "m38",
-        "m39",
-        "m40",
-        "m41",
-        "m42",
-        "m43",
-        "m44",
-        "m45",
-        "m46",
-        "m47"
+        "m20"
       ],
       "url": "https://dynamodb.us-west-2.amazonaws.com",
       "interval": 300,
@@ -1307,34 +623,7 @@
         "m17",
         "m18",
         "m19",
-        "m20",
-        "m21",
-        "m22",
-        "m23",
-        "m24",
-        "m25",
-        "m26",
-        "m27",
-        "m28",
-        "m29",
-        "m30",
-        "m31",
-        "m32",
-        "m33",
-        "m34",
-        "m35",
-        "m36",
-        "m37",
-        "m38",
-        "m39",
-        "m40",
-        "m41",
-        "m42",
-        "m43",
-        "m44",
-        "m45",
-        "m46",
-        "m47"
+        "m20"
       ],
       "url": "https://dynamodb.ap-northeast-1.amazonaws.com",
       "interval": 300,
@@ -1364,34 +653,7 @@
         "m17",
         "m18",
         "m19",
-        "m20",
-        "m21",
-        "m22",
-        "m23",
-        "m24",
-        "m25",
-        "m26",
-        "m27",
-        "m28",
-        "m29",
-        "m30",
-        "m31",
-        "m32",
-        "m33",
-        "m34",
-        "m35",
-        "m36",
-        "m37",
-        "m38",
-        "m39",
-        "m40",
-        "m41",
-        "m42",
-        "m43",
-        "m44",
-        "m45",
-        "m46",
-        "m47"
+        "m20"
       ],
       "url": "https://dynamodb.ap-northeast-2.amazonaws.com",
       "interval": 300,
@@ -1421,34 +683,7 @@
         "m17",
         "m18",
         "m19",
-        "m20",
-        "m21",
-        "m22",
-        "m23",
-        "m24",
-        "m25",
-        "m26",
-        "m27",
-        "m28",
-        "m29",
-        "m30",
-        "m31",
-        "m32",
-        "m33",
-        "m34",
-        "m35",
-        "m36",
-        "m37",
-        "m38",
-        "m39",
-        "m40",
-        "m41",
-        "m42",
-        "m43",
-        "m44",
-        "m45",
-        "m46",
-        "m47"
+        "m20"
       ],
       "url": "https://dynamodb.ap-southeast-2.amazonaws.com",
       "interval": 300,
