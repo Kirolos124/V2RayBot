@@ -58,11 +58,11 @@ jobs:
           SNI="${{ github.event.inputs.sni || 'speedtest.net' }}"
           python v2ray_sni_updater.py "$SNI" sources.txt --retest=50
 
-      - name: Commit results in this repo (private mirror)
+      - name: Commit results (all outputs including extra SNI variants)
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add working_proxies.txt working_subscription.txt singbox_config.json clash_config.yaml working_sni_matched.txt working_sni_matched_subscription.txt singbox_sni_matched.json clash_sni_matched.yaml singbox_sni_matched.json clash_sni_matched.yaml
+          git add working_proxies.txt working_subscription.txt working_sni*.txt working_sni*.yaml singbox*.json clash*.yaml 2>/dev/null || true
           
           if git diff --cached --quiet; then
             echo "No changes to commit"
