@@ -19,6 +19,131 @@
   "proxies": [
     {
       "name": "m0",
+      "type": "vless",
+      "server": "149.202.58.99",
+      "port": 443,
+      "network": "ws",
+      "ws-opts": {
+        "path": "/vws/"
+      },
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "uuid": "b585dc5e-55bf-4a8b-913a-27c9ccac05c3"
+    },
+    {
+      "name": "m1",
+      "type": "vless",
+      "server": "pl4.moritech.net",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "firefox",
+      "alpn": [
+        "h2"
+      ],
+      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
+      "flow": "xtls-rprx-vision"
+    },
+    {
+      "name": "m2",
+      "type": "vmess",
+      "server": "45.90.106.24",
+      "port": 1234,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "uuid": "5c040f1d-45db-43bd-8d46-e4950e433735",
+      "alterId": 0,
+      "cipher": "aes-128-gcm"
+    },
+    {
+      "name": "m3",
+      "type": "vmess",
+      "server": "139.64.166.25",
+      "port": 443,
+      "network": "ws",
+      "ws-opts": {
+        "path": "/linkvws",
+        "headers": {
+          "Host": "pahobac.org"
+        }
+      },
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "uuid": "03fcc618-b93d-6796-6aed-8a38c975d581",
+      "alterId": 0,
+      "cipher": "auto"
+    },
+    {
+      "name": "m4",
+      "type": "vmess",
+      "server": "kentspark.org",
+      "port": 443,
+      "network": "ws",
+      "ws-opts": {
+        "path": "/linkvws",
+        "headers": {
+          "Host": "kentspark.org"
+        }
+      },
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "uuid": "03fcc618-b93d-6796-6aed-8a38c975d581",
+      "alterId": 0,
+      "cipher": "auto"
+    },
+    {
+      "name": "m5",
+      "type": "vmess",
+      "server": "aksai.org",
+      "port": 443,
+      "network": "ws",
+      "ws-opts": {
+        "path": "/linkvws",
+        "headers": {
+          "Host": "aksai.org"
+        }
+      },
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "uuid": "03fcc618-b93d-6796-6aed-8a38c975d581",
+      "alterId": 0,
+      "cipher": "auto"
+    },
+    {
+      "name": "m6",
+      "type": "vmess",
+      "server": "216.106.187.60",
+      "port": 443,
+      "network": "ws",
+      "ws-opts": {
+        "path": "/linkvws",
+        "headers": {
+          "Host": "kentspark.org"
+        }
+      },
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "uuid": "03fcc618-b93d-6796-6aed-8a38c975d581",
+      "alterId": 0,
+      "cipher": "auto"
+    },
+    {
+      "name": "m7",
       "type": "vmess",
       "server": "158.51.121.63",
       "port": 443,
@@ -38,40 +163,37 @@
       "cipher": "auto"
     },
     {
-      "name": "m1",
+      "name": "m8",
       "type": "vless",
-      "server": "129.121.95.159",
-      "port": 443,
+      "server": "3h-unitedstates3.09vpn.com",
+      "port": 8443,
       "network": "ws",
       "ws-opts": {
-        "path": "/connect",
+        "path": "/vless/",
         "headers": {
-          "Host": "129.121.95.159"
+          "Host": "3h-unitedstates3.09vpn.com"
         }
       },
       "tls": true,
       "servername": "ekb.eg",
       "skip-cert-verify": true,
-      "client-fingerprint": "firefox",
-      "uuid": "f6190ff2-864c-46cf-ac16-93908c069b75"
+      "client-fingerprint": "chrome",
+      "uuid": "48572af1-d091-457b-a86e-4a457e99927f"
     },
     {
-      "name": "m2",
-      "type": "vless",
-      "server": "186.190.211.188",
+      "name": "m9",
+      "type": "trojan",
+      "server": "47.250.84.25",
       "port": 443,
       "network": "tcp",
       "tls": true,
       "servername": "ekb.eg",
       "skip-cert-verify": true,
       "client-fingerprint": "chrome",
-      "alpn": [
-        "http/1.1"
-      ],
-      "uuid": "03fcc618-b93d-6796-6aed-8a38c975d581"
+      "password": "5931134d1cde66bf83a54acdfebe7ab2"
     },
     {
-      "name": "m3",
+      "name": "m10",
       "type": "trojan",
       "server": "151.101.56.255",
       "port": 443,
@@ -92,7 +214,7 @@
       "password": "MiTiVPN"
     },
     {
-      "name": "m4",
+      "name": "m11",
       "type": "trojan",
       "server": "109.206.241.10",
       "port": 449,
@@ -100,125 +222,8 @@
       "tls": true,
       "servername": "ekb.eg",
       "skip-cert-verify": true,
-      "client-fingerprint": "edge",
+      "client-fingerprint": "chrome",
       "password": "oiiaB38ywjEHCWRs_O_a_1113_Il_KeyyyHop_Bes1"
-    },
-    {
-      "name": "m5",
-      "type": "vless",
-      "server": "ov-canada1.09vpn.com",
-      "port": 8443,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/vless/"
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "uuid": "08f96221-9b7b-4e6f-8ffe-aee8b9c9b504"
-    },
-    {
-      "name": "m6",
-      "type": "vless",
-      "server": "milan.adaspoloandco.com",
-      "port": 8443,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/RoBeRt",
-        "headers": {
-          "Host": "milan.adaspoloandco.com"
-        }
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "uuid": "69ac162b-1643-4acb-9f49-09d8b0fad609"
-    },
-    {
-      "name": "m7",
-      "type": "vless",
-      "server": "milan.adaspoloandco.com",
-      "port": 8443,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/RoBeRt"
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "uuid": "69ac162b-1643-4acb-9f49-09d8b0fad609"
-    },
-    {
-      "name": "m8",
-      "type": "vless",
-      "server": "milan.adaspoloandco.com",
-      "port": 8443,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/RoBeRt",
-        "headers": {
-          "Host": "milan.adaspoloandco.com"
-        }
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "uuid": "69ac162b-1643-4acb-9f49-09d8b0fad609"
-    },
-    {
-      "name": "m9",
-      "type": "vless",
-      "server": "milan.adaspoloandco.com",
-      "port": 8443,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/RoBeRt",
-        "headers": {
-          "Host": "milan.adaspoloandco.com"
-        }
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "uuid": "69ac162b-1643-4acb-9f49-09d8b0fad609"
-    },
-    {
-      "name": "m10",
-      "type": "vless",
-      "server": "milan.adaspoloandco.com",
-      "port": 8443,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/RoBeRt"
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "uuid": "69ac162b-1643-4acb-9f49-09d8b0fad609"
-    },
-    {
-      "name": "m11",
-      "type": "vless",
-      "server": "milan.adaspoloandco.com",
-      "port": 8443,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/RoBeRt",
-        "headers": {
-          "Host": "milan.adaspoloandco.com"
-        }
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "uuid": "69ac162b-1643-4acb-9f49-09d8b0fad609"
     },
     {
       "name": "m12",
@@ -256,38 +261,163 @@
     {
       "name": "m14",
       "type": "vless",
-      "server": "bab-6.site",
-      "port": 443,
+      "server": "milan.adaspoloandco.com",
+      "port": 8443,
       "network": "ws",
       "ws-opts": {
-        "path": "/vws/",
+        "path": "/RoBeRt",
         "headers": {
-          "Host": "bab-6.site"
+          "Host": "milan.adaspoloandco.com"
         }
       },
       "tls": true,
       "servername": "ekb.eg",
       "skip-cert-verify": true,
       "client-fingerprint": "chrome",
-      "uuid": "b585dc5e-55bf-4a8b-913a-27c9ccac05c3"
+      "uuid": "69ac162b-1643-4acb-9f49-09d8b0fad609"
     },
     {
       "name": "m15",
       "type": "vless",
-      "server": "bab-6.site",
-      "port": 443,
+      "server": "milan.adaspoloandco.com",
+      "port": 8443,
       "network": "ws",
       "ws-opts": {
-        "path": "/vws/"
+        "path": "/RoBeRt",
+        "headers": {
+          "Host": "milan.adaspoloandco.com"
+        }
       },
       "tls": true,
       "servername": "ekb.eg",
       "skip-cert-verify": true,
       "client-fingerprint": "chrome",
-      "uuid": "b585dc5e-55bf-4a8b-913a-27c9ccac05c3"
+      "uuid": "69ac162b-1643-4acb-9f49-09d8b0fad609"
     },
     {
       "name": "m16",
+      "type": "vless",
+      "server": "milan.adaspoloandco.com",
+      "port": 8443,
+      "network": "ws",
+      "ws-opts": {
+        "path": "/RoBeRt",
+        "headers": {
+          "Host": "milan.adaspoloandco.com"
+        }
+      },
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "uuid": "69ac162b-1643-4acb-9f49-09d8b0fad609"
+    },
+    {
+      "name": "m17",
+      "type": "vless",
+      "server": "milan.adaspoloandco.com",
+      "port": 8443,
+      "network": "ws",
+      "ws-opts": {
+        "path": "/RoBeRt",
+        "headers": {
+          "Host": "milan.adaspoloandco.com"
+        }
+      },
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "uuid": "69ac162b-1643-4acb-9f49-09d8b0fad609"
+    },
+    {
+      "name": "m18",
+      "type": "vless",
+      "server": "milan.adaspoloandco.com",
+      "port": 8443,
+      "network": "ws",
+      "ws-opts": {
+        "path": "/RoBeRt",
+        "headers": {
+          "Host": "milan.adaspoloandco.com"
+        }
+      },
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "uuid": "69ac162b-1643-4acb-9f49-09d8b0fad609"
+    },
+    {
+      "name": "m19",
+      "type": "vless",
+      "server": "milan.adaspoloandco.com",
+      "port": 8443,
+      "network": "ws",
+      "ws-opts": {
+        "path": "/RoBeRt",
+        "headers": {
+          "Host": "milan.adaspoloandco.com"
+        }
+      },
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "uuid": "69ac162b-1643-4acb-9f49-09d8b0fad609"
+    },
+    {
+      "name": "m20",
+      "type": "vless",
+      "server": "ul-mexico1.09vpn.com",
+      "port": 8443,
+      "network": "ws",
+      "ws-opts": {
+        "path": "/vless/",
+        "headers": {
+          "Host": "ul-mexico1.09vpn.com"
+        }
+      },
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "uuid": "a6d20e79-d326-42c1-bc20-f4cecc6dc42d"
+    },
+    {
+      "name": "m21",
+      "type": "vless",
+      "server": "144.31.2.33",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "firefox",
+      "alpn": [
+        "h2"
+      ],
+      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
+      "flow": "xtls-rprx-vision"
+    },
+    {
+      "name": "m22",
+      "type": "vless",
+      "server": "144.31.5.3",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "alpn": [
+        "h2"
+      ],
+      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
+      "flow": "xtls-rprx-vision"
+    },
+    {
+      "name": "m23",
       "type": "vless",
       "server": "144.31.5.64",
       "port": 443,
@@ -303,128 +433,22 @@
       "flow": "xtls-rprx-vision"
     },
     {
-      "name": "m17",
-      "type": "vless",
-      "server": "50.7.36.30",
-      "port": 443,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
-      "flow": "xtls-rprx-vision"
-    },
-    {
-      "name": "m18",
-      "type": "vless",
-      "server": "ir-new.failspace.top",
-      "port": 443,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "firefox",
-      "alpn": [
-        "h2"
-      ],
-      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
-      "flow": "xtls-rprx-vision"
-    },
-    {
-      "name": "m19",
-      "type": "vless",
-      "server": "ir-new.failspace.top",
-      "port": 443,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "safari",
-      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
-      "flow": "xtls-rprx-vision"
-    },
-    {
-      "name": "m20",
-      "type": "vless",
-      "server": "norw-2.failspace.top",
-      "port": 443,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "firefox",
-      "alpn": [
-        "h2"
-      ],
-      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
-      "flow": "xtls-rprx-vision"
-    },
-    {
-      "name": "m21",
-      "type": "vless",
-      "server": "norw-mori-3.failspace.top",
-      "port": 443,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "firefox",
-      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
-      "flow": "xtls-rprx-vision"
-    },
-    {
-      "name": "m22",
-      "type": "vless",
-      "server": "norway-2.failspace.top",
-      "port": 443,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "firefox",
-      "alpn": [
-        "h2"
-      ],
-      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
-      "flow": "xtls-rprx-vision"
-    },
-    {
-      "name": "m23",
-      "type": "vless",
-      "server": "pl6.moritech.net",
-      "port": 443,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "alpn": [
-        "h2"
-      ],
-      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
-      "flow": "xtls-rprx-vision"
-    },
-    {
       "name": "m24",
       "type": "vless",
-      "server": "viper-23.moriarty-web.com",
+      "server": "31.76.5.42",
       "port": 443,
       "network": "tcp",
       "tls": true,
       "servername": "ekb.eg",
       "skip-cert-verify": true,
       "client-fingerprint": "firefox",
-      "alpn": [
-        "h2"
-      ],
       "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
       "flow": "xtls-rprx-vision"
     },
     {
       "name": "m25",
       "type": "vless",
-      "server": "viper-25.moriarty-web.com",
+      "server": "50.7.184.122",
       "port": 443,
       "network": "tcp",
       "tls": true,
@@ -440,7 +464,7 @@
     {
       "name": "m26",
       "type": "vless",
-      "server": "viper-26.moriarty-web.com",
+      "server": "50.7.36.26",
       "port": 443,
       "network": "tcp",
       "tls": true,
@@ -455,8 +479,36 @@
     },
     {
       "name": "m27",
+      "type": "vless",
+      "server": "31.76.76.28",
+      "port": 8443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "uuid": "de5906f3-df38-4463-aa9d-2b01320cc6ea"
+    },
+    {
+      "name": "m28",
+      "type": "vless",
+      "server": "us.netease.uz",
+      "port": 8444,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "alpn": [
+        "h2",
+        "http/1.1"
+      ],
+      "uuid": "fd3b5215-287b-4f16-84d9-6b5854dea110"
+    },
+    {
+      "name": "m29",
       "type": "vmess",
-      "server": "139.64.166.25",
+      "server": "186.190.211.67",
       "port": 443,
       "network": "ws",
       "ws-opts": {
@@ -474,7 +526,7 @@
       "cipher": "auto"
     },
     {
-      "name": "m28",
+      "name": "m30",
       "type": "vmess",
       "server": "mygptagent.org",
       "port": 443,
@@ -494,73 +546,37 @@
       "cipher": "auto"
     },
     {
-      "name": "m29",
-      "type": "vless",
-      "server": "151.242.2.81",
-      "port": 443,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/cdn/v3/live",
-        "headers": {
-          "Host": "cf9.rumedia-cdn.com"
-        }
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "uuid": "0a2dde28-70da-4863-a06f-35d007d94d35"
-    },
-    {
-      "name": "m30",
-      "type": "vless",
-      "server": "149.202.58.99",
-      "port": 443,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/vws/"
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "uuid": "b585dc5e-55bf-4a8b-913a-27c9ccac05c3"
-    },
-    {
       "name": "m31",
-      "type": "vless",
-      "server": "144.31.159.86",
-      "port": 443,
+      "type": "vmess",
+      "server": "159.223.13.109",
+      "port": 1234,
       "network": "tcp",
       "tls": true,
       "servername": "ekb.eg",
       "skip-cert-verify": true,
-      "client-fingerprint": "safari",
-      "alpn": [
-        "http/1.1"
-      ],
-      "uuid": "b5d6221d-e3ad-4453-b5c6-8bf7ccaa7aa5",
-      "flow": "xtls-rprx-vision"
+      "client-fingerprint": "chrome",
+      "uuid": "5c040f1d-45db-43bd-8d46-e4950e433735",
+      "alterId": 0,
+      "cipher": "aes-128-gcm"
     },
     {
       "name": "m32",
-      "type": "vless",
-      "server": "assets-nl.pleiades.codes",
-      "port": 443,
-      "network": "grpc",
-      "grpc-opts": {
-        "grpc-service-name": "cdn.v1.AssetService"
-      },
+      "type": "vmess",
+      "server": "162.19.204.71",
+      "port": 1234,
+      "network": "tcp",
       "tls": true,
       "servername": "ekb.eg",
       "skip-cert-verify": true,
       "client-fingerprint": "chrome",
-      "uuid": "0dca2cfe-98eb-4f9d-9a47-cf87510c558b"
+      "uuid": "5c040f1d-45db-43bd-8d46-e4950e433735",
+      "alterId": 0,
+      "cipher": "auto"
     },
     {
       "name": "m33",
       "type": "vless",
-      "server": "144.31.159.86",
+      "server": "144.31.5.64",
       "port": 443,
       "network": "tcp",
       "tls": true,
@@ -568,9 +584,9 @@
       "skip-cert-verify": true,
       "client-fingerprint": "chrome",
       "alpn": [
-        "http/1.1"
+        "h2"
       ],
-      "uuid": "b5d6221d-e3ad-4453-b5c6-8bf7ccaa7aa5",
+      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
       "flow": "xtls-rprx-vision"
     },
     {
@@ -592,7 +608,7 @@
     {
       "name": "m35",
       "type": "vless",
-      "server": "144.31.2.33",
+      "server": "144.31.5.64",
       "port": 443,
       "network": "tcp",
       "tls": true,
@@ -607,6 +623,69 @@
     },
     {
       "name": "m36",
+      "type": "vless",
+      "server": "144.31.5.64",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "alpn": [
+        "h2"
+      ],
+      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
+      "flow": "xtls-rprx-vision"
+    },
+    {
+      "name": "m37",
+      "type": "vless",
+      "server": "144.31.5.64",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "alpn": [
+        "h2"
+      ],
+      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
+      "flow": "xtls-rprx-vision"
+    },
+    {
+      "name": "m38",
+      "type": "vless",
+      "server": "144.31.5.3",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "alpn": [
+        "h2"
+      ],
+      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
+      "flow": "xtls-rprx-vision"
+    },
+    {
+      "name": "m39",
+      "type": "vless",
+      "server": "assets-nl.pleiades.codes",
+      "port": 443,
+      "network": "grpc",
+      "grpc-opts": {
+        "grpc-service-name": "cdn.v1.AssetService"
+      },
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "uuid": "0dca2cfe-98eb-4f9d-9a47-cf87510c558b"
+    },
+    {
+      "name": "m40",
       "type": "trojan",
       "server": "151.101.56.7",
       "port": 443,
@@ -627,7 +706,73 @@
       "password": "MItIVPN"
     },
     {
-      "name": "m37",
+      "name": "m41",
+      "type": "vless",
+      "server": "pl6.moritech.net",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
+      "flow": "xtls-rprx-vision"
+    },
+    {
+      "name": "m42",
+      "type": "vless",
+      "server": "144.31.159.86",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "alpn": [
+        "http/1.1"
+      ],
+      "uuid": "b5d6221d-e3ad-4453-b5c6-8bf7ccaa7aa5",
+      "flow": "xtls-rprx-vision"
+    },
+    {
+      "name": "m43",
+      "type": "vless",
+      "server": "pl4.moritech.net",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "firefox",
+      "alpn": [
+        "h2"
+      ],
+      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
+      "flow": "xtls-rprx-vision"
+    },
+    {
+      "name": "m44",
+      "type": "trojan",
+      "server": "167.82.76.7",
+      "port": 443,
+      "network": "ws",
+      "ws-opts": {
+        "path": "/---@VPNine1---@VPNine1/---@VPNine1---@VPNine1/---@VPNine1---@VPNine1/NLSs---@VPNine1---@VPNine1/---@VPNine1---@VPNine1/---@VPNine1---@VPNine1",
+        "headers": {
+          "Host": "mitivpn---ss--s---mitivpn-33e.global.ssl.fastly.net"
+        }
+      },
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "alpn": [
+        "http/1.1"
+      ],
+      "password": "miTivpn"
+    },
+    {
+      "name": "m45",
       "type": "trojan",
       "server": "199.232.78.101",
       "port": 443,
@@ -648,15 +793,27 @@
       "password": "MItIVPN"
     },
     {
-      "name": "m38",
+      "name": "m46",
       "type": "trojan",
-      "server": "151.101.56.255",
+      "server": "45.32.157.84",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "password": "Tg3RnK7Xp8B1"
+    },
+    {
+      "name": "m47",
+      "type": "vless",
+      "server": "199.232.78.160",
       "port": 443,
       "network": "ws",
       "ws-opts": {
         "path": "/",
         "headers": {
-          "Host": "mitivpn---nl--s---mitivpn-2.global.ssl.fastly.net"
+          "Host": "Appxdn.global.ssl.fastly.net"
         }
       },
       "tls": true,
@@ -666,10 +823,47 @@
       "alpn": [
         "http/1.1"
       ],
-      "password": "MiTiVPN"
+      "uuid": "XpnTeam-29"
     },
     {
-      "name": "m39",
+      "name": "m48",
+      "type": "vless",
+      "server": "pl3.moritech.net",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "alpn": [
+        "h2"
+      ],
+      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
+      "flow": "xtls-rprx-vision"
+    },
+    {
+      "name": "m49",
+      "type": "trojan",
+      "server": "199.232.78.160",
+      "port": 443,
+      "network": "ws",
+      "ws-opts": {
+        "path": "/",
+        "headers": {
+          "Host": "mitivpn---ss--s---mitivpn-55e.global.ssl.fastly.net"
+        }
+      },
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "alpn": [
+        "http/1.1"
+      ],
+      "password": "MItIVPN"
+    },
+    {
+      "name": "m50",
       "type": "vless",
       "server": "milan.adaspoloandco.com",
       "port": 8443,
@@ -687,15 +881,47 @@
       "uuid": "69ac162b-1643-4acb-9f49-09d8b0fad609"
     },
     {
-      "name": "m40",
+      "name": "m51",
+      "type": "vless",
+      "server": "pl3.moritech.net",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "alpn": [
+        "h2"
+      ],
+      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
+      "flow": "xtls-rprx-vision"
+    },
+    {
+      "name": "m52",
+      "type": "vless",
+      "server": "pl4.moritech.net",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "alpn": [
+        "h2"
+      ],
+      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
+      "flow": "xtls-rprx-vision"
+    },
+    {
+      "name": "m53",
       "type": "trojan",
       "server": "151.101.56.7",
       "port": 443,
       "network": "ws",
       "ws-opts": {
-        "path": "/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/NLSus---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN",
+        "path": "/---@VPNine1---@VPNine1/---@VPNine1---@VPNine1/---@VPNine1---@VPNine1/D-e2@VPNine1---@VPNine1/---@VPNine1---@VPNine1/---@VPNine1---@VPNine1",
         "headers": {
-          "Host": "mitivpn---nl--s---mitivpn-1.global.ssl.fastly.net"
+          "Host": "mitivpn---ss--s---mitivpn-22e.global.ssl.fastly.net"
         }
       },
       "tls": true,
@@ -705,49 +931,42 @@
       "alpn": [
         "http/1.1"
       ],
-      "password": "MiTiVPN"
+      "password": "MItIVPN"
     },
     {
-      "name": "m41",
+      "name": "m54",
       "type": "vless",
-      "server": "milan.adaspoloandco.com",
-      "port": 8443,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/RoBeRt",
-        "headers": {
-          "Host": "milan.adaspoloandco.com"
-        }
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "uuid": "69ac162b-1643-4acb-9f49-09d8b0fad609"
-    },
-    {
-      "name": "m42",
-      "type": "trojan",
-      "server": "151.101.56.90",
+      "server": "144.31.2.33",
       "port": 443,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/",
-        "headers": {
-          "Host": "mitivpn---ss--s---mitivpn-66e.global.ssl.fastly.net"
-        }
-      },
+      "network": "tcp",
       "tls": true,
       "servername": "ekb.eg",
       "skip-cert-verify": true,
       "client-fingerprint": "chrome",
       "alpn": [
-        "http/1.1"
+        "h2"
       ],
-      "password": "miTivpn"
+      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
+      "flow": "xtls-rprx-vision"
     },
     {
-      "name": "m43",
+      "name": "m55",
+      "type": "vless",
+      "server": "pl3.moritech.net",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "alpn": [
+        "h2"
+      ],
+      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
+      "flow": "xtls-rprx-vision"
+    },
+    {
+      "name": "m56",
       "type": "vless",
       "server": "129.121.95.159",
       "port": 443,
@@ -765,7 +984,28 @@
       "uuid": "f6190ff2-864c-46cf-ac16-93908c069b75"
     },
     {
-      "name": "m44",
+      "name": "m57",
+      "type": "trojan",
+      "server": "199.232.78.160",
+      "port": 443,
+      "network": "ws",
+      "ws-opts": {
+        "path": "/---@VPNine1---@VPNine1/---@VPNine1---@VPNine1/---@VPNine1---@VPNine1/D-e1i@VPNine1---@VPNine1/---@VPNine1---@VPNine1/---@VPNine1---@VPNine1",
+        "headers": {
+          "Host": "mitivpn---ss--s---mitivpn-44e.global.ssl.fastly.net"
+        }
+      },
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "alpn": [
+        "http/1.1"
+      ],
+      "password": "miTivpn"
+    },
+    {
+      "name": "m58",
       "type": "trojan",
       "server": "199.232.78.101",
       "port": 443,
@@ -786,7 +1026,23 @@
       "password": "MItIVPN"
     },
     {
-      "name": "m45",
+      "name": "m59",
+      "type": "vless",
+      "server": "144.31.5.64",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "firefox",
+      "alpn": [
+        "h2"
+      ],
+      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
+      "flow": "xtls-rprx-vision"
+    },
+    {
+      "name": "m60",
       "type": "vless",
       "server": "144.31.2.33",
       "port": 443,
@@ -802,19 +1058,19 @@
       "flow": "xtls-rprx-vision"
     },
     {
-      "name": "m46",
+      "name": "m61",
       "type": "vless",
-      "server": "pl4.moritech.net",
+      "server": "144.31.159.86",
       "port": 443,
       "network": "tcp",
       "tls": true,
       "servername": "ekb.eg",
       "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
+      "client-fingerprint": "safari",
       "alpn": [
-        "h2"
+        "http/1.1"
       ],
-      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
+      "uuid": "b5d6221d-e3ad-4453-b5c6-8bf7ccaa7aa5",
       "flow": "xtls-rprx-vision"
     }
   ],
@@ -881,6 +1137,21 @@
         "m44",
         "m45",
         "m46",
+        "m47",
+        "m48",
+        "m49",
+        "m50",
+        "m51",
+        "m52",
+        "m53",
+        "m54",
+        "m55",
+        "m56",
+        "m57",
+        "m58",
+        "m59",
+        "m60",
+        "m61",
         "DIRECT"
       ]
     },
@@ -934,7 +1205,22 @@
         "m43",
         "m44",
         "m45",
-        "m46"
+        "m46",
+        "m47",
+        "m48",
+        "m49",
+        "m50",
+        "m51",
+        "m52",
+        "m53",
+        "m54",
+        "m55",
+        "m56",
+        "m57",
+        "m58",
+        "m59",
+        "m60",
+        "m61"
       ],
       "url": "http://cp.cloudflare.com/generate_204",
       "interval": 180,
@@ -990,7 +1276,22 @@
         "m43",
         "m44",
         "m45",
-        "m46"
+        "m46",
+        "m47",
+        "m48",
+        "m49",
+        "m50",
+        "m51",
+        "m52",
+        "m53",
+        "m54",
+        "m55",
+        "m56",
+        "m57",
+        "m58",
+        "m59",
+        "m60",
+        "m61"
       ],
       "url": "https://dynamodb.eu-west-3.amazonaws.com",
       "interval": 300,
@@ -1046,7 +1347,22 @@
         "m43",
         "m44",
         "m45",
-        "m46"
+        "m46",
+        "m47",
+        "m48",
+        "m49",
+        "m50",
+        "m51",
+        "m52",
+        "m53",
+        "m54",
+        "m55",
+        "m56",
+        "m57",
+        "m58",
+        "m59",
+        "m60",
+        "m61"
       ],
       "url": "https://dynamodb.eu-central-1.amazonaws.com",
       "interval": 300,
@@ -1102,7 +1418,22 @@
         "m43",
         "m44",
         "m45",
-        "m46"
+        "m46",
+        "m47",
+        "m48",
+        "m49",
+        "m50",
+        "m51",
+        "m52",
+        "m53",
+        "m54",
+        "m55",
+        "m56",
+        "m57",
+        "m58",
+        "m59",
+        "m60",
+        "m61"
       ],
       "url": "https://dynamodb.eu-north-1.amazonaws.com",
       "interval": 300,
@@ -1158,7 +1489,22 @@
         "m43",
         "m44",
         "m45",
-        "m46"
+        "m46",
+        "m47",
+        "m48",
+        "m49",
+        "m50",
+        "m51",
+        "m52",
+        "m53",
+        "m54",
+        "m55",
+        "m56",
+        "m57",
+        "m58",
+        "m59",
+        "m60",
+        "m61"
       ],
       "url": "https://dynamodb.us-east-1.amazonaws.com",
       "interval": 300,
@@ -1214,7 +1560,22 @@
         "m43",
         "m44",
         "m45",
-        "m46"
+        "m46",
+        "m47",
+        "m48",
+        "m49",
+        "m50",
+        "m51",
+        "m52",
+        "m53",
+        "m54",
+        "m55",
+        "m56",
+        "m57",
+        "m58",
+        "m59",
+        "m60",
+        "m61"
       ],
       "url": "https://dynamodb.us-east-2.amazonaws.com",
       "interval": 300,
@@ -1270,7 +1631,22 @@
         "m43",
         "m44",
         "m45",
-        "m46"
+        "m46",
+        "m47",
+        "m48",
+        "m49",
+        "m50",
+        "m51",
+        "m52",
+        "m53",
+        "m54",
+        "m55",
+        "m56",
+        "m57",
+        "m58",
+        "m59",
+        "m60",
+        "m61"
       ],
       "url": "https://dynamodb.us-west-1.amazonaws.com",
       "interval": 300,
@@ -1326,7 +1702,22 @@
         "m43",
         "m44",
         "m45",
-        "m46"
+        "m46",
+        "m47",
+        "m48",
+        "m49",
+        "m50",
+        "m51",
+        "m52",
+        "m53",
+        "m54",
+        "m55",
+        "m56",
+        "m57",
+        "m58",
+        "m59",
+        "m60",
+        "m61"
       ],
       "url": "https://dynamodb.us-west-2.amazonaws.com",
       "interval": 300,
@@ -1382,7 +1773,22 @@
         "m43",
         "m44",
         "m45",
-        "m46"
+        "m46",
+        "m47",
+        "m48",
+        "m49",
+        "m50",
+        "m51",
+        "m52",
+        "m53",
+        "m54",
+        "m55",
+        "m56",
+        "m57",
+        "m58",
+        "m59",
+        "m60",
+        "m61"
       ],
       "url": "https://dynamodb.ap-northeast-1.amazonaws.com",
       "interval": 300,
@@ -1438,7 +1844,22 @@
         "m43",
         "m44",
         "m45",
-        "m46"
+        "m46",
+        "m47",
+        "m48",
+        "m49",
+        "m50",
+        "m51",
+        "m52",
+        "m53",
+        "m54",
+        "m55",
+        "m56",
+        "m57",
+        "m58",
+        "m59",
+        "m60",
+        "m61"
       ],
       "url": "https://dynamodb.ap-northeast-2.amazonaws.com",
       "interval": 300,
@@ -1494,7 +1915,22 @@
         "m43",
         "m44",
         "m45",
-        "m46"
+        "m46",
+        "m47",
+        "m48",
+        "m49",
+        "m50",
+        "m51",
+        "m52",
+        "m53",
+        "m54",
+        "m55",
+        "m56",
+        "m57",
+        "m58",
+        "m59",
+        "m60",
+        "m61"
       ],
       "url": "https://dynamodb.ap-southeast-2.amazonaws.com",
       "interval": 300,
