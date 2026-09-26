@@ -36,12 +36,220 @@
       "alpn": [
         "http/1.1"
       ],
-      "uuid": "a636cfb1-bcb8-4f4c-a935-a3b3360e38b3"
+      "uuid": "3b63a01d-296a-4b5e-9dbc-14073fcf487f"
     },
     {
       "name": "m1",
+      "type": "vmess",
+      "server": "aidrivercat.org",
+      "port": 443,
+      "network": "ws",
+      "ws-opts": {
+        "path": "/linkvws",
+        "headers": {
+          "Host": "aidrivercat.org"
+        }
+      },
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "uuid": "03fcc618-b93d-6796-6aed-8a38c975d581",
+      "alterId": 0,
+      "cipher": "auto"
+    },
+    {
+      "name": "m2",
+      "type": "vmess",
+      "server": "141.95.65.9",
+      "port": 1234,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "uuid": "5c040f1d-45db-43bd-8d46-e4950e433735",
+      "alterId": 0,
+      "cipher": "aes-128-gcm"
+    },
+    {
+      "name": "m3",
+      "type": "trojan",
+      "server": "47.250.84.25",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "password": "5931134d1cde66bf83a54acdfebe7ab2"
+    },
+    {
+      "name": "m4",
+      "type": "trojan",
+      "server": "100.42.228.109",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "password": "BxceQaOe"
+    },
+    {
+      "name": "m5",
+      "type": "trojan",
+      "server": "47.250.84.25",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "password": "5931134d1cde66bf83a54acdfebe7ab2"
+    },
+    {
+      "name": "m6",
+      "type": "trojan",
+      "server": "109.206.241.10",
+      "port": 449,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "edge",
+      "password": "oiiaB38ywjEHCWRs_O_a_1113_Il_KeyyyHop_Bes1"
+    },
+    {
+      "name": "m7",
+      "type": "vless",
+      "server": "60.248.219.54",
+      "port": 443,
+      "network": "ws",
+      "ws-opts": {
+        "path": "/81574b6b-c9d7-44a0-b83d-dad56e8cb530",
+        "headers": {
+          "Host": "ty986gfazs.cainiaohub.xyz"
+        }
+      },
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "uuid": "06e177f7-240d-4687-bd85-235505801a5e"
+    },
+    {
+      "name": "m8",
+      "type": "vless",
+      "server": "151.242.2.81",
+      "port": 443,
+      "network": "ws",
+      "ws-opts": {
+        "path": "/cdn/v3/live",
+        "headers": {
+          "Host": "cf9.rumedia-cdn.com"
+        }
+      },
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "uuid": "0a2dde28-70da-4863-a06f-35d007d94d35"
+    },
+    {
+      "name": "m9",
+      "type": "vless",
+      "server": "130.78.191.159",
+      "port": 443,
+      "network": "grpc",
+      "grpc-opts": {
+        "grpc-service-name": "cdn.v1.AssetService"
+      },
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "firefox",
+      "uuid": "0dca2cfe-98eb-4f9d-9a47-cf87510c558b"
+    },
+    {
+      "name": "m10",
+      "type": "vless",
+      "server": "faultpass-panel-production.up.railway.app",
+      "port": 443,
+      "network": "ws",
+      "ws-opts": {
+        "path": "/ws/37926fd1-9a0f-0f36-2917-cc5127934cf1"
+      },
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "alpn": [
+        "http/1.1"
+      ],
+      "uuid": "37926fd1-9a0f-0f36-2917-cc5127934cf1"
+    },
+    {
+      "name": "m11",
+      "type": "vless",
+      "server": "faultpass-panel-production.up.railway.app",
+      "port": 443,
+      "network": "ws",
+      "ws-opts": {
+        "path": "/ws/37926fd1-9a0f-0f36-2917-cc5127934cf1",
+        "headers": {
+          "Host": "faultpass-panel-production.up.railway.app"
+        }
+      },
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "alpn": [
+        "http/1.1"
+      ],
+      "uuid": "37926fd1-9a0f-0f36-2917-cc5127934cf1"
+    },
+    {
+      "name": "m12",
       "type": "vless",
       "server": "149.202.58.99",
+      "port": 443,
+      "network": "ws",
+      "ws-opts": {
+        "path": "/vws/",
+        "headers": {
+          "Host": "bab-6.site"
+        }
+      },
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "uuid": "b585dc5e-55bf-4a8b-913a-27c9ccac05c3"
+    },
+    {
+      "name": "m13",
+      "type": "vless",
+      "server": "bab-6.site",
+      "port": 443,
+      "network": "ws",
+      "ws-opts": {
+        "path": "/vws/",
+        "headers": {
+          "Host": "bab-6.site"
+        }
+      },
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "uuid": "b585dc5e-55bf-4a8b-913a-27c9ccac05c3"
+    },
+    {
+      "name": "m14",
+      "type": "vless",
+      "server": "bab-6.site",
       "port": 443,
       "network": "ws",
       "ws-opts": {
@@ -54,132 +262,46 @@
       "uuid": "b585dc5e-55bf-4a8b-913a-27c9ccac05c3"
     },
     {
-      "name": "m2",
+      "name": "m15",
       "type": "vless",
-      "server": "ireland-new-ded1.failspace.top",
-      "port": 443,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
-      "flow": "xtls-rprx-vision"
-    },
-    {
-      "name": "m3",
-      "type": "vmess",
-      "server": "vspeedfast.org",
+      "server": "bab-6.site",
       "port": 443,
       "network": "ws",
       "ws-opts": {
-        "path": "/linkvws",
+        "path": "/vws/",
         "headers": {
-          "Host": "vspeedfast.org"
+          "Host": "bab-6.site"
         }
       },
       "tls": true,
       "servername": "ekb.eg",
       "skip-cert-verify": true,
       "client-fingerprint": "chrome",
-      "uuid": "03fcc618-b93d-6796-6aed-8a38c975d581",
-      "alterId": 0,
-      "cipher": "auto"
+      "uuid": "b585dc5e-55bf-4a8b-913a-27c9ccac05c3"
     },
     {
-      "name": "m4",
-      "type": "vmess",
-      "server": "162.19.204.71",
-      "port": 1234,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "uuid": "5c040f1d-45db-43bd-8d46-e4950e433735",
-      "alterId": 0,
-      "cipher": "auto"
-    },
-    {
-      "name": "m5",
-      "type": "vmess",
-      "server": "45.90.106.24",
-      "port": 1234,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "uuid": "5c040f1d-45db-43bd-8d46-e4950e433735",
-      "alterId": 0,
-      "cipher": "aes-128-gcm"
-    },
-    {
-      "name": "m6",
-      "type": "vmess",
-      "server": "aksai.org",
+      "name": "m16",
+      "type": "vless",
+      "server": "fbsv6.guardora.pro",
       "port": 443,
       "network": "ws",
       "ws-opts": {
-        "path": "/linkvws",
+        "path": "/ws",
         "headers": {
-          "Host": "aksai.org"
+          "Host": "fbsv6.guardora.pro"
         }
       },
       "tls": true,
       "servername": "ekb.eg",
       "skip-cert-verify": true,
       "client-fingerprint": "chrome",
-      "uuid": "03fcc618-b93d-6796-6aed-8a38c975d581",
-      "alterId": 0,
-      "cipher": "auto"
+      "alpn": [
+        "http/1.1"
+      ],
+      "uuid": "bc5ec86c-3e65-4272-994c-59a924c72a68"
     },
     {
-      "name": "m7",
-      "type": "vmess",
-      "server": "139.64.166.25",
-      "port": 443,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/linkvws",
-        "headers": {
-          "Host": "pahobac.org"
-        }
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "uuid": "03fcc618-b93d-6796-6aed-8a38c975d581",
-      "alterId": 0,
-      "cipher": "auto"
-    },
-    {
-      "name": "m8",
-      "type": "trojan",
-      "server": "45.32.157.84",
-      "port": 443,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "password": "Tg3RnK7Xp8B1"
-    },
-    {
-      "name": "m9",
-      "type": "trojan",
-      "server": "109.206.241.10",
-      "port": 449,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "edge",
-      "password": "oiiaB38ywjEHCWRs_O_a_1113_Il_KeyyyHop_Bes1"
-    },
-    {
-      "name": "m10",
+      "name": "m17",
       "type": "vless",
       "server": "144.31.2.33",
       "port": 443,
@@ -195,7 +317,7 @@
       "flow": "xtls-rprx-vision"
     },
     {
-      "name": "m11",
+      "name": "m18",
       "type": "vless",
       "server": "31.76.5.144",
       "port": 443,
@@ -208,7 +330,7 @@
       "flow": "xtls-rprx-vision"
     },
     {
-      "name": "m12",
+      "name": "m19",
       "type": "vless",
       "server": "31.76.5.42",
       "port": 443,
@@ -221,7 +343,7 @@
       "flow": "xtls-rprx-vision"
     },
     {
-      "name": "m13",
+      "name": "m20",
       "type": "vless",
       "server": "31.76.5.51",
       "port": 443,
@@ -234,7 +356,7 @@
       "flow": "xtls-rprx-vision"
     },
     {
-      "name": "m14",
+      "name": "m21",
       "type": "vless",
       "server": "50.7.184.122",
       "port": 443,
@@ -250,7 +372,7 @@
       "flow": "xtls-rprx-vision"
     },
     {
-      "name": "m15",
+      "name": "m22",
       "type": "vless",
       "server": "50.7.197.206",
       "port": 443,
@@ -263,7 +385,7 @@
       "flow": "xtls-rprx-vision"
     },
     {
-      "name": "m16",
+      "name": "m23",
       "type": "vless",
       "server": "50.7.36.26",
       "port": 443,
@@ -279,7 +401,7 @@
       "flow": "xtls-rprx-vision"
     },
     {
-      "name": "m17",
+      "name": "m24",
       "type": "vless",
       "server": "50.7.36.27",
       "port": 443,
@@ -295,7 +417,7 @@
       "flow": "xtls-rprx-vision"
     },
     {
-      "name": "m18",
+      "name": "m25",
       "type": "vless",
       "server": "50.7.36.29",
       "port": 443,
@@ -308,7 +430,7 @@
       "flow": "xtls-rprx-vision"
     },
     {
-      "name": "m19",
+      "name": "m26",
       "type": "vless",
       "server": "50.7.36.30",
       "port": 443,
@@ -321,7 +443,7 @@
       "flow": "xtls-rprx-vision"
     },
     {
-      "name": "m20",
+      "name": "m27",
       "type": "vless",
       "server": "50.7.37.154",
       "port": 443,
@@ -337,7 +459,7 @@
       "flow": "xtls-rprx-vision"
     },
     {
-      "name": "m21",
+      "name": "m28",
       "type": "vless",
       "server": "50.7.5.163",
       "port": 443,
@@ -353,7 +475,7 @@
       "flow": "xtls-rprx-vision"
     },
     {
-      "name": "m22",
+      "name": "m29",
       "type": "vless",
       "server": "50.7.5.164",
       "port": 443,
@@ -369,39 +491,323 @@
       "flow": "xtls-rprx-vision"
     },
     {
-      "name": "m23",
+      "name": "m30",
       "type": "vless",
-      "server": "31.76.76.28",
-      "port": 8443,
+      "server": "50.7.5.166",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "firefox",
+      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
+      "flow": "xtls-rprx-vision"
+    },
+    {
+      "name": "m31",
+      "type": "vless",
+      "server": "50.7.5.187",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "firefox",
+      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
+      "flow": "xtls-rprx-vision"
+    },
+    {
+      "name": "m32",
+      "type": "vless",
+      "server": "66.90.106.194",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "firefox",
+      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
+      "flow": "xtls-rprx-vision"
+    },
+    {
+      "name": "m33",
+      "type": "vless",
+      "server": "ad-dedic-3.failspace.top",
+      "port": 443,
       "network": "tcp",
       "tls": true,
       "servername": "ekb.eg",
       "skip-cert-verify": true,
       "client-fingerprint": "chrome",
-      "uuid": "de5906f3-df38-4463-aa9d-2b01320cc6ea"
+      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
+      "flow": "xtls-rprx-vision"
     },
     {
-      "name": "m24",
-      "type": "vmess",
-      "server": "pahobac.org",
+      "name": "m34",
+      "type": "vless",
+      "server": "at-at-at.failspace.top",
       "port": 443,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/linkvws",
-        "headers": {
-          "Host": "pahobac.org"
-        }
-      },
+      "network": "tcp",
       "tls": true,
       "servername": "ekb.eg",
       "skip-cert-verify": true,
       "client-fingerprint": "chrome",
-      "uuid": "03fcc618-b93d-6796-6aed-8a38c975d581",
-      "alterId": 0,
-      "cipher": "auto"
+      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
+      "flow": "xtls-rprx-vision"
     },
     {
-      "name": "m25",
+      "name": "m35",
+      "type": "vless",
+      "server": "at-at-at.failspace.top",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
+      "flow": "xtls-rprx-vision"
+    },
+    {
+      "name": "m36",
+      "type": "vless",
+      "server": "at-at-at.failspace.top",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
+      "flow": "xtls-rprx-vision"
+    },
+    {
+      "name": "m37",
+      "type": "vless",
+      "server": "at-at-at.failspace.top",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
+      "flow": "xtls-rprx-vision"
+    },
+    {
+      "name": "m38",
+      "type": "vless",
+      "server": "at-at-at.failspace.top",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
+      "flow": "xtls-rprx-vision"
+    },
+    {
+      "name": "m39",
+      "type": "vless",
+      "server": "pl3.moritech.net",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "firefox",
+      "alpn": [
+        "h2"
+      ],
+      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
+      "flow": "xtls-rprx-vision"
+    },
+    {
+      "name": "m40",
+      "type": "vless",
+      "server": "pl3.moritech.net",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "alpn": [
+        "h2"
+      ],
+      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
+      "flow": "xtls-rprx-vision"
+    },
+    {
+      "name": "m41",
+      "type": "vless",
+      "server": "pl3.moritech.net",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
+      "flow": "xtls-rprx-vision"
+    },
+    {
+      "name": "m42",
+      "type": "vless",
+      "server": "pl3.moritech.net",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "firefox",
+      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
+      "flow": "xtls-rprx-vision"
+    },
+    {
+      "name": "m43",
+      "type": "vless",
+      "server": "pl3.moritech.net",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "alpn": [
+        "h2"
+      ],
+      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
+      "flow": "xtls-rprx-vision"
+    },
+    {
+      "name": "m44",
+      "type": "vless",
+      "server": "pl3.moritech.net",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "alpn": [
+        "h2"
+      ],
+      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
+      "flow": "xtls-rprx-vision"
+    },
+    {
+      "name": "m45",
+      "type": "vless",
+      "server": "pl3.moritech.net",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "firefox",
+      "alpn": [
+        "h2"
+      ],
+      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
+      "flow": "xtls-rprx-vision"
+    },
+    {
+      "name": "m46",
+      "type": "vless",
+      "server": "pl3.moritech.net",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "alpn": [
+        "h2"
+      ],
+      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
+      "flow": "xtls-rprx-vision"
+    },
+    {
+      "name": "m47",
+      "type": "vless",
+      "server": "pl4.moritech.net",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "alpn": [
+        "h2"
+      ],
+      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
+      "flow": "xtls-rprx-vision"
+    },
+    {
+      "name": "m48",
+      "type": "vless",
+      "server": "pl4.moritech.net",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
+      "flow": "xtls-rprx-vision"
+    },
+    {
+      "name": "m49",
+      "type": "vless",
+      "server": "pl4.moritech.net",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "alpn": [
+        "h2"
+      ],
+      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
+      "flow": "xtls-rprx-vision"
+    },
+    {
+      "name": "m50",
+      "type": "vless",
+      "server": "pl4.moritech.net",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "firefox",
+      "alpn": [
+        "h2"
+      ],
+      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
+      "flow": "xtls-rprx-vision"
+    },
+    {
+      "name": "m51",
+      "type": "vless",
+      "server": "us.netease.uz",
+      "port": 8444,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "alpn": [
+        "h2",
+        "http/1.1"
+      ],
+      "uuid": "fd3b5215-287b-4f16-84d9-6b5854dea110"
+    },
+    {
+      "name": "m52",
       "type": "vmess",
       "server": "or.521166.xyz",
       "port": 2083,
@@ -418,7 +824,33 @@
       "cipher": "auto"
     },
     {
-      "name": "m26",
+      "name": "m53",
+      "type": "vmess",
+      "server": "159.223.13.109",
+      "port": 1234,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "uuid": "5c040f1d-45db-43bd-8d46-e4950e433735",
+      "alterId": 0,
+      "cipher": "aes-128-gcm"
+    },
+    {
+      "name": "m54",
+      "type": "trojan",
+      "server": "2.27.109.179",
+      "port": 45464,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "password": "XuMweB2PWs"
+    },
+    {
+      "name": "m55",
       "type": "vless",
       "server": "144.31.2.33",
       "port": 443,
@@ -434,7 +866,7 @@
       "flow": "xtls-rprx-vision"
     },
     {
-      "name": "m27",
+      "name": "m56",
       "type": "vless",
       "server": "144.31.2.33",
       "port": 443,
@@ -450,21 +882,9 @@
       "flow": "xtls-rprx-vision"
     },
     {
-      "name": "m28",
+      "name": "m57",
       "type": "vless",
-      "server": "31.76.76.28",
-      "port": 8443,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "uuid": "de5906f3-df38-4463-aa9d-2b01320cc6ea"
-    },
-    {
-      "name": "m29",
-      "type": "vless",
-      "server": "pl3.moritech.net",
+      "server": "144.31.2.33",
       "port": 443,
       "network": "tcp",
       "tls": true,
@@ -478,21 +898,9 @@
       "flow": "xtls-rprx-vision"
     },
     {
-      "name": "m30",
+      "name": "m58",
       "type": "vless",
-      "server": "31.76.76.28",
-      "port": 8443,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "uuid": "de5906f3-df38-4463-aa9d-2b01320cc6ea"
-    },
-    {
-      "name": "m31",
-      "type": "vless",
-      "server": "pl4.moritech.net",
+      "server": "144.31.5.3",
       "port": 443,
       "network": "tcp",
       "tls": true,
@@ -506,40 +914,88 @@
       "flow": "xtls-rprx-vision"
     },
     {
-      "name": "m32",
+      "name": "m59",
       "type": "vless",
-      "server": "norw-mori-5.failspace.top",
+      "server": "144.31.5.3",
       "port": 443,
       "network": "tcp",
       "tls": true,
       "servername": "ekb.eg",
       "skip-cert-verify": true,
       "client-fingerprint": "chrome",
+      "alpn": [
+        "h2"
+      ],
       "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
       "flow": "xtls-rprx-vision"
     },
     {
-      "name": "m33",
-      "type": "vless",
-      "server": "nl15-node.rumedia-cdn.com",
-      "port": 2096,
+      "name": "m60",
+      "type": "trojan",
+      "server": "199.232.78.188",
+      "port": 443,
       "network": "ws",
       "ws-opts": {
-        "path": "/cdn/v3/live",
+        "path": "/---@VPNine1---@VPNine1/---@VPNine1---@VPNine1/---@VPNine1---@VPNine1/NLSus---@VPNine1---@VPNine1/---@VPNine1---@VPNine1/---@VPNine1---@VPNine1",
         "headers": {
-          "Host": "st6302c.rumedia-cdn.com"
+          "Host": "mitivpn---gb--s---mitivpn-1.global.ssl.fastly.net"
         }
       },
       "tls": true,
       "servername": "ekb.eg",
       "skip-cert-verify": true,
       "client-fingerprint": "chrome",
-      "uuid": "11d826ce-d6e5-4154-8658-6829bb17dca2"
+      "alpn": [
+        "http/1.1"
+      ],
+      "password": "MiTiVPN"
     },
     {
-      "name": "m34",
+      "name": "m61",
+      "type": "trojan",
+      "server": "151.101.56.9",
+      "port": 443,
+      "network": "ws",
+      "ws-opts": {
+        "path": "/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/NLSus---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN",
+        "headers": {
+          "Host": "mitivpn---gb--s---mitivpn-1.global.ssl.fastly.net"
+        }
+      },
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "alpn": [
+        "http/1.1"
+      ],
+      "password": "MiTiVPN"
+    },
+    {
+      "name": "m62",
+      "type": "trojan",
+      "server": "151.101.56.9",
+      "port": 443,
+      "network": "ws",
+      "ws-opts": {
+        "path": "/---@VPNine1---@VPNine1/---@VPNine1---@VPNine1/---@VPNine1---@VPNine1/NLSus---@VPNine1---@VPNine1/---@VPNine1---@VPNine1/---@VPNine1---@VPNine1",
+        "headers": {
+          "Host": "mitivpn---gb--s---mitivpn-1.global.ssl.fastly.net"
+        }
+      },
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "alpn": [
+        "http/1.1"
+      ],
+      "password": "MiTiVPN"
+    },
+    {
+      "name": "m63",
       "type": "vless",
-      "server": "pl3.moritech.net",
+      "server": "144.31.5.3",
       "port": 443,
       "network": "tcp",
       "tls": true,
@@ -553,7 +1009,83 @@
       "flow": "xtls-rprx-vision"
     },
     {
-      "name": "m35",
+      "name": "m64",
+      "type": "vless",
+      "server": "129.121.95.159",
+      "port": 443,
+      "network": "ws",
+      "ws-opts": {
+        "path": "/connect",
+        "headers": {
+          "Host": "129.121.95.159"
+        }
+      },
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "uuid": "f6190ff2-864c-46cf-ac16-93908c069b75"
+    },
+    {
+      "name": "m65",
+      "type": "trojan",
+      "server": "199.232.78.188",
+      "port": 443,
+      "network": "ws",
+      "ws-opts": {
+        "path": "/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/NLSus---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN",
+        "headers": {
+          "Host": "mitivpn---gb--s---mitivpn-1.global.ssl.fastly.net"
+        }
+      },
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "alpn": [
+        "http/1.1"
+      ],
+      "password": "MiTiVPN"
+    },
+    {
+      "name": "m66",
+      "type": "trojan",
+      "server": "151.101.56.255",
+      "port": 443,
+      "network": "ws",
+      "ws-opts": {
+        "path": "/",
+        "headers": {
+          "Host": "mitivpn---nl--s---mitivpn-2.global.ssl.fastly.net"
+        }
+      },
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "alpn": [
+        "http/1.1"
+      ],
+      "password": "MiTiVPN"
+    },
+    {
+      "name": "m67",
+      "type": "vless",
+      "server": "pl3.moritech.net",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "firefox",
+      "alpn": [
+        "h2"
+      ],
+      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
+      "flow": "xtls-rprx-vision"
+    },
+    {
+      "name": "m68",
       "type": "vless",
       "server": "144.31.2.33",
       "port": 443,
@@ -569,19 +1101,112 @@
       "flow": "xtls-rprx-vision"
     },
     {
-      "name": "m36",
-      "type": "trojan",
-      "server": "45.32.157.84",
+      "name": "m69",
+      "type": "vless",
+      "server": "186.190.211.188",
       "port": 443,
       "network": "tcp",
       "tls": true,
       "servername": "ekb.eg",
       "skip-cert-verify": true,
       "client-fingerprint": "chrome",
-      "password": "Tg3RnK7Xp8B1"
+      "alpn": [
+        "http/1.1"
+      ],
+      "uuid": "03fcc618-b93d-6796-6aed-8a38c975d581"
     },
     {
-      "name": "m37",
+      "name": "m70",
+      "type": "vless",
+      "server": "199.232.78.170",
+      "port": 443,
+      "network": "ws",
+      "ws-opts": {
+        "path": "/",
+        "headers": {
+          "Host": "Appxdn.global.ssl.fastly.net"
+        }
+      },
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "alpn": [
+        "http/1.1"
+      ],
+      "uuid": "XpnTeam-35"
+    },
+    {
+      "name": "m71",
+      "type": "trojan",
+      "server": "151.101.56.255",
+      "port": 443,
+      "network": "ws",
+      "ws-opts": {
+        "path": "/",
+        "headers": {
+          "Host": "mitivpn---nl--s---mitivpn-2.global.ssl.fastly.net"
+        }
+      },
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "alpn": [
+        "http/1.1"
+      ],
+      "password": "MiTiVPN"
+    },
+    {
+      "name": "m72",
+      "type": "vless",
+      "server": "129.150.51.127",
+      "port": 49289,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "uuid": "0590ab38-cb22-41d3-8312-6f396a5cec58"
+    },
+    {
+      "name": "m73",
+      "type": "vless",
+      "server": "149.202.58.99",
+      "port": 443,
+      "network": "ws",
+      "ws-opts": {
+        "path": "/vws/"
+      },
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "uuid": "b585dc5e-55bf-4a8b-913a-27c9ccac05c3"
+    },
+    {
+      "name": "m74",
+      "type": "trojan",
+      "server": "199.232.78.101",
+      "port": 443,
+      "network": "ws",
+      "ws-opts": {
+        "path": "/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/NLSus---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN",
+        "headers": {
+          "Host": "mitivpn---de--s---mitivpn-1.global.ssl.fastly.net"
+        }
+      },
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "alpn": [
+        "http/1.1"
+      ],
+      "password": "MiTiVPN"
+    },
+    {
+      "name": "m75",
       "type": "vless",
       "server": "pl3.moritech.net",
       "port": 443,
@@ -597,7 +1222,7 @@
       "flow": "xtls-rprx-vision"
     },
     {
-      "name": "m38",
+      "name": "m76",
       "type": "trojan",
       "server": "100.42.228.109",
       "port": 443,
@@ -607,6 +1232,24 @@
       "skip-cert-verify": true,
       "client-fingerprint": "chrome",
       "password": "BxceQaOe"
+    },
+    {
+      "name": "m77",
+      "type": "vless",
+      "server": "46.8.200.91",
+      "port": 443,
+      "network": "ws",
+      "ws-opts": {
+        "path": "/casc",
+        "headers": {
+          "Host": "cf3.rumedia-cdn.com"
+        }
+      },
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "firefox",
+      "uuid": "0a2dde28-70da-4863-a06f-35d007d94d35"
     }
   ],
   "proxy-groups": [
@@ -664,6 +1307,45 @@
         "m36",
         "m37",
         "m38",
+        "m39",
+        "m40",
+        "m41",
+        "m42",
+        "m43",
+        "m44",
+        "m45",
+        "m46",
+        "m47",
+        "m48",
+        "m49",
+        "m50",
+        "m51",
+        "m52",
+        "m53",
+        "m54",
+        "m55",
+        "m56",
+        "m57",
+        "m58",
+        "m59",
+        "m60",
+        "m61",
+        "m62",
+        "m63",
+        "m64",
+        "m65",
+        "m66",
+        "m67",
+        "m68",
+        "m69",
+        "m70",
+        "m71",
+        "m72",
+        "m73",
+        "m74",
+        "m75",
+        "m76",
+        "m77",
         "DIRECT"
       ]
     },
@@ -709,7 +1391,46 @@
         "m35",
         "m36",
         "m37",
-        "m38"
+        "m38",
+        "m39",
+        "m40",
+        "m41",
+        "m42",
+        "m43",
+        "m44",
+        "m45",
+        "m46",
+        "m47",
+        "m48",
+        "m49",
+        "m50",
+        "m51",
+        "m52",
+        "m53",
+        "m54",
+        "m55",
+        "m56",
+        "m57",
+        "m58",
+        "m59",
+        "m60",
+        "m61",
+        "m62",
+        "m63",
+        "m64",
+        "m65",
+        "m66",
+        "m67",
+        "m68",
+        "m69",
+        "m70",
+        "m71",
+        "m72",
+        "m73",
+        "m74",
+        "m75",
+        "m76",
+        "m77"
       ],
       "url": "http://cp.cloudflare.com/generate_204",
       "interval": 180,
@@ -757,7 +1478,46 @@
         "m35",
         "m36",
         "m37",
-        "m38"
+        "m38",
+        "m39",
+        "m40",
+        "m41",
+        "m42",
+        "m43",
+        "m44",
+        "m45",
+        "m46",
+        "m47",
+        "m48",
+        "m49",
+        "m50",
+        "m51",
+        "m52",
+        "m53",
+        "m54",
+        "m55",
+        "m56",
+        "m57",
+        "m58",
+        "m59",
+        "m60",
+        "m61",
+        "m62",
+        "m63",
+        "m64",
+        "m65",
+        "m66",
+        "m67",
+        "m68",
+        "m69",
+        "m70",
+        "m71",
+        "m72",
+        "m73",
+        "m74",
+        "m75",
+        "m76",
+        "m77"
       ],
       "url": "https://dynamodb.eu-west-3.amazonaws.com",
       "interval": 300,
@@ -805,7 +1565,46 @@
         "m35",
         "m36",
         "m37",
-        "m38"
+        "m38",
+        "m39",
+        "m40",
+        "m41",
+        "m42",
+        "m43",
+        "m44",
+        "m45",
+        "m46",
+        "m47",
+        "m48",
+        "m49",
+        "m50",
+        "m51",
+        "m52",
+        "m53",
+        "m54",
+        "m55",
+        "m56",
+        "m57",
+        "m58",
+        "m59",
+        "m60",
+        "m61",
+        "m62",
+        "m63",
+        "m64",
+        "m65",
+        "m66",
+        "m67",
+        "m68",
+        "m69",
+        "m70",
+        "m71",
+        "m72",
+        "m73",
+        "m74",
+        "m75",
+        "m76",
+        "m77"
       ],
       "url": "https://dynamodb.eu-central-1.amazonaws.com",
       "interval": 300,
@@ -853,7 +1652,46 @@
         "m35",
         "m36",
         "m37",
-        "m38"
+        "m38",
+        "m39",
+        "m40",
+        "m41",
+        "m42",
+        "m43",
+        "m44",
+        "m45",
+        "m46",
+        "m47",
+        "m48",
+        "m49",
+        "m50",
+        "m51",
+        "m52",
+        "m53",
+        "m54",
+        "m55",
+        "m56",
+        "m57",
+        "m58",
+        "m59",
+        "m60",
+        "m61",
+        "m62",
+        "m63",
+        "m64",
+        "m65",
+        "m66",
+        "m67",
+        "m68",
+        "m69",
+        "m70",
+        "m71",
+        "m72",
+        "m73",
+        "m74",
+        "m75",
+        "m76",
+        "m77"
       ],
       "url": "https://dynamodb.eu-north-1.amazonaws.com",
       "interval": 300,
@@ -901,7 +1739,46 @@
         "m35",
         "m36",
         "m37",
-        "m38"
+        "m38",
+        "m39",
+        "m40",
+        "m41",
+        "m42",
+        "m43",
+        "m44",
+        "m45",
+        "m46",
+        "m47",
+        "m48",
+        "m49",
+        "m50",
+        "m51",
+        "m52",
+        "m53",
+        "m54",
+        "m55",
+        "m56",
+        "m57",
+        "m58",
+        "m59",
+        "m60",
+        "m61",
+        "m62",
+        "m63",
+        "m64",
+        "m65",
+        "m66",
+        "m67",
+        "m68",
+        "m69",
+        "m70",
+        "m71",
+        "m72",
+        "m73",
+        "m74",
+        "m75",
+        "m76",
+        "m77"
       ],
       "url": "https://dynamodb.us-east-1.amazonaws.com",
       "interval": 300,
@@ -949,7 +1826,46 @@
         "m35",
         "m36",
         "m37",
-        "m38"
+        "m38",
+        "m39",
+        "m40",
+        "m41",
+        "m42",
+        "m43",
+        "m44",
+        "m45",
+        "m46",
+        "m47",
+        "m48",
+        "m49",
+        "m50",
+        "m51",
+        "m52",
+        "m53",
+        "m54",
+        "m55",
+        "m56",
+        "m57",
+        "m58",
+        "m59",
+        "m60",
+        "m61",
+        "m62",
+        "m63",
+        "m64",
+        "m65",
+        "m66",
+        "m67",
+        "m68",
+        "m69",
+        "m70",
+        "m71",
+        "m72",
+        "m73",
+        "m74",
+        "m75",
+        "m76",
+        "m77"
       ],
       "url": "https://dynamodb.us-east-2.amazonaws.com",
       "interval": 300,
@@ -997,7 +1913,46 @@
         "m35",
         "m36",
         "m37",
-        "m38"
+        "m38",
+        "m39",
+        "m40",
+        "m41",
+        "m42",
+        "m43",
+        "m44",
+        "m45",
+        "m46",
+        "m47",
+        "m48",
+        "m49",
+        "m50",
+        "m51",
+        "m52",
+        "m53",
+        "m54",
+        "m55",
+        "m56",
+        "m57",
+        "m58",
+        "m59",
+        "m60",
+        "m61",
+        "m62",
+        "m63",
+        "m64",
+        "m65",
+        "m66",
+        "m67",
+        "m68",
+        "m69",
+        "m70",
+        "m71",
+        "m72",
+        "m73",
+        "m74",
+        "m75",
+        "m76",
+        "m77"
       ],
       "url": "https://dynamodb.us-west-1.amazonaws.com",
       "interval": 300,
@@ -1045,7 +2000,46 @@
         "m35",
         "m36",
         "m37",
-        "m38"
+        "m38",
+        "m39",
+        "m40",
+        "m41",
+        "m42",
+        "m43",
+        "m44",
+        "m45",
+        "m46",
+        "m47",
+        "m48",
+        "m49",
+        "m50",
+        "m51",
+        "m52",
+        "m53",
+        "m54",
+        "m55",
+        "m56",
+        "m57",
+        "m58",
+        "m59",
+        "m60",
+        "m61",
+        "m62",
+        "m63",
+        "m64",
+        "m65",
+        "m66",
+        "m67",
+        "m68",
+        "m69",
+        "m70",
+        "m71",
+        "m72",
+        "m73",
+        "m74",
+        "m75",
+        "m76",
+        "m77"
       ],
       "url": "https://dynamodb.us-west-2.amazonaws.com",
       "interval": 300,
@@ -1093,7 +2087,46 @@
         "m35",
         "m36",
         "m37",
-        "m38"
+        "m38",
+        "m39",
+        "m40",
+        "m41",
+        "m42",
+        "m43",
+        "m44",
+        "m45",
+        "m46",
+        "m47",
+        "m48",
+        "m49",
+        "m50",
+        "m51",
+        "m52",
+        "m53",
+        "m54",
+        "m55",
+        "m56",
+        "m57",
+        "m58",
+        "m59",
+        "m60",
+        "m61",
+        "m62",
+        "m63",
+        "m64",
+        "m65",
+        "m66",
+        "m67",
+        "m68",
+        "m69",
+        "m70",
+        "m71",
+        "m72",
+        "m73",
+        "m74",
+        "m75",
+        "m76",
+        "m77"
       ],
       "url": "https://dynamodb.ap-northeast-1.amazonaws.com",
       "interval": 300,
@@ -1141,7 +2174,46 @@
         "m35",
         "m36",
         "m37",
-        "m38"
+        "m38",
+        "m39",
+        "m40",
+        "m41",
+        "m42",
+        "m43",
+        "m44",
+        "m45",
+        "m46",
+        "m47",
+        "m48",
+        "m49",
+        "m50",
+        "m51",
+        "m52",
+        "m53",
+        "m54",
+        "m55",
+        "m56",
+        "m57",
+        "m58",
+        "m59",
+        "m60",
+        "m61",
+        "m62",
+        "m63",
+        "m64",
+        "m65",
+        "m66",
+        "m67",
+        "m68",
+        "m69",
+        "m70",
+        "m71",
+        "m72",
+        "m73",
+        "m74",
+        "m75",
+        "m76",
+        "m77"
       ],
       "url": "https://dynamodb.ap-northeast-2.amazonaws.com",
       "interval": 300,
@@ -1189,7 +2261,46 @@
         "m35",
         "m36",
         "m37",
-        "m38"
+        "m38",
+        "m39",
+        "m40",
+        "m41",
+        "m42",
+        "m43",
+        "m44",
+        "m45",
+        "m46",
+        "m47",
+        "m48",
+        "m49",
+        "m50",
+        "m51",
+        "m52",
+        "m53",
+        "m54",
+        "m55",
+        "m56",
+        "m57",
+        "m58",
+        "m59",
+        "m60",
+        "m61",
+        "m62",
+        "m63",
+        "m64",
+        "m65",
+        "m66",
+        "m67",
+        "m68",
+        "m69",
+        "m70",
+        "m71",
+        "m72",
+        "m73",
+        "m74",
+        "m75",
+        "m76",
+        "m77"
       ],
       "url": "https://dynamodb.ap-southeast-2.amazonaws.com",
       "interval": 300,
