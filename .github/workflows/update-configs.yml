@@ -52,17 +52,26 @@ jobs:
       - name: Run proxy tester (multi-source)
         env:
           CI: "true"
-          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
-          GITHUB_REPO: Kirolos124/V2RayBot
         run: |
           SNI="${{ github.event.inputs.sni || 'speedtest.net' }}"
-          python v2ray_sni_updater.py "$SNI" sources.txt --retest=50
+          python v2ray_sni_updater.py "$SNI" sources.txt --no-upload --retest=50
 
       - name: Commit results (all outputs including extra SNI variants)
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add working_proxies.txt working_subscription.txt working_sni*.txt working_sni*.yaml singbox*.json clash*.yaml 2>/dev/null || true
+          echo "--- generated result files ---"
+          ls -la working_*.txt working_*.yaml singbox*.json clash*.yaml 2>/dev/null || true
+          for f in working_proxies.txt working_subscription.txt \
+            working_sni_matched.txt working_sni_matched_subscription.txt \
+            working_sni_ekb_matched.txt working_sni_ekb_matched_subscription.txt \
+            singbox_config.json clash_config.yaml \
+            singbox_sni_matched.json clash_sni_matched.yaml \
+            singbox_sni_ekb_matched.json clash_sni_ekb_matched.yaml; do
+            [ -f "$f" ] && git add -f "$f"
+          done
+          echo "--- staged changes ---"
+          git status --porcelain
           
           if git diff --cached --quiet; then
             echo "No changes to commit"
