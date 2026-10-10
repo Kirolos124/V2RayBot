@@ -18,7 +18,7 @@ Flags:
   --batch N        حجم الدفعة الواحدة (default 500)
   --timeout MS     مهلة كل نود بالمللي ثانية (default 8000)
   --include-plain  اقبل الكونفجات بدون TLS (vmess/vless/ss) واختبرها كما هي
-  --nagwa-only     فلترة لمرشحي ws+port80 فقط ثم pipeline عادي (الملفات
+  --nagwa-only     فلترة لمرشحي ws فقط ثم pipeline عادي (الملفات
                    الباقية تتولد من نفس النتيجة المصغرة).
 """
 import sys
@@ -499,7 +499,7 @@ def build_outbound(link, custom_sni, idx, force_sni=False, allow_plain=False):
 
 
 # --- Nagwa WS:80 special pipeline ---
-# vmess/vless/trojan + ws + port 80 links get their address/host rewritten,
+# vmess/vless/trojan + ws links (any port) get their address/host rewritten,
 # then ping-tested.
 NAGWA_ADDR = "www.nagwa.com"
 NAGWA_WS_HOST = "www.nagwa.com.etcetc.cc.cd"
@@ -508,9 +508,9 @@ NAGWA_SUB = "working_nagwa_ws80_subscription.txt"
 
 
 def nagwa_rewrite_link(link):
-    """Rewrite a ws+port80 link to nagwa address/host. Pure transform, no outbound.
+    """Rewrite a ws link to nagwa address/host. Pure transform, no outbound.
 
-    Accepts vmess, vless and trojan links whose transport is ws and port is 80.
+    Accepts vmess, vless and trojan links whose transport is ws (any port).
     Returns the transformed link string, or None if not a candidate.
     TLS keeps its own sni so the handshake stays valid.
     """
@@ -519,8 +519,6 @@ def nagwa_rewrite_link(link):
         if scheme == "vmess":
             data = _b64_json_vmess(link)
             if str(data.get("net", "")).lower() != "ws":
-                return None
-            if str(data.get("port", "")).strip() != "80":
                 return None
             data["add"] = NAGWA_ADDR
             data["host"] = NAGWA_WS_HOST
@@ -545,8 +543,6 @@ def nagwa_rewrite_link(link):
                 server_port = int(port_part.strip())
             except ValueError:
                 return None
-            if server_port != 80:
-                return None
             q = _scrub_query(dict(urllib.parse.parse_qsl(parsed.query)))
             if (q.get("type") or "tcp").strip().lower() != "ws":
                 return None
@@ -566,7 +562,7 @@ def nagwa_rewrite_link(link):
                     mod_q.setdefault("flow", "none")
                     mod_q.setdefault("encryption", "none")
                 mod_q.setdefault("headerType", "none")
-            new_netloc = f"{user_info}@{NAGWA_ADDR}:80"
+            new_netloc = f"{user_info}@{NAGWA_ADDR}:{server_port}"
             return urllib.parse.ParseResult(
                 scheme=parsed.scheme,
                 netloc=new_netloc,
@@ -1126,11 +1122,11 @@ def main():
     all_links = dedup_links(all_links)
     print(f"\n[+] Total unique candidate links: {len(all_links)}")
 
-    # --- Nagwa-only mode: keep only ws+port80 candidates, then normal pipeline ---
+    # --- Nagwa-only mode: keep only ws candidates, then normal pipeline ---
     if nagwa_only:
         before = len(all_links)
         all_links = [l for l in all_links if nagwa_rewrite_link(l) is not None]
-        print(f"[*] Nagwa-only mode: kept {len(all_links)}/{before} ws+port80 candidates, "
+        print(f"[*] Nagwa-only mode: kept {len(all_links)}/{before} ws candidates, "
               f"running normal pipeline on them.")
 
     # --- Convert to outbounds ---
@@ -1254,7 +1250,7 @@ def main():
         probe_variant_by_orig[ot] for ot in accepted_orig if ot in probe_variant_by_orig
     ]
 
-    # --- Nagwa file: ws+port80 survivors straight from MAIN results, rewritten ---
+    # --- Nagwa file: ws survivors straight from MAIN results, rewritten ---
     # No separate testing phase: these nodes already passed the main pipeline.
     # NOTE: the rewritten nagwa configs only connect from Egyptian ISP networks.
     nagwa_results = []
@@ -1268,9 +1264,9 @@ def main():
             seen_nagwa.add(tlink)
             nagwa_results.append((tlink, delay))
     if nagwa_results:
-        print(f"\n[+] Nagwa file: {len(nagwa_results)} ws+port80 survivors rewritten to nagwa form.")
+        print(f"\n[+] Nagwa file: {len(nagwa_results)} ws survivors rewritten to nagwa form.")
     else:
-        print("\n[-] Nagwa file: no ws+port80 nodes among working results.")
+        print("\n[-] Nagwa file: no ws nodes among working results.")
 
     if not results and not nagwa_results:
         if any_direct_fail:
