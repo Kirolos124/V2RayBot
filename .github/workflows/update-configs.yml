@@ -13,6 +13,11 @@ on:
 permissions:
   contents: write
 
+# Never run two updates in parallel: a newer run makes the older one obsolete
+concurrency:
+  group: update-proxies
+  cancel-in-progress: true
+
 jobs:
   update-proxies:
     runs-on: ubuntu-latest
