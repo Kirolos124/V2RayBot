@@ -17,6 +17,9 @@ Flags:
   --merge          ادمج مع ملف GitHub الحالي أيضاً (يتطلب نت شغال)
   --batch N        حجم الدفعة الواحدة (default 500)
   --timeout MS     مهلة كل نود بالمللي ثانية (default 8000)
+  --include-plain  اقبل الكونفجات بدون TLS (vmess/vless/ss) واختبرها كما هي
+  --nagwa-only     فلترة لمرشحي ws+port80 فقط ثم pipeline عادي (الملفات
+                   الباقية تتولد من نفس النتيجة المصغرة).
 """
 import sys
 import os
@@ -504,137 +507,77 @@ NAGWA_TXT = "working_nagwa_ws80.txt"
 NAGWA_SUB = "working_nagwa_ws80_subscription.txt"
 
 
-def build_nagwa_variant(link, idx):
-    """Rewrite ws+port80 link address/host, return (tag, outbound, transformed_link) or None.
+def nagwa_rewrite_link(link):
+    """Rewrite a ws+port80 link to nagwa address/host. Pure transform, no outbound.
 
     Accepts vmess, vless and trojan links whose transport is ws and port is 80.
-    The transformed config is ping-tested like everything else — survivors are
-    saved to the dedicated Nagwa files. No SNI forcing here; TLS (if present)
-    keeps its own sni so the handshake stays valid.
+    Returns the transformed link string, or None if not a candidate.
+    TLS keeps its own sni so the handshake stays valid.
     """
     try:
         scheme = urllib.parse.urlparse(link).scheme.lower()
         if scheme == "vmess":
-            return _build_nagwa_vmess(link, idx)
+            data = _b64_json_vmess(link)
+            if str(data.get("net", "")).lower() != "ws":
+                return None
+            if str(data.get("port", "")).strip() != "80":
+                return None
+            data["add"] = NAGWA_ADDR
+            data["host"] = NAGWA_WS_HOST
+            if not data.get("id"):
+                return None
+            return "vmess://" + base64.b64encode(json.dumps(data).encode()).decode()
         if scheme in ("vless", "trojan"):
-            return _build_nagwa_vless_trojan(link, idx, scheme)
+            parsed = urllib.parse.urlparse(link)
+            if "@" not in parsed.netloc:
+                return None
+            user_info, server_info = parsed.netloc.rsplit("@", 1)
+            if server_info.startswith("["):
+                end = server_info.rfind("]")
+                if end == -1:
+                    return None
+                port_part = server_info[end + 1:].lstrip(":")
+            else:
+                if ":" not in server_info:
+                    return None
+                port_part = server_info.rsplit(":", 1)[1]
+            try:
+                server_port = int(port_part.strip())
+            except ValueError:
+                return None
+            if server_port != 80:
+                return None
+            q = _scrub_query(dict(urllib.parse.parse_qsl(parsed.query)))
+            if (q.get("type") or "tcp").strip().lower() != "ws":
+                return None
+            security = q.get("security", "").lower()
+            if scheme == "trojan" and not security:
+                security = "tls"
+            is_tls = security in ("tls", "reality")
+            if not is_tls and scheme == "trojan":
+                return None  # trojan is TLS-only by design
+            mod_q = dict(q)
+            mod_q["host"] = NAGWA_WS_HOST
+            if not is_tls:
+                # mirror the known-working plain shape explicitly so client parsers
+                # never have to guess defaults (security/flow/encryption/headerType)
+                mod_q.setdefault("security", "none")
+                if scheme == "vless":
+                    mod_q.setdefault("flow", "none")
+                    mod_q.setdefault("encryption", "none")
+                mod_q.setdefault("headerType", "none")
+            new_netloc = f"{user_info}@{NAGWA_ADDR}:80"
+            return urllib.parse.ParseResult(
+                scheme=parsed.scheme,
+                netloc=new_netloc,
+                path=parsed.path,
+                params=parsed.params,
+                query=urllib.parse.urlencode(mod_q),
+                fragment=parsed.fragment,
+            ).geturl()
         return None
     except Exception:
         return None
-
-
-def _build_nagwa_vmess(link, idx):
-    data = _b64_json_vmess(link)
-    if str(data.get("net", "")).lower() != "ws":
-        return None
-    if str(data.get("port", "")).strip() != "80":
-        return None
-    data["add"] = NAGWA_ADDR
-    data["host"] = NAGWA_WS_HOST
-    tag = f"g{idx}"
-    outbound = {
-        "type": "vmess",
-        "tag": tag,
-        "server": NAGWA_ADDR,
-        "server_port": 80,
-        "uuid": data.get("id"),
-        "security": data.get("scy") or "auto",
-        "alter_id": int(data.get("aid", 0) or 0),
-    }
-    if str(data.get("tls", "")).lower() == "tls":
-        outbound["tls"] = _make_tls(
-            data.get("sni") or NAGWA_ADDR,
-            fp=_sanitize_fp(data.get("fp")),
-            alpn=[a.strip() for a in data["altn"].split(",")] if data.get("altn") else None,
-        )
-    tr = _make_transport("ws", data.get("path", ""), NAGWA_WS_HOST,
-                         data.get("path", ""), data.get("type", ""))
-    if tr:
-        outbound["transport"] = tr
-    if not outbound["uuid"]:
-        return None
-    transformed = "vmess://" + base64.b64encode(json.dumps(data).encode()).decode()
-    return tag, outbound, transformed
-
-
-def _build_nagwa_vless_trojan(link, idx, scheme):
-    parsed = urllib.parse.urlparse(link)
-    if "@" not in parsed.netloc:
-        return None
-    user_info, server_info = parsed.netloc.rsplit("@", 1)
-    # split host/port (IPv6-aware)
-    if server_info.startswith("["):
-        end = server_info.rfind("]")
-        if end == -1:
-            return None
-        port_part = server_info[end + 1:].lstrip(":")
-    else:
-        if ":" not in server_info:
-            return None
-        port_part = server_info.rsplit(":", 1)[1]
-    try:
-        server_port = int(port_part.strip())
-    except ValueError:
-        return None
-    if server_port != 80:
-        return None
-    q = _scrub_query(dict(urllib.parse.parse_qsl(parsed.query)))
-    if (q.get("type") or "tcp").strip().lower() != "ws":
-        return None
-    security = q.get("security", "").lower()
-    if scheme == "trojan" and not security:
-        security = "tls"
-    is_tls = security in ("tls", "reality")
-    if not is_tls and scheme == "trojan":
-        return None  # trojan is TLS-only by design
-    tag = f"g{idx}"
-    outbound = {
-        "type": scheme,
-        "tag": tag,
-        "server": NAGWA_ADDR,
-        "server_port": 80,
-    }
-    if is_tls:
-        sni = q.get("sni", "") or NAGWA_ADDR
-        reality = None
-        if security == "reality":
-            reality = {
-                "enabled": True,
-                "public_key": q.get("pbk", ""),
-                "short_id": q.get("sid", ""),
-            }
-            if not reality["public_key"]:
-                return None
-        outbound["tls"] = _make_tls(
-            sni,
-            fp=_sanitize_fp(q.get("fp")),
-            alpn=[a.strip() for a in q["alpn"].split(",")] if q.get("alpn") else None,
-            reality=reality,
-        )
-    if scheme == "vless":
-        outbound["uuid"] = user_info
-        flow = _sanitize_flow(q.get("flow"))
-        if flow:
-            outbound["flow"] = flow
-    else:
-        outbound["password"] = urllib.parse.unquote(user_info)
-    tr = _make_transport("ws", q.get("path", ""), NAGWA_WS_HOST,
-                         q.get("serviceName", ""), q.get("headerType", ""))
-    if tr:
-        outbound["transport"] = tr
-    # transformed link: server -> nagwa, ws host -> magic, everything else kept
-    mod_q = dict(q)
-    mod_q["host"] = NAGWA_WS_HOST
-    new_netloc = f"{user_info}@{NAGWA_ADDR}:80"
-    transformed = urllib.parse.ParseResult(
-        scheme=parsed.scheme,
-        netloc=new_netloc,
-        path=parsed.path,
-        params=parsed.params,
-        query=urllib.parse.urlencode(mod_q),
-        fragment=parsed.fragment,
-    ).geturl()
-    return tag, outbound, transformed
 
 
 def clone_with_sni(link, new_sni):
@@ -1018,6 +961,24 @@ def upload_results(retry_upload):
 
 # ------------------------------ main ------------------------------
 
+def save_nagwa_files(nagwa_results):
+    """Write NAGWA_TXT/NAGWA_SUB from pipeline results. Returns True if saved."""
+    try:
+        nagwa_links = [link for link, _ in nagwa_results]
+        if nagwa_links:
+            with open(NAGWA_TXT, "w", encoding="utf-8") as f:
+                f.write("\n".join(nagwa_links) + "\n")
+            with open(NAGWA_SUB, "w", encoding="utf-8") as f:
+                f.write(base64.b64encode("\n".join(nagwa_links).encode('utf-8')).decode('utf-8'))
+            print(f"[+] Saved {len(nagwa_links)} Nagwa WS:80 nodes to '{NAGWA_TXT}' (+ base64).")
+            return True
+        print(f"[-] No Nagwa WS:80 survivors — skipping '{NAGWA_TXT}'.")
+        return False
+    except Exception as e:
+        print(f"[-] Failed to write Nagwa files: {e}")
+        return False
+
+
 def load_existing_nodes(txt_filename):
     existing = []
     if os.path.exists(txt_filename):
@@ -1063,6 +1024,7 @@ def main():
     retest_count = 50  # 0 disables the second verification pass
     force_sni = '--force-sni' in flags
     allow_plain = '--include-plain' in flags
+    nagwa_only = '--nagwa-only' in flags
     extra_snis = []
     for flag in flags:
         if flag.startswith('--extra-sni='):
@@ -1164,6 +1126,13 @@ def main():
     all_links = dedup_links(all_links)
     print(f"\n[+] Total unique candidate links: {len(all_links)}")
 
+    # --- Nagwa-only mode: keep only ws+port80 candidates, then normal pipeline ---
+    if nagwa_only:
+        before = len(all_links)
+        all_links = [l for l in all_links if nagwa_rewrite_link(l) is not None]
+        print(f"[*] Nagwa-only mode: kept {len(all_links)}/{before} ws+port80 candidates, "
+              f"running normal pipeline on them.")
+
     # --- Convert to outbounds ---
     if allow_plain:
         print("[*] Converting links to sing-box outbounds (TLS + SNI override, plain allowed)...")
@@ -1172,6 +1141,7 @@ def main():
     outbounds = []       # list of outbound dicts
     tag_to_link = {}     # tag -> modified-style display link (original)
     tag_to_sni_custom = {}  # tag -> True if node tested WITH custom_sni
+    tag_to_orig = {}     # tag -> original fetched link (for nagwa derivation)
     idx = 0
     discarded = 0
     for link in all_links:
@@ -1181,6 +1151,7 @@ def main():
             outbounds.append(ob)
             tag_to_link[tag] = modified_link
             tag_to_sni_custom[tag] = sni_is_custom
+            tag_to_orig[tag] = link
             idx += 1
         else:
             discarded += 1
@@ -1283,42 +1254,23 @@ def main():
         probe_variant_by_orig[ot] for ot in accepted_orig if ot in probe_variant_by_orig
     ]
 
-    # --- Nagwa WS:80 pipeline: vmess/vless/trojan +ws+port80 rewritten to nagwa address/host ---
-    nagwa_results = []  # [(transformed_link, delay)]
-    nagwa_cands = []
-    for i, link in enumerate(all_links):
-        r = build_nagwa_variant(link, i)
-        if r:
-            nagwa_cands.append(r)
+    # --- Nagwa file: ws+port80 survivors straight from MAIN results, rewritten ---
+    # No separate testing phase: these nodes already passed the main pipeline.
+    # NOTE: the rewritten nagwa configs only connect from Egyptian ISP networks.
+    nagwa_results = []
     seen_nagwa = set()
-    nagwa_unique = []
-    for tag, ob, tlink in nagwa_cands:
-        if tlink in seen_nagwa:
+    for tag, delay in sorted(results.items(), key=lambda x: x[1]):
+        orig = tag_to_orig.get(tag)
+        if not orig:
             continue
-        seen_nagwa.add(tlink)
-        nagwa_unique.append((tag, ob, tlink))
-    if nagwa_unique:
-        print(f"\n[*] Nagwa WS:80 pipeline: {len(nagwa_unique)} candidates "
-              f"(address={NAGWA_ADDR}, host={NAGWA_WS_HOST})...")
-        nagwa_tag_to_link = {t: l for t, _o, l in nagwa_unique}
-        nb_total = (len(nagwa_unique) + batch_size - 1) // batch_size
-        for i in range(nb_total):
-            chunk = [ob for _t, ob, _l in nagwa_unique[i * batch_size:(i + 1) * batch_size]]
-            t0 = time.time()
-            delays, _n_direct = run_batch(singbox_path, chunk, 5000 + i, TEST_URL, timeout_ms)
-            found_n = 0
-            for t, d in delays.items():
-                if t == "direct":
-                    continue
-                if t in nagwa_tag_to_link:
-                    nagwa_results.append((nagwa_tag_to_link[t], d))
-                    found_n += 1
-            print(f"[Nagwa {i+1}/{nb_total}] {found_n}/{len(chunk)} alive "
-                  f"in {time.time()-t0:.1f}s | running total: {len(nagwa_results)}")
-        nagwa_results.sort(key=lambda x: x[1])
-        print(f"[+] Nagwa WS:80 completed: {len(nagwa_results)} working.")
+        tlink = nagwa_rewrite_link(orig)
+        if tlink and tlink not in seen_nagwa:
+            seen_nagwa.add(tlink)
+            nagwa_results.append((tlink, delay))
+    if nagwa_results:
+        print(f"\n[+] Nagwa file: {len(nagwa_results)} ws+port80 survivors rewritten to nagwa form.")
     else:
-        print("\n[-] Nagwa WS:80: no ws+port80 candidates found.")
+        print("\n[-] Nagwa file: no ws+port80 nodes among working results.")
 
     if not results and not nagwa_results:
         if any_direct_fail:
@@ -1375,18 +1327,7 @@ def main():
         print(f"[+] Saved {len(sni_links_sorted)} nodes verified on '{custom_sni}' "
               f"to '{sni_txt}' (+ base64).")
         # --- Nagwa WS:80 dedicated files (rewritten address/host, ping-tested) ---
-        try:
-            nagwa_links = [link for link, _ in nagwa_results]
-            if nagwa_links:
-                with open(NAGWA_TXT, "w", encoding="utf-8") as f:
-                    f.write("\n".join(nagwa_links) + "\n")
-                with open(NAGWA_SUB, "w", encoding="utf-8") as f:
-                    f.write(base64.b64encode("\n".join(nagwa_links).encode('utf-8')).decode('utf-8'))
-                print(f"[+] Saved {len(nagwa_links)} Nagwa WS:80 nodes to '{NAGWA_TXT}' (+ base64).")
-            else:
-                print(f"[-] No Nagwa WS:80 survivors — skipping '{NAGWA_TXT}'.")
-        except Exception as e:
-            print(f"[-] Failed to write Nagwa files: {e}")
+        save_nagwa_files(nagwa_results)
         # --- Extra SNI exact clones (same nodes, different SNI, no re-test) ---
         for esni in extra_snis:
             safe = re.sub(r'[^a-zA-Z0-9]+', '_', esni.split('.')[0].strip().lower()) or "extra"
