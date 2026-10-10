@@ -201,7 +201,7 @@ def parse_content_to_links(content_str):
         if padding:
             b64_str += '=' * (4 - padding)
         decoded = base64.b64decode(b64_str).decode('utf-8', errors='ignore')
-        if not any(proto in decoded for proto in ('vmess://', 'vless://', 'trojan://')):
+        if not any(proto in decoded for proto in ('vmess://', 'vless://', 'trojan://', 'ss://')):
             decoded = None
     except Exception:
         decoded = None
@@ -210,7 +210,7 @@ def parse_content_to_links(content_str):
     links = []
     for line in text.splitlines():
         line = line.strip()
-        if line.startswith(('vmess://', 'vless://', 'trojan://')):
+        if line.startswith(('vmess://', 'vless://', 'trojan://', 'ss://')):
             links.append(line)
     return links
 
@@ -241,6 +241,25 @@ def _b64_json_vmess(url):
     if padding:
         b64_str += '=' * (4 - padding)
     return json.loads(base64.b64decode(b64_str).decode('utf-8', errors='ignore'))
+
+
+def _scrub_query(q):
+    """Remove '#'-polluted fragments from query keys/values.
+
+    Source authors sometimes embed the remark as an encoded %23 INSIDE a
+    param value (e.g. type=tcp%23name) — Hiddify's parser then reads transport
+    "tcp#name" and the whole background core fails to start.
+    """
+    cleaned_q = {}
+    for k, v in q.items():
+        if "#" in v:
+            v, _, _tail = v.partition("#")
+            v = v.strip()
+        k = k.replace("#", "").strip()
+        if not k:
+            continue
+        cleaned_q[k] = v
+    return cleaned_q
 
 
 def _make_tls(server_name, insecure=True, fp=None, alpn=None, reality=None):
@@ -285,10 +304,12 @@ def _make_transport(net, path="", host="", service_name="", header_type=""):
     return None  # plain tcp -> no transport
 
 
-def build_outbound(link, custom_sni, idx, force_sni=False):
+def build_outbound(link, custom_sni, idx, force_sni=False, allow_plain=False):
     """Convert one link to a sing-box outbound.
 
     Returns (tag, outbound, modified_link, sni_is_custom) or None.
+    With allow_plain=True, non-TLS vmess/vless and ss:// links are also
+    accepted and tested as-is (modified_link == original link).
     sni_is_custom=True means the node was tested WITH custom_sni
     (qualifies for the dedicated speedtest.net file).
 
@@ -305,8 +326,9 @@ def build_outbound(link, custom_sni, idx, force_sni=False):
 
         if scheme == "vmess":
             data = _b64_json_vmess(link)
-            if str(data.get("tls", "")).lower() != "tls":
-                return None
+            is_tls = str(data.get("tls", "")).lower() == "tls"
+            if not is_tls and not allow_plain:
+                return None  # Discard non-TLS
             net = data.get("net", "tcp")
             outbound = {
                 "type": "vmess",
@@ -316,18 +338,21 @@ def build_outbound(link, custom_sni, idx, force_sni=False):
                 "uuid": data.get("id"),
                 "security": data.get("scy") or "auto",
                 "alter_id": int(data.get("aid", 0) or 0),
-                "tls": _make_tls(
+            }
+            if is_tls:
+                outbound["tls"] = _make_tls(
                     custom_sni,
                     fp=_sanitize_fp(data.get("fp")),
                     alpn=[a.strip() for a in data["altn"].split(",")] if data.get("altn") else None,
-                ),
-            }
+                )
             tr = _make_transport(net, data.get("path", ""), data.get("host", ""),
                                  data.get("path", ""), data.get("type", ""))
             if tr:
                 outbound["transport"] = tr
             if not outbound["server"] or not outbound["uuid"]:
                 return None
+            if not is_tls:
+                return tag, outbound, link, False  # plain: test & save as-is
             # Modified vmess link with new SNI + insecure
             mod = dict(data)
             mod["sni"] = custom_sni
@@ -347,29 +372,15 @@ def build_outbound(link, custom_sni, idx, force_sni=False):
             server_port = int(server_port)
             q = dict(urllib.parse.parse_qsl(parsed.query))
 
-            # Scrub '#'-polluted params: source authors sometimes embed the
-            # remark as an encoded %23 INSIDE a param value
-            # (e.g. type=tcp%23name) — Hiddify's parser then reads transport
-            # "tcp#name" and the whole background core fails to start.
-            recovered_fragments = []
-            cleaned_q = {}
-            for k, v in q.items():
-                if "#" in v:
-                    v, _, tail = v.partition("#")
-                    if tail:
-                        recovered_fragments.append(tail)
-                    v = v.strip()
-                k = k.replace("#", "").strip()
-                if not k:
-                    continue
-                cleaned_q[k] = v
-            q = cleaned_q
+            # Scrub '#'-polluted params (see _scrub_query).
+            q = _scrub_query(q)
 
             security = q.get("security", "").lower()
             if scheme == "trojan" and not security:
                 security = "tls"
-            if security not in ("tls", "reality"):
-                return None
+            is_tls = security in ("tls", "reality")
+            if not is_tls and not (allow_plain and scheme == "vless"):
+                return None  # Discard non-TLS (trojan is TLS-only by design)
 
             # SNI: reality keeps its own unless force_sni, tls gets the custom one
             sni = custom_sni if (security == "tls" or force_sni) else q.get("sni", "")
@@ -388,13 +399,14 @@ def build_outbound(link, custom_sni, idx, force_sni=False):
                 "tag": tag,
                 "server": server_addr,
                 "server_port": server_port,
-                "tls": _make_tls(
+            }
+            if is_tls:
+                outbound["tls"] = _make_tls(
                     sni,
                     fp=_sanitize_fp(q.get("fp")),
                     alpn=[a.strip() for a in q["alpn"].split(",")] if q.get("alpn") else None,
                     reality=reality,
-                ),
-            }
+                )
             if scheme == "vless":
                 outbound["uuid"] = user_info
                 flow = _sanitize_flow(q.get("flow"))
@@ -413,6 +425,8 @@ def build_outbound(link, custom_sni, idx, force_sni=False):
                                  q.get("serviceName", ""), q.get("headerType", ""))
             if tr:
                 outbound["transport"] = tr
+            if not is_tls:
+                return tag, outbound, link, False  # plain: test & save as-is
             # Modified link: new SNI (tls always; reality only when forced)
             # + explicit insecure flags. Both 'allowInsecure' and 'insecure' are
             # set to '1' so clients reading either parameter see consistent
@@ -438,9 +452,189 @@ def build_outbound(link, custom_sni, idx, force_sni=False):
             sni_is_custom = (security == "tls") or (security == "reality" and force_sni)
             return tag, outbound, modified_link, sni_is_custom
 
+        if scheme == "ss" and allow_plain:
+            # ss://BASE64(method:password@host:port) or ss://method:password@host:port
+            try:
+                rest = link[5:]
+                if "#" in rest:
+                    rest = rest.split("#", 1)[0]
+                if "/?" in rest:
+                    main, _query = rest.split("/?", 1)
+                elif "?" in rest:
+                    main, _query = rest.split("?", 1)
+                else:
+                    main = rest
+                if "@" not in main:
+                    padded = main + "=" * (-len(main) % 4)
+                    main = base64.b64decode(padded).decode("utf-8", errors="ignore")
+                if "@" not in main:
+                    return None
+                userinfo, hostport = main.rsplit("@", 1)
+                if ":" not in userinfo or ":" not in hostport:
+                    return None
+                method, password = userinfo.split(":", 1)
+                host, port = hostport.rsplit(":", 1)
+                host = host.strip("[]")
+                port = int(port.split("/")[0])
+                if not (1 <= port <= 65535) or not method or not password:
+                    return None
+                outbound = {
+                    "type": "shadowsocks",
+                    "tag": tag,
+                    "server": host,
+                    "server_port": port,
+                    "method": method,
+                    "password": password,
+                }
+                return tag, outbound, link, False  # plain: test & save as-is
+            except Exception:
+                return None
+
         return None
     except Exception:
         return None
+
+
+# --- Nagwa WS:80 special pipeline ---
+# vmess/vless/trojan + ws + port 80 links get their address/host rewritten,
+# then ping-tested.
+NAGWA_ADDR = "www.nagwa.com"
+NAGWA_WS_HOST = "www.nagwa.com.etcetc.cc.cd"
+NAGWA_TXT = "working_nagwa_ws80.txt"
+NAGWA_SUB = "working_nagwa_ws80_subscription.txt"
+
+
+def build_nagwa_variant(link, idx):
+    """Rewrite ws+port80 link address/host, return (tag, outbound, transformed_link) or None.
+
+    Accepts vmess, vless and trojan links whose transport is ws and port is 80.
+    The transformed config is ping-tested like everything else — survivors are
+    saved to the dedicated Nagwa files. No SNI forcing here; TLS (if present)
+    keeps its own sni so the handshake stays valid.
+    """
+    try:
+        scheme = urllib.parse.urlparse(link).scheme.lower()
+        if scheme == "vmess":
+            return _build_nagwa_vmess(link, idx)
+        if scheme in ("vless", "trojan"):
+            return _build_nagwa_vless_trojan(link, idx, scheme)
+        return None
+    except Exception:
+        return None
+
+
+def _build_nagwa_vmess(link, idx):
+    data = _b64_json_vmess(link)
+    if str(data.get("net", "")).lower() != "ws":
+        return None
+    if str(data.get("port", "")).strip() != "80":
+        return None
+    data["add"] = NAGWA_ADDR
+    data["host"] = NAGWA_WS_HOST
+    tag = f"g{idx}"
+    outbound = {
+        "type": "vmess",
+        "tag": tag,
+        "server": NAGWA_ADDR,
+        "server_port": 80,
+        "uuid": data.get("id"),
+        "security": data.get("scy") or "auto",
+        "alter_id": int(data.get("aid", 0) or 0),
+    }
+    if str(data.get("tls", "")).lower() == "tls":
+        outbound["tls"] = _make_tls(
+            data.get("sni") or NAGWA_ADDR,
+            fp=_sanitize_fp(data.get("fp")),
+            alpn=[a.strip() for a in data["altn"].split(",")] if data.get("altn") else None,
+        )
+    tr = _make_transport("ws", data.get("path", ""), NAGWA_WS_HOST,
+                         data.get("path", ""), data.get("type", ""))
+    if tr:
+        outbound["transport"] = tr
+    if not outbound["uuid"]:
+        return None
+    transformed = "vmess://" + base64.b64encode(json.dumps(data).encode()).decode()
+    return tag, outbound, transformed
+
+
+def _build_nagwa_vless_trojan(link, idx, scheme):
+    parsed = urllib.parse.urlparse(link)
+    if "@" not in parsed.netloc:
+        return None
+    user_info, server_info = parsed.netloc.rsplit("@", 1)
+    # split host/port (IPv6-aware)
+    if server_info.startswith("["):
+        end = server_info.rfind("]")
+        if end == -1:
+            return None
+        port_part = server_info[end + 1:].lstrip(":")
+    else:
+        if ":" not in server_info:
+            return None
+        port_part = server_info.rsplit(":", 1)[1]
+    try:
+        server_port = int(port_part.strip())
+    except ValueError:
+        return None
+    if server_port != 80:
+        return None
+    q = _scrub_query(dict(urllib.parse.parse_qsl(parsed.query)))
+    if (q.get("type") or "tcp").strip().lower() != "ws":
+        return None
+    security = q.get("security", "").lower()
+    if scheme == "trojan" and not security:
+        security = "tls"
+    is_tls = security in ("tls", "reality")
+    if not is_tls and scheme == "trojan":
+        return None  # trojan is TLS-only by design
+    tag = f"g{idx}"
+    outbound = {
+        "type": scheme,
+        "tag": tag,
+        "server": NAGWA_ADDR,
+        "server_port": 80,
+    }
+    if is_tls:
+        sni = q.get("sni", "") or NAGWA_ADDR
+        reality = None
+        if security == "reality":
+            reality = {
+                "enabled": True,
+                "public_key": q.get("pbk", ""),
+                "short_id": q.get("sid", ""),
+            }
+            if not reality["public_key"]:
+                return None
+        outbound["tls"] = _make_tls(
+            sni,
+            fp=_sanitize_fp(q.get("fp")),
+            alpn=[a.strip() for a in q["alpn"].split(",")] if q.get("alpn") else None,
+            reality=reality,
+        )
+    if scheme == "vless":
+        outbound["uuid"] = user_info
+        flow = _sanitize_flow(q.get("flow"))
+        if flow:
+            outbound["flow"] = flow
+    else:
+        outbound["password"] = urllib.parse.unquote(user_info)
+    tr = _make_transport("ws", q.get("path", ""), NAGWA_WS_HOST,
+                         q.get("serviceName", ""), q.get("headerType", ""))
+    if tr:
+        outbound["transport"] = tr
+    # transformed link: server -> nagwa, ws host -> magic, everything else kept
+    mod_q = dict(q)
+    mod_q["host"] = NAGWA_WS_HOST
+    new_netloc = f"{user_info}@{NAGWA_ADDR}:80"
+    transformed = urllib.parse.ParseResult(
+        scheme=parsed.scheme,
+        netloc=new_netloc,
+        path=parsed.path,
+        params=parsed.params,
+        query=urllib.parse.urlencode(mod_q),
+        fragment=parsed.fragment,
+    ).geturl()
+    return tag, outbound, transformed
 
 
 def clone_with_sni(link, new_sni):
@@ -624,6 +818,13 @@ def _clash_proxy_from_outbound(o):
 
     proxy = {"name": o.get("tag", ""), "type": ptype, "server": server,
              "port": int(port)}
+
+    if ptype == "shadowsocks":
+        # shadowsocks has no network/tls layers in Clash format
+        proxy["type"] = "ss"
+        proxy["cipher"] = o.get("method", "")
+        proxy["password"] = o.get("password", "")
+        return proxy if proxy["cipher"] and proxy["password"] else None
 
     net = transport.get("type", "tcp")
     if net in ("h2", "http"):
@@ -861,6 +1062,7 @@ def main():
     timeout_ms = TIMEOUT_MS
     retest_count = 50  # 0 disables the second verification pass
     force_sni = '--force-sni' in flags
+    allow_plain = '--include-plain' in flags
     extra_snis = []
     for flag in flags:
         if flag.startswith('--extra-sni='):
@@ -963,14 +1165,17 @@ def main():
     print(f"\n[+] Total unique candidate links: {len(all_links)}")
 
     # --- Convert to outbounds ---
-    print("[*] Converting links to sing-box outbounds (TLS filter + SNI override)...")
+    if allow_plain:
+        print("[*] Converting links to sing-box outbounds (TLS + SNI override, plain allowed)...")
+    else:
+        print("[*] Converting links to sing-box outbounds (TLS filter + SNI override)...")
     outbounds = []       # list of outbound dicts
     tag_to_link = {}     # tag -> modified-style display link (original)
     tag_to_sni_custom = {}  # tag -> True if node tested WITH custom_sni
     idx = 0
     discarded = 0
     for link in all_links:
-        result = build_outbound(link, custom_sni, idx, force_sni=force_sni)
+        result = build_outbound(link, custom_sni, idx, force_sni=force_sni, allow_plain=allow_plain)
         if result:
             tag, ob, modified_link, sni_is_custom = result
             outbounds.append(ob)
@@ -979,8 +1184,8 @@ def main():
             idx += 1
         else:
             discarded += 1
-    print(f"[+] {len(outbounds)} TLS/Reality configurations ready.")
-    print(f"[-] Discarded {discarded} non-TLS or invalid configurations.")
+    print(f"[+] {len(outbounds)} TLS/Reality{' + plain' if allow_plain else ''} configurations ready.")
+    print(f"[-] Discarded {discarded} {'invalid' if allow_plain else 'non-TLS or invalid'} configurations.")
 
     if not outbounds:
         print("[-] No compatible configurations found. Exiting.")
@@ -1078,7 +1283,44 @@ def main():
         probe_variant_by_orig[ot] for ot in accepted_orig if ot in probe_variant_by_orig
     ]
 
-    if not results:
+    # --- Nagwa WS:80 pipeline: vmess/vless/trojan +ws+port80 rewritten to nagwa address/host ---
+    nagwa_results = []  # [(transformed_link, delay)]
+    nagwa_cands = []
+    for i, link in enumerate(all_links):
+        r = build_nagwa_variant(link, i)
+        if r:
+            nagwa_cands.append(r)
+    seen_nagwa = set()
+    nagwa_unique = []
+    for tag, ob, tlink in nagwa_cands:
+        if tlink in seen_nagwa:
+            continue
+        seen_nagwa.add(tlink)
+        nagwa_unique.append((tag, ob, tlink))
+    if nagwa_unique:
+        print(f"\n[*] Nagwa WS:80 pipeline: {len(nagwa_unique)} candidates "
+              f"(address={NAGWA_ADDR}, host={NAGWA_WS_HOST})...")
+        nagwa_tag_to_link = {t: l for t, _o, l in nagwa_unique}
+        nb_total = (len(nagwa_unique) + batch_size - 1) // batch_size
+        for i in range(nb_total):
+            chunk = [ob for _t, ob, _l in nagwa_unique[i * batch_size:(i + 1) * batch_size]]
+            t0 = time.time()
+            delays, _n_direct = run_batch(singbox_path, chunk, 5000 + i, TEST_URL, timeout_ms)
+            found_n = 0
+            for t, d in delays.items():
+                if t == "direct":
+                    continue
+                if t in nagwa_tag_to_link:
+                    nagwa_results.append((nagwa_tag_to_link[t], d))
+                    found_n += 1
+            print(f"[Nagwa {i+1}/{nb_total}] {found_n}/{len(chunk)} alive "
+                  f"in {time.time()-t0:.1f}s | running total: {len(nagwa_results)}")
+        nagwa_results.sort(key=lambda x: x[1])
+        print(f"[+] Nagwa WS:80 completed: {len(nagwa_results)} working.")
+    else:
+        print("\n[-] Nagwa WS:80: no ws+port80 candidates found.")
+
+    if not results and not nagwa_results:
         if any_direct_fail:
             print(f"{Color.YELLOW}[!] Your internet connection was failing during the test "
                   f"(direct checks failed). Fix your connection and try again.{Color.RESET}")
@@ -1132,6 +1374,19 @@ def main():
             f.write(enc2)
         print(f"[+] Saved {len(sni_links_sorted)} nodes verified on '{custom_sni}' "
               f"to '{sni_txt}' (+ base64).")
+        # --- Nagwa WS:80 dedicated files (rewritten address/host, ping-tested) ---
+        try:
+            nagwa_links = [link for link, _ in nagwa_results]
+            if nagwa_links:
+                with open(NAGWA_TXT, "w", encoding="utf-8") as f:
+                    f.write("\n".join(nagwa_links) + "\n")
+                with open(NAGWA_SUB, "w", encoding="utf-8") as f:
+                    f.write(base64.b64encode("\n".join(nagwa_links).encode('utf-8')).decode('utf-8'))
+                print(f"[+] Saved {len(nagwa_links)} Nagwa WS:80 nodes to '{NAGWA_TXT}' (+ base64).")
+            else:
+                print(f"[-] No Nagwa WS:80 survivors — skipping '{NAGWA_TXT}'.")
+        except Exception as e:
+            print(f"[-] Failed to write Nagwa files: {e}")
         # --- Extra SNI exact clones (same nodes, different SNI, no re-test) ---
         for esni in extra_snis:
             safe = re.sub(r'[^a-zA-Z0-9]+', '_', esni.split('.')[0].strip().lower()) or "extra"
@@ -1293,6 +1548,8 @@ def main():
                 ("clash_config.yaml", f"Update Clash ready config ({len(results)} working nodes)"),
                 ("singbox_sni_matched.json", f"Update sing-box config ({custom_sni} SNI nodes only)"),
                 ("clash_sni_matched.yaml", f"Update Clash config ({custom_sni} SNI nodes only)"),
+                (NAGWA_TXT, f"Update Nagwa WS:80 proxies ({len(nagwa_results)} working)"),
+                (NAGWA_SUB, f"Update Nagwa WS:80 subscription ({len(nagwa_results)} working)"),
             ]:
                 if os.path.exists(extra_name):
                     with open(extra_name, "rb") as f:
