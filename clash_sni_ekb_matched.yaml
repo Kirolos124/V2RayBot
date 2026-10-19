@@ -19,27 +19,6 @@
   "proxies": [
     {
       "name": "m0",
-      "type": "vless",
-      "server": "hoert1rert.localip.ir",
-      "port": 2087,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/hokm",
-        "headers": {
-          "Host": "hoert1rert.localip.ir"
-        }
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "alpn": [
-        "http/1.1"
-      ],
-      "uuid": "a5db5ab5-8d28-49c0-ad55-0ad4724e4c0d"
-    },
-    {
-      "name": "m1",
       "type": "trojan",
       "server": "de10.dedushka.top",
       "port": 443,
@@ -54,49 +33,7 @@
       "password": "4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA"
     },
     {
-      "name": "m2",
-      "type": "trojan",
-      "server": "de2.dedushka.top",
-      "port": 443,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "alpn": [
-        "http/1.1"
-      ],
-      "password": "4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA"
-    },
-    {
-      "name": "m3",
-      "type": "trojan",
-      "server": "de4.dedushka.top",
-      "port": 443,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "alpn": [
-        "http/1.1"
-      ],
-      "password": "4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA"
-    },
-    {
-      "name": "m4",
-      "type": "trojan",
-      "server": "de7.dedushka.top",
-      "port": 443,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "password": "4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA"
-    },
-    {
-      "name": "m5",
+      "name": "m1",
       "type": "trojan",
       "server": "de9.dedushka.top",
       "port": 443,
@@ -111,19 +48,35 @@
       "password": "4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA"
     },
     {
-      "name": "m6",
-      "type": "trojan",
-      "server": "108.61.186.37",
-      "port": 443,
+      "name": "m2",
+      "type": "vmess",
+      "server": "141.95.65.9",
+      "port": 1234,
       "network": "tcp",
       "tls": true,
       "servername": "ekb.eg",
       "skip-cert-verify": true,
       "client-fingerprint": "chrome",
-      "password": "Trojan@82164024"
+      "uuid": "5c040f1d-45db-43bd-8d46-e4950e433735",
+      "alterId": 0,
+      "cipher": "aes-128-gcm"
     },
     {
-      "name": "m7",
+      "name": "m3",
+      "type": "vmess",
+      "server": "162.19.204.71",
+      "port": 1234,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "uuid": "5c040f1d-45db-43bd-8d46-e4950e433735",
+      "alterId": 0,
+      "cipher": "auto"
+    },
+    {
+      "name": "m4",
       "type": "vless",
       "server": "139.162.27.96",
       "port": 2096,
@@ -141,7 +94,7 @@
       "uuid": "6e59d5c5-7aa3-4c36-a4c4-e3b899525ed2"
     },
     {
-      "name": "m8",
+      "name": "m5",
       "type": "vless",
       "server": "199.232.78.159",
       "port": 443,
@@ -159,7 +112,19 @@
       "uuid": "eccc053a-7196-47cb-a4b5-f4b8bfd743d9"
     },
     {
-      "name": "m9",
+      "name": "m6",
+      "type": "trojan",
+      "server": "47.250.84.25",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "password": "5931134d1cde66bf83a54acdfebe7ab2"
+    },
+    {
+      "name": "m7",
       "type": "vless",
       "server": "146.75.59.186",
       "port": 443,
@@ -177,134 +142,106 @@
       "uuid": "eccc053a-7196-47cb-a4b5-f4b8bfd743d9"
     },
     {
+      "name": "m8",
+      "type": "trojan",
+      "server": "de7.dedushka.top",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "password": "4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA"
+    },
+    {
+      "name": "m9",
+      "type": "trojan",
+      "server": "blog.findlocaljobnetworkandbuildcommunityconnections.com",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "password": "dba20dcb635e430fa4d3bfc303a149d2"
+    },
+    {
       "name": "m10",
-      "type": "vmess",
-      "server": "140.238.55.84",
+      "type": "vless",
+      "server": "91.107.247.173",
       "port": 2083,
       "network": "ws",
       "ws-opts": {
-        "path": "/or3"
+        "path": "/"
       },
       "tls": true,
       "servername": "ekb.eg",
       "skip-cert-verify": true,
       "client-fingerprint": "chrome",
-      "uuid": "ac251237-576f-40c8-a543-554960c958b1",
-      "alterId": 0,
-      "cipher": "auto"
+      "uuid": "7858128a-6b5e-4f86-9bff-52c1f1e6439d"
     },
     {
       "name": "m11",
       "type": "trojan",
-      "server": "ca.tronsg.com",
-      "port": 443,
+      "server": "66.23.203.21",
+      "port": 59689,
       "network": "tcp",
       "tls": true,
       "servername": "ekb.eg",
       "skip-cert-verify": true,
       "client-fingerprint": "chrome",
-      "password": "Trojan@82164024"
+      "password": "ae7eb4dwyaz25pxwgq59"
     },
     {
       "name": "m12",
-      "type": "vless",
-      "server": "94.103.168.125",
-      "port": 2087,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/hokm",
-        "headers": {
-          "Host": "sdcdethyerft.localip.ir"
-        }
-      },
+      "type": "trojan",
+      "server": "139.180.146.200",
+      "port": 8886,
+      "network": "tcp",
       "tls": true,
       "servername": "ekb.eg",
       "skip-cert-verify": true,
-      "client-fingerprint": "safari",
-      "uuid": "a5db5ab5-8d28-49c0-ad55-0ad4724e4c0d"
+      "client-fingerprint": "chrome",
+      "password": "e26a229d-e8f2-4ff9-8c7d-58a9d83ee437"
     },
     {
       "name": "m13",
-      "type": "vless",
-      "server": "51.38.71.147",
-      "port": 8443,
+      "type": "trojan",
+      "server": "45.32.52.173",
+      "port": 8886,
       "network": "tcp",
       "tls": true,
       "servername": "ekb.eg",
       "skip-cert-verify": true,
-      "client-fingerprint": "firefox",
-      "uuid": "c08f0056-7a6d-4931-813b-aaa3cdd00aed"
+      "client-fingerprint": "chrome",
+      "password": "e26a229d-e8f2-4ff9-8c7d-58a9d83ee437"
     },
     {
       "name": "m14",
-      "type": "vless",
-      "server": "186.190.211.188",
-      "port": 443,
+      "type": "trojan",
+      "server": "2.27.109.179",
+      "port": 45464,
       "network": "tcp",
       "tls": true,
       "servername": "ekb.eg",
       "skip-cert-verify": true,
       "client-fingerprint": "chrome",
-      "alpn": [
-        "http/1.1"
-      ],
-      "uuid": "03fcc618-b93d-6796-6aed-8a38c975d581"
+      "password": "XuMweB2PWs"
     },
     {
       "name": "m15",
-      "type": "vmess",
-      "server": "45.90.106.24",
-      "port": 1234,
+      "type": "trojan",
+      "server": "109.206.241.10",
+      "port": 449,
       "network": "tcp",
       "tls": true,
       "servername": "ekb.eg",
       "skip-cert-verify": true,
       "client-fingerprint": "chrome",
-      "uuid": "5c040f1d-45db-43bd-8d46-e4950e433735",
-      "alterId": 0,
-      "cipher": "aes-128-gcm"
+      "password": "oiiaB38ywjEHCWRs_O_a_1113_Il_KeyyyHop_Bes1"
     },
     {
       "name": "m16",
-      "type": "trojan",
-      "server": "167.82.64.46",
-      "port": 443,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/",
-        "headers": {
-          "Host": "mitivpn-mitivpn-mitivpn.global.ssl.fastly.net"
-        }
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "alpn": [
-        "http/1.1"
-      ],
-      "password": "mitivpn"
-    },
-    {
-      "name": "m17",
-      "type": "vless",
-      "server": "94.103.168.125",
-      "port": 2087,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/hokm",
-        "headers": {
-          "Host": "sdcdethyerft.localip.ir"
-        }
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "uuid": "a5db5ab5-8d28-49c0-ad55-0ad4724e4c0d"
-    },
-    {
-      "name": "m18",
       "type": "vless",
       "server": "139.162.27.96",
       "port": 2096,
@@ -322,91 +259,94 @@
       "uuid": "6e59d5c5-7aa3-4c36-a4c4-e3b899525ed2"
     },
     {
-      "name": "m19",
-      "type": "trojan",
-      "server": "188.241.241.236",
+      "name": "m17",
+      "type": "vless",
+      "server": "146.75.59.186",
       "port": 443,
-      "network": "tcp",
+      "network": "ws",
+      "ws-opts": {
+        "path": "/",
+        "headers": {
+          "Host": "copy_az_channel_NUFiLTER_3i.global.ssl.fastly.net."
+        }
+      },
       "tls": true,
       "servername": "ekb.eg",
       "skip-cert-verify": true,
       "client-fingerprint": "chrome",
-      "alpn": [
-        "http/1.1"
-      ],
-      "password": "4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA"
+      "uuid": "eccc053a-7196-47cb-a4b5-f4b8bfd743d9"
+    },
+    {
+      "name": "m18",
+      "type": "vless",
+      "server": "103.148.73.173",
+      "port": 8443,
+      "network": "ws",
+      "ws-opts": {
+        "path": "/81574b6b-c9d7-44a0-b83d-dad56e8cb530",
+        "headers": {
+          "Host": "ty986gfazs.cainiaohub.xyz"
+        }
+      },
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "uuid": "c1c04450-bf71-4049-ad0c-9cf6d94d9f1f"
+    },
+    {
+      "name": "m19",
+      "type": "vless",
+      "server": "sub.merky.top",
+      "port": 443,
+      "network": "ws",
+      "ws-opts": {
+        "path": "/merky-connect/de6/",
+        "headers": {
+          "Host": "sub.merky.top"
+        }
+      },
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "uuid": "6e05822a-e9da-4135-a9db-71aa07a944af"
     },
     {
       "name": "m20",
       "type": "trojan",
-      "server": "de-bots4.h1cloud.net",
-      "port": 25267,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "alpn": [
-        "http/1.1"
-      ],
-      "password": "happybirthdaydaniel"
-    },
-    {
-      "name": "m21",
-      "type": "trojan",
-      "server": "de7.dedushka.top",
+      "server": "de2.dedushka.top",
       "port": 443,
       "network": "tcp",
       "tls": true,
       "servername": "ekb.eg",
       "skip-cert-verify": true,
       "client-fingerprint": "chrome",
+      "alpn": [
+        "http/1.1"
+      ],
       "password": "4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA"
     },
     {
+      "name": "m21",
+      "type": "vless",
+      "server": "139.162.27.96",
+      "port": 2096,
+      "network": "ws",
+      "ws-opts": {
+        "path": "/free-server.techsonic.dev",
+        "headers": {
+          "Host": "free-server.techsonic.dev"
+        }
+      },
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "uuid": "6e59d5c5-7aa3-4c36-a4c4-e3b899525ed2"
+    },
+    {
       "name": "m22",
-      "type": "vless",
-      "server": "fert6.localip.ir",
-      "port": 2087,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/hokm",
-        "headers": {
-          "Host": "fert6.localip.ir"
-        }
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "alpn": [
-        "http/1.1"
-      ],
-      "uuid": "a5db5ab5-8d28-49c0-ad55-0ad4724e4c0d"
-    },
-    {
-      "name": "m23",
-      "type": "vless",
-      "server": "sdcdethyerft.localip.ir",
-      "port": 2087,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/hokm",
-        "headers": {
-          "Host": "sdcdethyerft.localip.ir"
-        }
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "alpn": [
-        "http/1.1"
-      ],
-      "uuid": "a5db5ab5-8d28-49c0-ad55-0ad4724e4c0d"
-    },
-    {
-      "name": "m24",
       "type": "vless",
       "server": "pl.flen-vpn.xyz",
       "port": 8443,
@@ -418,50 +358,44 @@
       "uuid": "51a1fd52-fd88-4905-a976-35e44be28e4b"
     },
     {
-      "name": "m25",
-      "type": "trojan",
-      "server": "199.232.78.160",
+      "name": "m23",
+      "type": "vless",
+      "server": "200.165.231.209",
       "port": 443,
       "network": "ws",
       "ws-opts": {
-        "path": "/",
+        "path": "/api/connect",
         "headers": {
-          "Host": "mitivpn-mitivpn-mitivpn.global.ssl.fastly.net"
+          "Host": "wstg.datasynctrue.online"
         }
       },
       "tls": true,
       "servername": "ekb.eg",
       "skip-cert-verify": true,
       "client-fingerprint": "chrome",
-      "alpn": [
-        "http/1.1"
-      ],
-      "password": "mitivpn"
+      "uuid": "ff0b6ba8-bed0-4c4d-bbc9-23af47582615"
     },
     {
-      "name": "m26",
+      "name": "m24",
       "type": "trojan",
-      "server": "78.17.171.62",
+      "server": "de6.dedushka.top",
       "port": 443,
       "network": "tcp",
       "tls": true,
       "servername": "ekb.eg",
       "skip-cert-verify": true,
       "client-fingerprint": "chrome",
-      "password": "u93yPGuY2zgIsisJZKS2QzJzg"
+      "alpn": [
+        "http/1.1"
+      ],
+      "password": "4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA"
     },
     {
-      "name": "m27",
-      "type": "vless",
-      "server": "hoert1rert.localip.ir",
-      "port": 2087,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/hokm",
-        "headers": {
-          "Host": "hoert1rert.localip.ir"
-        }
-      },
+      "name": "m25",
+      "type": "trojan",
+      "server": "de10.dedushka.top",
+      "port": 443,
+      "network": "tcp",
       "tls": true,
       "servername": "ekb.eg",
       "skip-cert-verify": true,
@@ -469,10 +403,10 @@
       "alpn": [
         "http/1.1"
       ],
-      "uuid": "a5db5ab5-8d28-49c0-ad55-0ad4724e4c0d"
+      "password": "4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA"
     },
     {
-      "name": "m28",
+      "name": "m26",
       "type": "vmess",
       "server": "or.521166.xyz",
       "port": 2083,
@@ -489,475 +423,7 @@
       "cipher": "auto"
     },
     {
-      "name": "m29",
-      "type": "vless",
-      "server": "fert6.localip.ir",
-      "port": 2087,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/hokm",
-        "headers": {
-          "Host": "fert6.localip.ir"
-        }
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "alpn": [
-        "http/1.1"
-      ],
-      "uuid": "a5db5ab5-8d28-49c0-ad55-0ad4724e4c0d"
-    },
-    {
-      "name": "m30",
-      "type": "vless",
-      "server": "pl.flen-vpn.xyz",
-      "port": 8443,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "uuid": "51a1fd52-fd88-4905-a976-35e44be28e4b"
-    },
-    {
-      "name": "m31",
-      "type": "vless",
-      "server": "nl5.hap-plus.ru",
-      "port": 8443,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/api/v1/events",
-        "headers": {
-          "Host": "nl5.hap-plus.ru"
-        }
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "uuid": "05d7a479-a099-40cf-aecf-41aa934767b0"
-    },
-    {
-      "name": "m32",
-      "type": "vless",
-      "server": "93.152.215.176",
-      "port": 8443,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/api/v1/events",
-        "headers": {
-          "Host": "nl5.hap-plus.ru"
-        }
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "uuid": "05d7a479-a099-40cf-aecf-41aa934767b0"
-    },
-    {
-      "name": "m33",
-      "type": "vless",
-      "server": "146.75.59.186",
-      "port": 443,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/",
-        "headers": {
-          "Host": "copy_az_channel_NUFiLTER_3i.global.ssl.fastly.net."
-        }
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "uuid": "eccc053a-7196-47cb-a4b5-f4b8bfd743d9"
-    },
-    {
-      "name": "m34",
-      "type": "vless",
-      "server": "nl5.hap-plus.ru",
-      "port": 8443,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/api/v1/events",
-        "headers": {
-          "Host": "nl5.hap-plus.ru"
-        }
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "alpn": [
-        "http/1.1"
-      ],
-      "uuid": "05d7a479-a099-40cf-aecf-41aa934767b0"
-    },
-    {
-      "name": "m35",
-      "type": "vless",
-      "server": "146.75.59.186",
-      "port": 443,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/",
-        "headers": {
-          "Host": "copy_az_channel_NUFiLTER_3i.global.ssl.fastly.net."
-        }
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "uuid": "eccc053a-7196-47cb-a4b5-f4b8bfd743d9"
-    },
-    {
-      "name": "m36",
-      "type": "vless",
-      "server": "94.103.168.125",
-      "port": 2087,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/hokm",
-        "headers": {
-          "Host": "sdcdethyerft.localip.ir"
-        }
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "uuid": "a5db5ab5-8d28-49c0-ad55-0ad4724e4c0d"
-    },
-    {
-      "name": "m37",
-      "type": "vless",
-      "server": "uitestertbnm-production.up.railway.app",
-      "port": 443,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/ws/8fe80519-7410-b3f5-5c4f-599d6a72f015",
-        "headers": {
-          "Host": "uitestertbnm-production.up.railway.app"
-        }
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "alpn": [
-        "http/1.1"
-      ],
-      "uuid": "8fe80519-7410-b3f5-5c4f-599d6a72f015"
-    },
-    {
-      "name": "m38",
-      "type": "vless",
-      "server": "146.75.59.186",
-      "port": 443,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/",
-        "headers": {
-          "Host": "copy_az_channel_NUFiLTER_3i.global.ssl.fastly.net."
-        }
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "uuid": "eccc053a-7196-47cb-a4b5-f4b8bfd743d9"
-    },
-    {
-      "name": "m39",
-      "type": "trojan",
-      "server": "199.232.78.160",
-      "port": 443,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/NLSus---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN",
-        "headers": {
-          "Host": "mitivpn-mitivpn-mitivpn.global.ssl.fastly.net"
-        }
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "alpn": [
-        "http/1.1"
-      ],
-      "password": "mitivpn"
-    },
-    {
-      "name": "m40",
-      "type": "vless",
-      "server": "199.232.78.159",
-      "port": 443,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/",
-        "headers": {
-          "Host": "copy_az_channel_NUFiLTER_5i.global.ssl.fastly.net."
-        }
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "uuid": "eccc053a-7196-47cb-a4b5-f4b8bfd743d9"
-    },
-    {
-      "name": "m41",
-      "type": "trojan",
-      "server": "167.82.64.46",
-      "port": 443,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/?Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET",
-        "headers": {
-          "Host": "mitivpn-mitivpn-mitivpn.global.ssl.fastly.net"
-        }
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "alpn": [
-        "http/1.1"
-      ],
-      "password": "mitivpn"
-    },
-    {
-      "name": "m42",
-      "type": "vless",
-      "server": "186.190.211.188",
-      "port": 443,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "alpn": [
-        "http/1.1"
-      ],
-      "uuid": "03fcc618-b93d-6796-6aed-8a38c975d581"
-    },
-    {
-      "name": "m43",
-      "type": "trojan",
-      "server": "199.232.78.160",
-      "port": 443,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/NLSus---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN",
-        "headers": {
-          "Host": "mitivpn-mitivpn-mitivpn.global.ssl.fastly.net"
-        }
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "alpn": [
-        "http/1.1"
-      ],
-      "password": "mitivpn"
-    },
-    {
-      "name": "m44",
-      "type": "vless",
-      "server": "146.75.59.186",
-      "port": 443,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/",
-        "headers": {
-          "Host": "copy_az_channel_NUFiLTER_4i.global.ssl.fastly.net."
-        }
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "uuid": "eccc053a-7196-47cb-a4b5-f4b8bfd743d9"
-    },
-    {
-      "name": "m45",
-      "type": "vless",
-      "server": "siderail-production-8baa.up.railway.app",
-      "port": 443,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/api/idBb8S",
-        "headers": {
-          "Host": "siderail-production-8baa.up.railway.app"
-        }
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "alpn": [
-        "http/1.1"
-      ],
-      "uuid": "470b98ef-a21d-43c0-bc86-6fe185d0b8e7"
-    },
-    {
-      "name": "m46",
-      "type": "vless",
-      "server": "93.152.215.176",
-      "port": 8443,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/api/v1/events",
-        "headers": {
-          "Host": "nl5.hap-plus.ru"
-        }
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "uuid": "05d7a479-a099-40cf-aecf-41aa934767b0"
-    },
-    {
-      "name": "m47",
-      "type": "vless",
-      "server": "91.107.247.173",
-      "port": 2083,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/"
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "uuid": "7858128a-6b5e-4f86-9bff-52c1f1e6439d"
-    },
-    {
-      "name": "m48",
-      "type": "vless",
-      "server": "ops5788tugfuy.localip.ir",
-      "port": 2087,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/hokm",
-        "headers": {
-          "Host": "ops5788tugfuy.localip.ir"
-        }
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "alpn": [
-        "http/1.1"
-      ],
-      "uuid": "a5db5ab5-8d28-49c0-ad55-0ad4724e4c0d"
-    },
-    {
-      "name": "m49",
-      "type": "vless",
-      "server": "51.38.71.147",
-      "port": 8443,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "uuid": "c08f0056-7a6d-4931-813b-aaa3cdd00aed"
-    },
-    {
-      "name": "m50",
-      "type": "vless",
-      "server": "nl5.hap-plus.ru",
-      "port": 8443,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/api/v1/events",
-        "headers": {
-          "Host": "nl5.hap-plus.ru"
-        }
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "alpn": [
-        "http/1.1"
-      ],
-      "uuid": "05d7a479-a099-40cf-aecf-41aa934767b0"
-    },
-    {
-      "name": "m51",
-      "type": "vless",
-      "server": "node-uk.connectsuite.org",
-      "port": 8443,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "uuid": "c08f0056-7a6d-4931-813b-aaa3cdd00aed"
-    },
-    {
-      "name": "m52",
-      "type": "vless",
-      "server": "199.232.78.160",
-      "port": 443,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/",
-        "headers": {
-          "Host": "Appxdn.global.ssl.fastly.net"
-        }
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "uuid": "XpnTeam-22"
-    },
-    {
-      "name": "m53",
-      "type": "vless",
-      "server": "199.232.78.159",
-      "port": 443,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/",
-        "headers": {
-          "Host": "copy_az_channel_NUFiLTER_5i.global.ssl.fastly.net."
-        }
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "uuid": "eccc053a-7196-47cb-a4b5-f4b8bfd743d9"
-    },
-    {
-      "name": "m54",
-      "type": "trojan",
-      "server": "de4.dedushka.top",
-      "port": 443,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "alpn": [
-        "http/1.1"
-      ],
-      "password": "4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA"
-    },
-    {
-      "name": "m55",
+      "name": "m27",
       "type": "vless",
       "server": "139.162.27.96",
       "port": 2096,
@@ -975,7 +441,127 @@
       "uuid": "6e59d5c5-7aa3-4c36-a4c4-e3b899525ed2"
     },
     {
-      "name": "m56",
+      "name": "m28",
+      "type": "vless",
+      "server": "51.38.71.147",
+      "port": 8443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "uuid": "c08f0056-7a6d-4931-813b-aaa3cdd00aed"
+    },
+    {
+      "name": "m29",
+      "type": "vless",
+      "server": "94.143.231.146",
+      "port": 443,
+      "network": "ws",
+      "ws-opts": {
+        "path": "/merky-connect/de6/",
+        "headers": {
+          "Host": "sub.merky.top"
+        }
+      },
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "uuid": "6e05822a-e9da-4135-a9db-71aa07a944af"
+    },
+    {
+      "name": "m30",
+      "type": "vless",
+      "server": "146.75.59.186",
+      "port": 443,
+      "network": "ws",
+      "ws-opts": {
+        "path": "/",
+        "headers": {
+          "Host": "copy_az_channel_NUFiLTER_4i.global.ssl.fastly.net."
+        }
+      },
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "uuid": "eccc053a-7196-47cb-a4b5-f4b8bfd743d9"
+    },
+    {
+      "name": "m31",
+      "type": "vless",
+      "server": "146.75.59.186",
+      "port": 443,
+      "network": "ws",
+      "ws-opts": {
+        "path": "/",
+        "headers": {
+          "Host": "copy_az_channel_NUFiLTER_3i.global.ssl.fastly.net."
+        }
+      },
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "uuid": "eccc053a-7196-47cb-a4b5-f4b8bfd743d9"
+    },
+    {
+      "name": "m32",
+      "type": "trojan",
+      "server": "blog.findlocaljobnetworkandbuildcommunityconnections.com",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "password": "dba20dcb635e430fa4d3bfc303a149d2"
+    },
+    {
+      "name": "m33",
+      "type": "vless",
+      "server": "51.38.71.147",
+      "port": 8443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "firefox",
+      "uuid": "c08f0056-7a6d-4931-813b-aaa3cdd00aed"
+    },
+    {
+      "name": "m34",
+      "type": "trojan",
+      "server": "blog.findlocaljobnetworkandbuildcommunityconnections.com",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "password": "dba20dcb635e430fa4d3bfc303a149d2"
+    },
+    {
+      "name": "m35",
+      "type": "vless",
+      "server": "139.162.27.96",
+      "port": 2096,
+      "network": "ws",
+      "ws-opts": {
+        "path": "/free-server.techsonic.dev",
+        "headers": {
+          "Host": "free-server.techsonic.dev"
+        }
+      },
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "uuid": "6e59d5c5-7aa3-4c36-a4c4-e3b899525ed2"
+    },
+    {
+      "name": "m36",
       "type": "trojan",
       "server": "108.61.186.37",
       "port": 443,
@@ -987,7 +573,7 @@
       "password": "Trojan@82164024"
     },
     {
-      "name": "m57",
+      "name": "m37",
       "type": "trojan",
       "server": "jp.tronsg.com",
       "port": 443,
@@ -997,42 +583,291 @@
       "skip-cert-verify": true,
       "client-fingerprint": "chrome",
       "password": "Trojan@82164024"
+    },
+    {
+      "name": "m38",
+      "type": "trojan",
+      "server": "jp.tronsg.com",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "password": "Trojan@82164024"
+    },
+    {
+      "name": "m39",
+      "type": "trojan",
+      "server": "jp.tronsg.com",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "password": "Trojan@82164024"
+    },
+    {
+      "name": "m40",
+      "type": "trojan",
+      "server": "blog.findlocaljobnetworkandbuildcommunityconnections.com",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "password": "dba20dcb635e430fa4d3bfc303a149d2"
+    },
+    {
+      "name": "m41",
+      "type": "trojan",
+      "server": "78.17.171.62",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "password": "u93yPGuY2zgIsisJZKS2QzJzg"
+    },
+    {
+      "name": "m42",
+      "type": "trojan",
+      "server": "69.164.240.85",
+      "port": 50875,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "password": "nwilryafgkyvuxauc8pz"
+    },
+    {
+      "name": "m43",
+      "type": "trojan",
+      "server": "2.27.109.179",
+      "port": 45464,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "password": "XuMweB2PWs"
+    },
+    {
+      "name": "m44",
+      "type": "vless",
+      "server": "139.162.27.96",
+      "port": 2096,
+      "network": "ws",
+      "ws-opts": {
+        "path": "/free-server.techsonic.dev",
+        "headers": {
+          "Host": "free-server.techsonic.dev"
+        }
+      },
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "uuid": "6e59d5c5-7aa3-4c36-a4c4-e3b899525ed2"
+    },
+    {
+      "name": "m45",
+      "type": "vless",
+      "server": "103.148.73.173",
+      "port": 8443,
+      "network": "ws",
+      "ws-opts": {
+        "path": "/81574b6b-c9d7-44a0-b83d-dad56e8cb530"
+      },
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "uuid": "c1c04450-bf71-4049-ad0c-9cf6d94d9f1f"
+    },
+    {
+      "name": "m46",
+      "type": "vless",
+      "server": "139.162.27.96",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "uuid": "f1178fbe-1420-4eef-b087-4f33b32b4a19"
+    },
+    {
+      "name": "m47",
+      "type": "trojan",
+      "server": "pl1.dedushka.top",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "password": "4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA"
+    },
+    {
+      "name": "m48",
+      "type": "trojan",
+      "server": "pl1.dedushka.top",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "password": "4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA"
+    },
+    {
+      "name": "m49",
+      "type": "trojan",
+      "server": "139.180.146.200",
+      "port": 8886,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "password": "e26a229d-e8f2-4ff9-8c7d-58a9d83ee437"
+    },
+    {
+      "name": "m50",
+      "type": "trojan",
+      "server": "de3.dedushka.top",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "password": "4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA"
+    },
+    {
+      "name": "m51",
+      "type": "trojan",
+      "server": "de3.dedushka.top",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "password": "4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA"
+    },
+    {
+      "name": "m52",
+      "type": "trojan",
+      "server": "de3.dedushka.top",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "password": "4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA"
+    },
+    {
+      "name": "m53",
+      "type": "trojan",
+      "server": "188.241.241.235",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "password": "4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA"
+    },
+    {
+      "name": "m54",
+      "type": "trojan",
+      "server": "2.27.109.179",
+      "port": 45464,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "password": "XuMweB2PWs"
+    },
+    {
+      "name": "m55",
+      "type": "trojan",
+      "server": "pl2.dedushka.top",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "password": "4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA"
+    },
+    {
+      "name": "m56",
+      "type": "trojan",
+      "server": "pl2.dedushka.top",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "password": "4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA"
+    },
+    {
+      "name": "m57",
+      "type": "trojan",
+      "server": "de9.dedushka.top",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "password": "4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA"
     },
     {
       "name": "m58",
       "type": "trojan",
-      "server": "jp.tronsg.com",
+      "server": "78.17.171.62",
       "port": 443,
       "network": "tcp",
       "tls": true,
       "servername": "ekb.eg",
       "skip-cert-verify": true,
       "client-fingerprint": "chrome",
-      "password": "Trojan@82164024"
+      "password": "u93yPGuY2zgIsisJZKS2QzJzg"
     },
     {
       "name": "m59",
       "type": "trojan",
-      "server": "47.250.84.25",
+      "server": "188.241.241.235",
       "port": 443,
       "network": "tcp",
       "tls": true,
       "servername": "ekb.eg",
       "skip-cert-verify": true,
       "client-fingerprint": "chrome",
-      "password": "5931134d1cde66bf83a54acdfebe7ab2"
+      "password": "4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA"
     },
     {
       "name": "m60",
       "type": "trojan",
-      "server": "66.23.203.21",
-      "port": 59689,
+      "server": "pl2.dedushka.top",
+      "port": 443,
       "network": "tcp",
       "tls": true,
       "servername": "ekb.eg",
       "skip-cert-verify": true,
       "client-fingerprint": "chrome",
-      "password": "ae7eb4dwyaz25pxwgq59"
+      "password": "4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA"
     },
     {
       "name": "m61",
@@ -1049,161 +884,17 @@
     {
       "name": "m62",
       "type": "trojan",
-      "server": "78.17.171.62",
-      "port": 443,
+      "server": "109.206.241.10",
+      "port": 449,
       "network": "tcp",
       "tls": true,
       "servername": "ekb.eg",
       "skip-cert-verify": true,
       "client-fingerprint": "chrome",
-      "password": "u93yPGuY2zgIsisJZKS2QzJzg"
+      "password": "oiiaB38ywjEHCWRs_O_a_1113_Il_KeyyyHop_Bes1"
     },
     {
       "name": "m63",
-      "type": "trojan",
-      "server": "4c2d5151.266nets.com",
-      "port": 12001,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "password": "bad06c3525a6eaee1757b34776b83892"
-    },
-    {
-      "name": "m64",
-      "type": "trojan",
-      "server": "de4.dedushka.top",
-      "port": 443,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "password": "4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA"
-    },
-    {
-      "name": "m65",
-      "type": "vless",
-      "server": "139.162.27.96",
-      "port": 443,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "uuid": "f1178fbe-1420-4eef-b087-4f33b32b4a19"
-    },
-    {
-      "name": "m66",
-      "type": "trojan",
-      "server": "78.17.171.62",
-      "port": 443,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "password": "u93yPGuY2zgIsisJZKS2QzJzg"
-    },
-    {
-      "name": "m67",
-      "type": "trojan",
-      "server": "78.17.171.62",
-      "port": 443,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "password": "u93yPGuY2zgIsisJZKS2QzJzg"
-    },
-    {
-      "name": "m68",
-      "type": "trojan",
-      "server": "jp.tronsg.com",
-      "port": 443,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "password": "Trojan@82164024"
-    },
-    {
-      "name": "m69",
-      "type": "trojan",
-      "server": "resources.findlocaljobnetworkandbuildcommunityconnections.com",
-      "port": 443,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "password": "f0eb8c92ce8946aaba856569cff1a16b"
-    },
-    {
-      "name": "m70",
-      "type": "trojan",
-      "server": "2.27.109.179",
-      "port": 45464,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "password": "XuMweB2PWs"
-    },
-    {
-      "name": "m71",
-      "type": "trojan",
-      "server": "69.164.240.85",
-      "port": 50875,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "password": "nwilryafgkyvuxauc8pz"
-    },
-    {
-      "name": "m72",
-      "type": "trojan",
-      "server": "de3.dedushka.top",
-      "port": 443,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "password": "4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA"
-    },
-    {
-      "name": "m73",
-      "type": "trojan",
-      "server": "de7.dedushka.top",
-      "port": 443,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "password": "4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA"
-    },
-    {
-      "name": "m74",
-      "type": "trojan",
-      "server": "4c2d5151.266nets.com",
-      "port": 12019,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "password": "bad06c3525a6eaee1757b34776b83892"
-    },
-    {
-      "name": "m75",
       "type": "trojan",
       "server": "de10.dedushka.top",
       "port": 443,
@@ -1215,9 +906,9 @@
       "password": "4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA"
     },
     {
-      "name": "m76",
+      "name": "m64",
       "type": "trojan",
-      "server": "de1.dedushka.top",
+      "server": "pl2.dedushka.top",
       "port": 443,
       "network": "tcp",
       "tls": true,
@@ -1227,7 +918,7 @@
       "password": "4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA"
     },
     {
-      "name": "m77",
+      "name": "m65",
       "type": "trojan",
       "server": "109.206.241.10",
       "port": 449,
@@ -1239,49 +930,184 @@
       "password": "oiiaB38ywjEHCWRs_O_a_1113_Il_KeyyyHop_Bes1"
     },
     {
-      "name": "m78",
-      "type": "vless",
-      "server": "60.248.219.78",
-      "port": 443,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/81574b6b-c9d7-44a0-b83d-dad56e8cb530"
-      },
+      "name": "m66",
+      "type": "trojan",
+      "server": "109.206.241.10",
+      "port": 449,
+      "network": "tcp",
       "tls": true,
       "servername": "ekb.eg",
       "skip-cert-verify": true,
       "client-fingerprint": "chrome",
-      "uuid": "c1c04450-bf71-4049-ad0c-9cf6d94d9f1f"
+      "password": "oiiaB38ywjEHCWRs_O_a_1113_Il_KeyyyHop_Bes1"
+    },
+    {
+      "name": "m67",
+      "type": "trojan",
+      "server": "pl1.dedushka.top",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "password": "4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA"
+    },
+    {
+      "name": "m68",
+      "type": "trojan",
+      "server": "pl2.dedushka.top",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "password": "4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA"
+    },
+    {
+      "name": "m69",
+      "type": "trojan",
+      "server": "pl1.dedushka.top",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "password": "4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA"
+    },
+    {
+      "name": "m70",
+      "type": "trojan",
+      "server": "pl2.dedushka.top",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "password": "4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA"
+    },
+    {
+      "name": "m71",
+      "type": "trojan",
+      "server": "pl2.dedushka.top",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "password": "4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA"
+    },
+    {
+      "name": "m72",
+      "type": "trojan",
+      "server": "109.206.241.10",
+      "port": 449,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "password": "oiiaB38ywjEHCWRs_O_a_1113_Il_KeyyyHop_Bes1"
+    },
+    {
+      "name": "m73",
+      "type": "trojan",
+      "server": "pl2.dedushka.top",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "password": "4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA"
+    },
+    {
+      "name": "m74",
+      "type": "trojan",
+      "server": "78.17.171.62",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "password": "u93yPGuY2zgIsisJZKS2QzJzg"
+    },
+    {
+      "name": "m75",
+      "type": "trojan",
+      "server": "pl1.dedushka.top",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "password": "4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA"
+    },
+    {
+      "name": "m76",
+      "type": "trojan",
+      "server": "109.206.241.10",
+      "port": 449,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "password": "oiiaB38ywjEHCWRs_O_a_1113_Il_KeyyyHop_Bes1"
+    },
+    {
+      "name": "m77",
+      "type": "trojan",
+      "server": "4c2d5151.266nets.com",
+      "port": 12031,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "password": "bad06c3525a6eaee1757b34776b83892"
+    },
+    {
+      "name": "m78",
+      "type": "trojan",
+      "server": "78.17.171.62",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "password": "u93yPGuY2zgIsisJZKS2QzJzg"
     },
     {
       "name": "m79",
-      "type": "vless",
-      "server": "103.180.20.108",
-      "port": 8443,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/81574b6b-c9d7-44a0-b83d-dad56e8cb530"
-      },
+      "type": "trojan",
+      "server": "de1.dedushka.top",
+      "port": 443,
+      "network": "tcp",
       "tls": true,
       "servername": "ekb.eg",
       "skip-cert-verify": true,
       "client-fingerprint": "chrome",
-      "uuid": "c1c04450-bf71-4049-ad0c-9cf6d94d9f1f"
+      "password": "4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA"
     },
     {
       "name": "m80",
-      "type": "vless",
-      "server": "103.148.73.173",
-      "port": 8443,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/81574b6b-c9d7-44a0-b83d-dad56e8cb530"
-      },
+      "type": "trojan",
+      "server": "pl1.dedushka.top",
+      "port": 443,
+      "network": "tcp",
       "tls": true,
       "servername": "ekb.eg",
       "skip-cert-verify": true,
       "client-fingerprint": "chrome",
-      "uuid": "c1c04450-bf71-4049-ad0c-9cf6d94d9f1f"
+      "password": "4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA"
     },
     {
       "name": "m81",
@@ -1297,47 +1123,44 @@
     },
     {
       "name": "m82",
-      "type": "vless",
-      "server": "91.107.247.173",
-      "port": 2083,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/"
-      },
+      "type": "trojan",
+      "server": "pl1.dedushka.top",
+      "port": 443,
+      "network": "tcp",
       "tls": true,
       "servername": "ekb.eg",
       "skip-cert-verify": true,
       "client-fingerprint": "chrome",
-      "uuid": "7858128a-6b5e-4f86-9bff-52c1f1e6439d"
+      "password": "4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA"
     },
     {
       "name": "m83",
       "type": "trojan",
-      "server": "de9.dedushka.top",
-      "port": 443,
+      "server": "2.27.109.179",
+      "port": 45464,
       "network": "tcp",
       "tls": true,
       "servername": "ekb.eg",
       "skip-cert-verify": true,
       "client-fingerprint": "chrome",
-      "password": "4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA"
+      "password": "XuMweB2PWs"
     },
     {
       "name": "m84",
       "type": "trojan",
-      "server": "de3.dedushka.top",
-      "port": 443,
+      "server": "109.206.241.10",
+      "port": 449,
       "network": "tcp",
       "tls": true,
       "servername": "ekb.eg",
       "skip-cert-verify": true,
       "client-fingerprint": "chrome",
-      "password": "4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA"
+      "password": "oiiaB38ywjEHCWRs_O_a_1113_Il_KeyyyHop_Bes1"
     },
     {
       "name": "m85",
       "type": "trojan",
-      "server": "de10.dedushka.top",
+      "server": "de1.dedushka.top",
       "port": 443,
       "network": "tcp",
       "tls": true,
@@ -1348,24 +1171,15 @@
     },
     {
       "name": "m86",
-      "type": "vless",
-      "server": "ops5788tugfuy.localip.ir",
-      "port": 2087,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/hokm",
-        "headers": {
-          "Host": "ops5788tugfuy.localip.ir"
-        }
-      },
+      "type": "trojan",
+      "server": "78.17.171.62",
+      "port": 443,
+      "network": "tcp",
       "tls": true,
       "servername": "ekb.eg",
       "skip-cert-verify": true,
       "client-fingerprint": "chrome",
-      "alpn": [
-        "http/1.1"
-      ],
-      "uuid": "a5db5ab5-8d28-49c0-ad55-0ad4724e4c0d"
+      "password": "u93yPGuY2zgIsisJZKS2QzJzg"
     },
     {
       "name": "m87",
@@ -1382,6 +1196,42 @@
     {
       "name": "m88",
       "type": "trojan",
+      "server": "45.32.52.173",
+      "port": 8886,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "password": "e26a229d-e8f2-4ff9-8c7d-58a9d83ee437"
+    },
+    {
+      "name": "m89",
+      "type": "trojan",
+      "server": "2.27.109.179",
+      "port": 45464,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "password": "XuMweB2PWs"
+    },
+    {
+      "name": "m90",
+      "type": "trojan",
+      "server": "2.27.109.179",
+      "port": 45464,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "password": "XuMweB2PWs"
+    },
+    {
+      "name": "m91",
+      "type": "trojan",
       "server": "de-bots4.h1cloud.net",
       "port": 25267,
       "network": "tcp",
@@ -1392,45 +1242,9 @@
       "password": "happybirthdaydaniel"
     },
     {
-      "name": "m89",
-      "type": "trojan",
-      "server": "188.241.241.236",
-      "port": 443,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "password": "4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA"
-    },
-    {
-      "name": "m90",
-      "type": "trojan",
-      "server": "pl2.dedushka.top",
-      "port": 443,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "password": "4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA"
-    },
-    {
-      "name": "m91",
-      "type": "trojan",
-      "server": "pl2.dedushka.top",
-      "port": 443,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "password": "4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA"
-    },
-    {
       "name": "m92",
       "type": "trojan",
-      "server": "pl2.dedushka.top",
+      "server": "de3.dedushka.top",
       "port": 443,
       "network": "tcp",
       "tls": true,
@@ -1442,7 +1256,19 @@
     {
       "name": "m93",
       "type": "trojan",
-      "server": "pl2.dedushka.top",
+      "server": "78.17.171.62",
+      "port": 443,
+      "network": "tcp",
+      "tls": true,
+      "servername": "ekb.eg",
+      "skip-cert-verify": true,
+      "client-fingerprint": "chrome",
+      "password": "u93yPGuY2zgIsisJZKS2QzJzg"
+    },
+    {
+      "name": "m94",
+      "type": "trojan",
+      "server": "de5.dedushka.top",
       "port": 443,
       "network": "tcp",
       "tls": true,
@@ -1452,21 +1278,9 @@
       "password": "4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA"
     },
     {
-      "name": "m94",
-      "type": "trojan",
-      "server": "109.206.241.10",
-      "port": 449,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "password": "oiiaB38ywjEHCWRs_O_a_1113_Il_KeyyyHop_Bes1"
-    },
-    {
       "name": "m95",
       "type": "trojan",
-      "server": "de6.dedushka.top",
+      "server": "de2.dedushka.top",
       "port": 443,
       "network": "tcp",
       "tls": true,
@@ -1477,150 +1291,54 @@
     },
     {
       "name": "m96",
-      "type": "vless",
-      "server": "uk1.connectsuite.org",
+      "type": "trojan",
+      "server": "de10.dedushka.top",
       "port": 443,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/cdn-cgi/ws",
-        "headers": {
-          "Host": "uk1.connectsuite.org"
-        }
-      },
+      "network": "tcp",
       "tls": true,
       "servername": "ekb.eg",
       "skip-cert-verify": true,
       "client-fingerprint": "chrome",
-      "uuid": "fda89998-7e9a-4494-857a-cd0d00661b58"
+      "password": "4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA"
     },
     {
       "name": "m97",
-      "type": "vless",
-      "server": "fert6.localip.ir",
-      "port": 2087,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/hokm",
-        "headers": {
-          "Host": "fert6.localip.ir"
-        }
-      },
+      "type": "trojan",
+      "server": "de3.dedushka.top",
+      "port": 443,
+      "network": "tcp",
       "tls": true,
       "servername": "ekb.eg",
       "skip-cert-verify": true,
       "client-fingerprint": "chrome",
-      "alpn": [
-        "http/1.1"
-      ],
-      "uuid": "a5db5ab5-8d28-49c0-ad55-0ad4724e4c0d"
+      "password": "4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA"
     },
     {
       "name": "m98",
-      "type": "vless",
-      "server": "ops5788tugfuy.localip.ir",
-      "port": 2087,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/hokm",
-        "headers": {
-          "Host": "ops5788tugfuy.localip.ir"
-        }
-      },
+      "type": "trojan",
+      "server": "de2.dedushka.top",
+      "port": 443,
+      "network": "tcp",
       "tls": true,
       "servername": "ekb.eg",
       "skip-cert-verify": true,
       "client-fingerprint": "chrome",
-      "alpn": [
-        "http/1.1"
-      ],
-      "uuid": "a5db5ab5-8d28-49c0-ad55-0ad4724e4c0d"
+      "password": "4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA"
     },
     {
       "name": "m99",
-      "type": "vless",
-      "server": "sino.bestsellers1.site",
-      "port": 2083,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/",
-        "headers": {
-          "Host": "sino.bestsellers1.site"
-        }
-      },
+      "type": "trojan",
+      "server": "de10.dedushka.top",
+      "port": 443,
+      "network": "tcp",
       "tls": true,
       "servername": "ekb.eg",
       "skip-cert-verify": true,
       "client-fingerprint": "chrome",
-      "uuid": "7858128a-6b5e-4f86-9bff-52c1f1e6439d"
+      "password": "4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA"
     },
     {
       "name": "m100",
-      "type": "vless",
-      "server": "hoert1rert.localip.ir",
-      "port": 2087,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/hokm"
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "alpn": [
-        "http/1.1"
-      ],
-      "uuid": "a5db5ab5-8d28-49c0-ad55-0ad4724e4c0d"
-    },
-    {
-      "name": "m101",
-      "type": "trojan",
-      "server": "pl1.dedushka.top",
-      "port": 443,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "password": "4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA"
-    },
-    {
-      "name": "m102",
-      "type": "trojan",
-      "server": "pl1.dedushka.top",
-      "port": 443,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "password": "4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA"
-    },
-    {
-      "name": "m103",
-      "type": "trojan",
-      "server": "pl1.dedushka.top",
-      "port": 443,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "password": "4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA"
-    },
-    {
-      "name": "m104",
-      "type": "trojan",
-      "server": "de9.dedushka.top",
-      "port": 443,
-      "network": "tcp",
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "password": "4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA"
-    },
-    {
-      "name": "m105",
       "type": "trojan",
       "server": "de8.dedushka.top",
       "port": 443,
@@ -1632,182 +1350,16 @@
       "password": "4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA"
     },
     {
-      "name": "m106",
-      "type": "vless",
-      "server": "60.248.219.53",
-      "port": 443,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/81574b6b-c9d7-44a0-b83d-dad56e8cb530"
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "uuid": "c1c04450-bf71-4049-ad0c-9cf6d94d9f1f"
-    },
-    {
-      "name": "m107",
-      "type": "vless",
-      "server": "ops5788tugfuy.localip.ir",
-      "port": 2087,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/hokm",
-        "headers": {
-          "Host": "ops5788tugfuy.localip.ir"
-        }
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "uuid": "a5db5ab5-8d28-49c0-ad55-0ad4724e4c0d"
-    },
-    {
-      "name": "m108",
-      "type": "vless",
-      "server": "94.103.168.125",
-      "port": 2087,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/hokm",
-        "headers": {
-          "Host": "sdcdethyerft.localip.ir"
-        }
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "firefox",
-      "alpn": [
-        "http/1.1"
-      ],
-      "uuid": "a5db5ab5-8d28-49c0-ad55-0ad4724e4c0d"
-    },
-    {
-      "name": "m109",
-      "type": "vless",
-      "server": "de.applepie-recipe.ru",
-      "port": 443,
+      "name": "m101",
+      "type": "trojan",
+      "server": "45.32.52.173",
+      "port": 8886,
       "network": "tcp",
       "tls": true,
       "servername": "ekb.eg",
       "skip-cert-verify": true,
-      "client-fingerprint": "qq",
-      "alpn": [
-        "http/1.1"
-      ],
-      "uuid": "a3304281-9ecc-4fed-a6ba-e77e07928877",
-      "flow": "xtls-rprx-vision"
-    },
-    {
-      "name": "m110",
-      "type": "vless",
-      "server": "sdcdethyerft.localip.ir",
-      "port": 2087,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/hokm"
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
       "client-fingerprint": "chrome",
-      "alpn": [
-        "http/1.1"
-      ],
-      "uuid": "a5db5ab5-8d28-49c0-ad55-0ad4724e4c0d"
-    },
-    {
-      "name": "m111",
-      "type": "vless",
-      "server": "94.103.168.133",
-      "port": 2087,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/hokm"
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "uuid": "a5db5ab5-8d28-49c0-ad55-0ad4724e4c0d"
-    },
-    {
-      "name": "m112",
-      "type": "vless",
-      "server": "94.103.168.125",
-      "port": 2087,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/hokm",
-        "headers": {
-          "Host": "sdcdethyerft.localip.ir"
-        }
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "ios",
-      "uuid": "a5db5ab5-8d28-49c0-ad55-0ad4724e4c0d"
-    },
-    {
-      "name": "m113",
-      "type": "vless",
-      "server": "fert6.localip.ir",
-      "port": 2087,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/hokm",
-        "headers": {
-          "Host": "fert6.localip.ir"
-        }
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "chrome",
-      "alpn": [
-        "http/1.1"
-      ],
-      "uuid": "a5db5ab5-8d28-49c0-ad55-0ad4724e4c0d"
-    },
-    {
-      "name": "m114",
-      "type": "vless",
-      "server": "51.75.67.209",
-      "port": 8443,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/",
-        "headers": {
-          "Host": "free.sahanwickramasinghe.me"
-        }
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "firefox",
-      "uuid": "c136a12c-4260-48a7-a1e6-fbda83a11045"
-    },
-    {
-      "name": "m115",
-      "type": "vless",
-      "server": "51.75.67.209",
-      "port": 8443,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/",
-        "headers": {
-          "Host": "free.sahanwickramasinghe.me"
-        }
-      },
-      "tls": true,
-      "servername": "ekb.eg",
-      "skip-cert-verify": true,
-      "client-fingerprint": "firefox",
-      "uuid": "c136a12c-4260-48a7-a1e6-fbda83a11045"
+      "password": "e26a229d-e8f2-4ff9-8c7d-58a9d83ee437"
     }
   ],
   "proxy-groups": [
@@ -1928,20 +1480,6 @@
         "m99",
         "m100",
         "m101",
-        "m102",
-        "m103",
-        "m104",
-        "m105",
-        "m106",
-        "m107",
-        "m108",
-        "m109",
-        "m110",
-        "m111",
-        "m112",
-        "m113",
-        "m114",
-        "m115",
         "DIRECT"
       ]
     },
@@ -2050,21 +1588,7 @@
         "m98",
         "m99",
         "m100",
-        "m101",
-        "m102",
-        "m103",
-        "m104",
-        "m105",
-        "m106",
-        "m107",
-        "m108",
-        "m109",
-        "m110",
-        "m111",
-        "m112",
-        "m113",
-        "m114",
-        "m115"
+        "m101"
       ],
       "url": "http://cp.cloudflare.com/generate_204",
       "interval": 180,
@@ -2175,21 +1699,7 @@
         "m98",
         "m99",
         "m100",
-        "m101",
-        "m102",
-        "m103",
-        "m104",
-        "m105",
-        "m106",
-        "m107",
-        "m108",
-        "m109",
-        "m110",
-        "m111",
-        "m112",
-        "m113",
-        "m114",
-        "m115"
+        "m101"
       ],
       "url": "https://dynamodb.eu-west-3.amazonaws.com",
       "interval": 300,
@@ -2300,21 +1810,7 @@
         "m98",
         "m99",
         "m100",
-        "m101",
-        "m102",
-        "m103",
-        "m104",
-        "m105",
-        "m106",
-        "m107",
-        "m108",
-        "m109",
-        "m110",
-        "m111",
-        "m112",
-        "m113",
-        "m114",
-        "m115"
+        "m101"
       ],
       "url": "https://dynamodb.eu-central-1.amazonaws.com",
       "interval": 300,
@@ -2425,21 +1921,7 @@
         "m98",
         "m99",
         "m100",
-        "m101",
-        "m102",
-        "m103",
-        "m104",
-        "m105",
-        "m106",
-        "m107",
-        "m108",
-        "m109",
-        "m110",
-        "m111",
-        "m112",
-        "m113",
-        "m114",
-        "m115"
+        "m101"
       ],
       "url": "https://dynamodb.eu-north-1.amazonaws.com",
       "interval": 300,
@@ -2550,21 +2032,7 @@
         "m98",
         "m99",
         "m100",
-        "m101",
-        "m102",
-        "m103",
-        "m104",
-        "m105",
-        "m106",
-        "m107",
-        "m108",
-        "m109",
-        "m110",
-        "m111",
-        "m112",
-        "m113",
-        "m114",
-        "m115"
+        "m101"
       ],
       "url": "https://dynamodb.us-east-1.amazonaws.com",
       "interval": 300,
@@ -2675,21 +2143,7 @@
         "m98",
         "m99",
         "m100",
-        "m101",
-        "m102",
-        "m103",
-        "m104",
-        "m105",
-        "m106",
-        "m107",
-        "m108",
-        "m109",
-        "m110",
-        "m111",
-        "m112",
-        "m113",
-        "m114",
-        "m115"
+        "m101"
       ],
       "url": "https://dynamodb.us-east-2.amazonaws.com",
       "interval": 300,
@@ -2800,21 +2254,7 @@
         "m98",
         "m99",
         "m100",
-        "m101",
-        "m102",
-        "m103",
-        "m104",
-        "m105",
-        "m106",
-        "m107",
-        "m108",
-        "m109",
-        "m110",
-        "m111",
-        "m112",
-        "m113",
-        "m114",
-        "m115"
+        "m101"
       ],
       "url": "https://dynamodb.us-west-1.amazonaws.com",
       "interval": 300,
@@ -2925,21 +2365,7 @@
         "m98",
         "m99",
         "m100",
-        "m101",
-        "m102",
-        "m103",
-        "m104",
-        "m105",
-        "m106",
-        "m107",
-        "m108",
-        "m109",
-        "m110",
-        "m111",
-        "m112",
-        "m113",
-        "m114",
-        "m115"
+        "m101"
       ],
       "url": "https://dynamodb.us-west-2.amazonaws.com",
       "interval": 300,
@@ -3050,21 +2476,7 @@
         "m98",
         "m99",
         "m100",
-        "m101",
-        "m102",
-        "m103",
-        "m104",
-        "m105",
-        "m106",
-        "m107",
-        "m108",
-        "m109",
-        "m110",
-        "m111",
-        "m112",
-        "m113",
-        "m114",
-        "m115"
+        "m101"
       ],
       "url": "https://dynamodb.ap-northeast-1.amazonaws.com",
       "interval": 300,
@@ -3175,21 +2587,7 @@
         "m98",
         "m99",
         "m100",
-        "m101",
-        "m102",
-        "m103",
-        "m104",
-        "m105",
-        "m106",
-        "m107",
-        "m108",
-        "m109",
-        "m110",
-        "m111",
-        "m112",
-        "m113",
-        "m114",
-        "m115"
+        "m101"
       ],
       "url": "https://dynamodb.ap-northeast-2.amazonaws.com",
       "interval": 300,
@@ -3300,21 +2698,7 @@
         "m98",
         "m99",
         "m100",
-        "m101",
-        "m102",
-        "m103",
-        "m104",
-        "m105",
-        "m106",
-        "m107",
-        "m108",
-        "m109",
-        "m110",
-        "m111",
-        "m112",
-        "m113",
-        "m114",
-        "m115"
+        "m101"
       ],
       "url": "https://dynamodb.ap-southeast-2.amazonaws.com",
       "interval": 300,
