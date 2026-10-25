@@ -65,98 +65,27 @@
         "m41",
         "m42",
         "m43",
-        "m44",
-        "m45",
-        "m46",
-        "m47",
-        "m48",
-        "m49",
-        "m50",
-        "m51",
-        "m52",
-        "m53",
-        "m54",
-        "m55",
-        "m56",
-        "m57",
-        "m58",
-        "m59",
-        "m60",
-        "m61",
-        "m62"
+        "m44"
       ],
       "url": "http://cp.cloudflare.com/generate_204",
       "interval": "10m",
       "tolerance": 50
     },
     {
-      "type": "vmess",
-      "tag": "m0",
-      "server": "v2ray1.dozapp.xyz",
-      "server_port": 8443,
-      "uuid": "60441548-b68e-43b2-8191-e3b884be4b3c",
-      "security": "auto",
-      "alter_id": 0,
-      "tls": {
-        "enabled": true,
-        "server_name": "ekb.eg",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/lMnsZUN4/"
-      }
-    },
-    {
       "type": "trojan",
+      "tag": "m0",
+      "server": "in.tronsg.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "ekb.eg",
+        "insecure": true
+      },
+      "password": "Trojan@82164024"
+    },
+    {
+      "type": "vmess",
       "tag": "m1",
-      "server": "47.250.84.25",
-      "server_port": 443,
-      "tls": {
-        "enabled": true,
-        "server_name": "ekb.eg",
-        "insecure": true
-      },
-      "password": "5931134d1cde66bf83a54acdfebe7ab2"
-    },
-    {
-      "type": "vless",
-      "tag": "m2",
-      "server": "static.86.39.13.49.clients.your-server.de",
-      "server_port": 443,
-      "tls": {
-        "enabled": true,
-        "server_name": "ekb.eg",
-        "insecure": true,
-        "alpn": [
-          "h2",
-          "http/1.1"
-        ],
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      },
-      "uuid": "6c688f63-fad4-45d8-a6a1-1e978ed26b8b",
-      "flow": "xtls-rprx-vision"
-    },
-    {
-      "type": "vmess",
-      "tag": "m3",
-      "server": "162.19.204.71",
-      "server_port": 1234,
-      "uuid": "5c040f1d-45db-43bd-8d46-e4950e433735",
-      "security": "auto",
-      "alter_id": 0,
-      "tls": {
-        "enabled": true,
-        "server_name": "ekb.eg",
-        "insecure": true
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "m4",
       "server": "141.95.65.9",
       "server_port": 1234,
       "uuid": "5c040f1d-45db-43bd-8d46-e4950e433735",
@@ -170,49 +99,7 @@
     },
     {
       "type": "trojan",
-      "tag": "m5",
-      "server": "23.106.44.14",
-      "server_port": 443,
-      "tls": {
-        "enabled": true,
-        "server_name": "ekb.eg",
-        "insecure": true
-      },
-      "password": "600421cf-11d7-429f-a65b-c30397f1bc03"
-    },
-    {
-      "type": "vmess",
-      "tag": "m6",
-      "server": "140.238.55.84",
-      "server_port": 2083,
-      "uuid": "ac251237-576f-40c8-a543-554960c958b1",
-      "security": "auto",
-      "alter_id": 0,
-      "tls": {
-        "enabled": true,
-        "server_name": "ekb.eg",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/or3"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "m7",
-      "server": "tjtw.m2k699.com",
-      "server_port": 24999,
-      "tls": {
-        "enabled": true,
-        "server_name": "ekb.eg",
-        "insecure": true
-      },
-      "password": "29086912-33e4-4e06-ba2b-60f1a195864f"
-    },
-    {
-      "type": "trojan",
-      "tag": "m8",
+      "tag": "m2",
       "server": "blog.findlocaljobnetworkandbuildcommunityconnections.com",
       "server_port": 443,
       "tls": {
@@ -224,47 +111,139 @@
     },
     {
       "type": "trojan",
-      "tag": "m9",
-      "server": "47.250.84.25",
+      "tag": "m3",
+      "server": "45.32.52.173",
+      "server_port": 8886,
+      "tls": {
+        "enabled": true,
+        "server_name": "ekb.eg",
+        "insecure": true
+      },
+      "password": "e26a229d-e8f2-4ff9-8c7d-58a9d83ee437"
+    },
+    {
+      "type": "vless",
+      "tag": "m4",
+      "server": "hw3.divarkhaghazi.com",
+      "server_port": 465,
+      "tls": {
+        "enabled": true,
+        "server_name": "ekb.eg",
+        "insecure": true,
+        "alpn": [
+          "http/1.1"
+        ]
+      },
+      "uuid": "924e20da-fcad-4e7e-8113-c62d27a0d01e",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "hw3.divarkhaghazi.com."
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "m5",
+      "server": "resources.findlocaljobnetworkandbuildcommunityconnections.com",
       "server_port": 443,
       "tls": {
         "enabled": true,
         "server_name": "ekb.eg",
         "insecure": true
       },
-      "password": "5931134d1cde66bf83a54acdfebe7ab2"
+      "password": "f0eb8c92ce8946aaba856569cff1a16b"
     },
     {
       "type": "trojan",
-      "tag": "m10",
-      "server": "2.27.109.179",
-      "server_port": 45464,
+      "tag": "m6",
+      "server": "blog.findlocaljobnetworkandbuildcommunityconnections.com",
+      "server_port": 443,
       "tls": {
         "enabled": true,
         "server_name": "ekb.eg",
         "insecure": true
       },
-      "password": "XuMweB2PWs"
+      "password": "dba20dcb635e430fa4d3bfc303a149d2"
     },
     {
       "type": "vless",
-      "tag": "m11",
+      "tag": "m7",
       "server": "195.58.144.56",
       "server_port": 11907,
       "tls": {
         "enabled": true,
         "server_name": "ekb.eg",
         "insecure": true,
-        "alpn": [
-          "h2",
-          "http/1.1"
-        ],
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
         }
       },
       "uuid": "07cb07b9-0c4d-46c1-a15a-b147511b6b07"
+    },
+    {
+      "type": "trojan",
+      "tag": "m8",
+      "server": "66.23.203.21",
+      "server_port": 59689,
+      "tls": {
+        "enabled": true,
+        "server_name": "ekb.eg",
+        "insecure": true
+      },
+      "password": "ae7eb4dwyaz25pxwgq59"
+    },
+    {
+      "type": "vless",
+      "tag": "m9",
+      "server": "199.232.78.159",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "ekb.eg",
+        "insecure": true
+      },
+      "uuid": "cd07ae0d-f31d-4209-a0a4-d9d9cfcca1ad",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "copy_az_channel_NUFiLTER_8i.global.ssl.fastly.net."
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "m10",
+      "server": "wwww.qarvian.ir",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "ekb.eg",
+        "insecure": true
+      },
+      "uuid": "cd07ae0d-f31d-4209-a0a4-d9d9cfcca1ad",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "copy_az_channel_NUFiLTER_7i.global.ssl.fastly.net."
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "m11",
+      "server": "139.180.146.200",
+      "server_port": 8886,
+      "tls": {
+        "enabled": true,
+        "server_name": "ekb.eg",
+        "insecure": true
+      },
+      "password": "e26a229d-e8f2-4ff9-8c7d-58a9d83ee437"
     },
     {
       "type": "vless",
@@ -288,25 +267,49 @@
     {
       "type": "vless",
       "tag": "m13",
-      "server": "91.107.188.129",
-      "server_port": 2083,
+      "server": "200.165.231.209",
+      "server_port": 443,
       "tls": {
         "enabled": true,
         "server_name": "ekb.eg",
-        "insecure": true,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
+        "insecure": true
       },
-      "uuid": "36592d47-b9f5-4e8f-949e-45ac05472aab",
+      "uuid": "ff0b6ba8-bed0-4c4d-bbc9-23af47582615",
       "transport": {
-        "type": "ws"
+        "type": "ws",
+        "path": "/api/connect",
+        "headers": {
+          "Host": "wstg.datasynctrue.online"
+        }
       }
     },
     {
-      "type": "vless",
+      "type": "trojan",
       "tag": "m14",
+      "server": "216.106.186.32",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "ekb.eg",
+        "insecure": true
+      },
+      "password": "dba20dcb635e430fa4d3bfc303a149d2"
+    },
+    {
+      "type": "trojan",
+      "tag": "m15",
+      "server": "resources.findlocaljobnetworkandbuildcommunityconnections.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "ekb.eg",
+        "insecure": true
+      },
+      "password": "f0eb8c92ce8946aaba856569cff1a16b"
+    },
+    {
+      "type": "vless",
+      "tag": "m16",
       "server": "200.165.231.209",
       "server_port": 443,
       "tls": {
@@ -325,28 +328,7 @@
     },
     {
       "type": "vless",
-      "tag": "m15",
-      "server": "static.86.39.13.49.clients.your-server.de",
-      "server_port": 443,
-      "tls": {
-        "enabled": true,
-        "server_name": "ekb.eg",
-        "insecure": true,
-        "alpn": [
-          "h2",
-          "http/1.1"
-        ],
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      },
-      "uuid": "6c688f63-fad4-45d8-a6a1-1e978ed26b8b",
-      "flow": "xtls-rprx-vision"
-    },
-    {
-      "type": "vless",
-      "tag": "m16",
+      "tag": "m17",
       "server": "ang-el.ir",
       "server_port": 8081,
       "tls": {
@@ -368,25 +350,6 @@
       }
     },
     {
-      "type": "vless",
-      "tag": "m17",
-      "server": "wwww.qarvian.ir",
-      "server_port": 443,
-      "tls": {
-        "enabled": true,
-        "server_name": "ekb.eg",
-        "insecure": true
-      },
-      "uuid": "cd07ae0d-f31d-4209-a0a4-d9d9cfcca1ad",
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "copy_az_channel_NUFiLTER_7i.global.ssl.fastly.net."
-        }
-      }
-    },
-    {
       "type": "trojan",
       "tag": "m18",
       "server": "blog.findlocaljobnetworkandbuildcommunityconnections.com",
@@ -399,411 +362,8 @@
       "password": "dba20dcb635e430fa4d3bfc303a149d2"
     },
     {
-      "type": "vmess",
+      "type": "trojan",
       "tag": "m19",
-      "server": "45.90.106.24",
-      "server_port": 1234,
-      "uuid": "5c040f1d-45db-43bd-8d46-e4950e433735",
-      "security": "auto",
-      "alter_id": 0,
-      "tls": {
-        "enabled": true,
-        "server_name": "ekb.eg",
-        "insecure": true
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "m20",
-      "server": "blog.findlocaljobnetworkandbuildcommunityconnections.com",
-      "server_port": 443,
-      "tls": {
-        "enabled": true,
-        "server_name": "ekb.eg",
-        "insecure": true
-      },
-      "password": "dba20dcb635e430fa4d3bfc303a149d2"
-    },
-    {
-      "type": "vless",
-      "tag": "m21",
-      "server": "static.86.39.13.49.clients.your-server.de",
-      "server_port": 443,
-      "tls": {
-        "enabled": true,
-        "server_name": "ekb.eg",
-        "insecure": true,
-        "alpn": [
-          "h2",
-          "http/1.1"
-        ],
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      },
-      "uuid": "6c688f63-fad4-45d8-a6a1-1e978ed26b8b",
-      "flow": "xtls-rprx-vision"
-    },
-    {
-      "type": "vless",
-      "tag": "m22",
-      "server": "146.75.59.186",
-      "server_port": 443,
-      "tls": {
-        "enabled": true,
-        "server_name": "ekb.eg",
-        "insecure": true
-      },
-      "uuid": "cd07ae0d-f31d-4209-a0a4-d9d9cfcca1ad",
-      "transport": {
-        "type": "ws",
-        "headers": {
-          "Host": "copy_az_channel_NUFiLTER_6i.global.ssl.fastly.net."
-        }
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "m23",
-      "server": "139.180.146.200",
-      "server_port": 8886,
-      "tls": {
-        "enabled": true,
-        "server_name": "ekb.eg",
-        "insecure": true
-      },
-      "password": "e26a229d-e8f2-4ff9-8c7d-58a9d83ee437"
-    },
-    {
-      "type": "vless",
-      "tag": "m24",
-      "server": "static.114.180.233.167.clients.your-server.de",
-      "server_port": 443,
-      "tls": {
-        "enabled": true,
-        "server_name": "ekb.eg",
-        "insecure": true,
-        "alpn": [
-          "h2",
-          "http/1.1"
-        ],
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      },
-      "uuid": "6c688f63-fad4-45d8-a6a1-1e978ed26b8b",
-      "flow": "xtls-rprx-vision"
-    },
-    {
-      "type": "vless",
-      "tag": "m25",
-      "server": "199.232.78.159",
-      "server_port": 443,
-      "tls": {
-        "enabled": true,
-        "server_name": "ekb.eg",
-        "insecure": true
-      },
-      "uuid": "cd07ae0d-f31d-4209-a0a4-d9d9cfcca1ad",
-      "transport": {
-        "type": "ws",
-        "headers": {
-          "Host": "copy_az_channel_NUFiLTER_8i.global.ssl.fastly.net."
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "m26",
-      "server": "static.86.39.13.49.clients.your-server.de",
-      "server_port": 443,
-      "tls": {
-        "enabled": true,
-        "server_name": "ekb.eg",
-        "insecure": true,
-        "alpn": [
-          "h2",
-          "http/1.1"
-        ],
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      },
-      "uuid": "6c688f63-fad4-45d8-a6a1-1e978ed26b8b",
-      "flow": "xtls-rprx-vision"
-    },
-    {
-      "type": "vless",
-      "tag": "m27",
-      "server": "199.232.78.160",
-      "server_port": 443,
-      "tls": {
-        "enabled": true,
-        "server_name": "ekb.eg",
-        "insecure": true
-      },
-      "uuid": "cd07ae0d-f31d-4209-a0a4-d9d9cfcca1ad",
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "copy_az_channel_NUFiLTER_10i.global.ssl.fastly.net."
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "m28",
-      "server": "199.232.78.160",
-      "server_port": 443,
-      "tls": {
-        "enabled": true,
-        "server_name": "ekb.eg",
-        "insecure": true
-      },
-      "uuid": "XpnTeam-45",
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "Appxdn.global.ssl.fastly.net"
-        }
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "m29",
-      "server": "resources.findlocaljobnetworkandbuildcommunityconnections.com",
-      "server_port": 443,
-      "tls": {
-        "enabled": true,
-        "server_name": "ekb.eg",
-        "insecure": true
-      },
-      "password": "f0eb8c92ce8946aaba856569cff1a16b"
-    },
-    {
-      "type": "trojan",
-      "tag": "m30",
-      "server": "de-bots4.h1cloud.net",
-      "server_port": 25267,
-      "tls": {
-        "enabled": true,
-        "server_name": "ekb.eg",
-        "insecure": true
-      },
-      "password": "happybirthdaydaniel"
-    },
-    {
-      "type": "vless",
-      "tag": "m31",
-      "server": "node-uk.connectsuite.org",
-      "server_port": 8443,
-      "tls": {
-        "enabled": true,
-        "server_name": "ekb.eg",
-        "insecure": true,
-        "alpn": [
-          "h2",
-          "http/1.1"
-        ],
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      },
-      "uuid": "c08f0056-7a6d-4931-813b-aaa3cdd00aed"
-    },
-    {
-      "type": "trojan",
-      "tag": "m32",
-      "server": "tjjnd.m2k699.com",
-      "server_port": 24999,
-      "tls": {
-        "enabled": true,
-        "server_name": "ekb.eg",
-        "insecure": true
-      },
-      "password": "29086912-33e4-4e06-ba2b-60f1a195864f"
-    },
-    {
-      "type": "trojan",
-      "tag": "m33",
-      "server": "tjxjp.m2k699.com",
-      "server_port": 24999,
-      "tls": {
-        "enabled": true,
-        "server_name": "ekb.eg",
-        "insecure": true
-      },
-      "password": "29086912-33e4-4e06-ba2b-60f1a195864f"
-    },
-    {
-      "type": "trojan",
-      "tag": "m34",
-      "server": "69.164.240.85",
-      "server_port": 50875,
-      "tls": {
-        "enabled": true,
-        "server_name": "ekb.eg",
-        "insecure": true
-      },
-      "password": "nwilryafgkyvuxauc8pz"
-    },
-    {
-      "type": "trojan",
-      "tag": "m35",
-      "server": "154.90.62.70",
-      "server_port": 56127,
-      "tls": {
-        "enabled": true,
-        "server_name": "ekb.eg",
-        "insecure": true
-      },
-      "password": "p5jTPcffLgi4gaNOJd2KUTb9YEPBBD5B"
-    },
-    {
-      "type": "trojan",
-      "tag": "m36",
-      "server": "154.90.62.70",
-      "server_port": 56127,
-      "tls": {
-        "enabled": true,
-        "server_name": "ekb.eg",
-        "insecure": true
-      },
-      "password": "p5jTPcffLgi4gaNOJd2KUTb9YEPBBD5B"
-    },
-    {
-      "type": "trojan",
-      "tag": "m37",
-      "server": "tjxjp.m2k699.com",
-      "server_port": 24999,
-      "tls": {
-        "enabled": true,
-        "server_name": "ekb.eg",
-        "insecure": true
-      },
-      "password": "29086912-33e4-4e06-ba2b-60f1a195864f"
-    },
-    {
-      "type": "trojan",
-      "tag": "m38",
-      "server": "tjterq.m2k699.com",
-      "server_port": 24999,
-      "tls": {
-        "enabled": true,
-        "server_name": "ekb.eg",
-        "insecure": true
-      },
-      "password": "29086912-33e4-4e06-ba2b-60f1a195864f"
-    },
-    {
-      "type": "trojan",
-      "tag": "m39",
-      "server": "tjmlxy.m2k699.com",
-      "server_port": 24999,
-      "tls": {
-        "enabled": true,
-        "server_name": "ekb.eg",
-        "insecure": true
-      },
-      "password": "29086912-33e4-4e06-ba2b-60f1a195864f"
-    },
-    {
-      "type": "trojan",
-      "tag": "m40",
-      "server": "tjrb.m2k699.com",
-      "server_port": 24999,
-      "tls": {
-        "enabled": true,
-        "server_name": "ekb.eg",
-        "insecure": true
-      },
-      "password": "29086912-33e4-4e06-ba2b-60f1a195864f"
-    },
-    {
-      "type": "trojan",
-      "tag": "m41",
-      "server": "uis175.pacemakere.com",
-      "server_port": 20005,
-      "tls": {
-        "enabled": true,
-        "server_name": "ekb.eg",
-        "insecure": true
-      },
-      "password": "7343dd3d00b74cd2"
-    },
-    {
-      "type": "trojan",
-      "tag": "m42",
-      "server": "66.23.203.21",
-      "server_port": 59689,
-      "tls": {
-        "enabled": true,
-        "server_name": "ekb.eg",
-        "insecure": true
-      },
-      "password": "ae7eb4dwyaz25pxwgq59"
-    },
-    {
-      "type": "trojan",
-      "tag": "m43",
-      "server": "66.23.203.21",
-      "server_port": 59689,
-      "tls": {
-        "enabled": true,
-        "server_name": "ekb.eg",
-        "insecure": true
-      },
-      "password": "ae7eb4dwyaz25pxwgq59"
-    },
-    {
-      "type": "trojan",
-      "tag": "m44",
-      "server": "66.23.203.21",
-      "server_port": 59689,
-      "tls": {
-        "enabled": true,
-        "server_name": "ekb.eg",
-        "insecure": true
-      },
-      "password": "ae7eb4dwyaz25pxwgq59"
-    },
-    {
-      "type": "trojan",
-      "tag": "m45",
-      "server": "2.27.109.179",
-      "server_port": 45464,
-      "tls": {
-        "enabled": true,
-        "server_name": "ekb.eg",
-        "insecure": true
-      },
-      "password": "XuMweB2PWs"
-    },
-    {
-      "type": "vless",
-      "tag": "m46",
-      "server": "103.180.20.108",
-      "server_port": 8443,
-      "tls": {
-        "enabled": true,
-        "server_name": "ekb.eg",
-        "insecure": true
-      },
-      "uuid": "c1c04450-bf71-4049-ad0c-9cf6d94d9f1f",
-      "transport": {
-        "type": "ws",
-        "path": "/81574b6b-c9d7-44a0-b83d-dad56e8cb530"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "m47",
       "server": "tjmg2.m2k699.com",
       "server_port": 24999,
       "tls": {
@@ -815,7 +375,55 @@
     },
     {
       "type": "trojan",
-      "tag": "m48",
+      "tag": "m20",
+      "server": "tjtw.m2k699.com",
+      "server_port": 24999,
+      "tls": {
+        "enabled": true,
+        "server_name": "ekb.eg",
+        "insecure": true
+      },
+      "password": "29086912-33e4-4e06-ba2b-60f1a195864f"
+    },
+    {
+      "type": "trojan",
+      "tag": "m21",
+      "server": "tjrb.m2k699.com",
+      "server_port": 24999,
+      "tls": {
+        "enabled": true,
+        "server_name": "ekb.eg",
+        "insecure": true
+      },
+      "password": "29086912-33e4-4e06-ba2b-60f1a195864f"
+    },
+    {
+      "type": "trojan",
+      "tag": "m22",
+      "server": "tjjnd.m2k699.com",
+      "server_port": 24999,
+      "tls": {
+        "enabled": true,
+        "server_name": "ekb.eg",
+        "insecure": true
+      },
+      "password": "29086912-33e4-4e06-ba2b-60f1a195864f"
+    },
+    {
+      "type": "trojan",
+      "tag": "m23",
+      "server": "tjmg1.m2k699.com",
+      "server_port": 24999,
+      "tls": {
+        "enabled": true,
+        "server_name": "ekb.eg",
+        "insecure": true
+      },
+      "password": "29086912-33e4-4e06-ba2b-60f1a195864f"
+    },
+    {
+      "type": "trojan",
+      "tag": "m24",
       "server": "154.90.62.70",
       "server_port": 56127,
       "tls": {
@@ -826,8 +434,32 @@
       "password": "p5jTPcffLgi4gaNOJd2KUTb9YEPBBD5B"
     },
     {
+      "type": "trojan",
+      "tag": "m25",
+      "server": "tjyg.m2k699.com",
+      "server_port": 24999,
+      "tls": {
+        "enabled": true,
+        "server_name": "ekb.eg",
+        "insecure": true
+      },
+      "password": "29086912-33e4-4e06-ba2b-60f1a195864f"
+    },
+    {
+      "type": "trojan",
+      "tag": "m26",
+      "server": "tjmg1.m2k699.com",
+      "server_port": 24999,
+      "tls": {
+        "enabled": true,
+        "server_name": "ekb.eg",
+        "insecure": true
+      },
+      "password": "29086912-33e4-4e06-ba2b-60f1a195864f"
+    },
+    {
       "type": "vless",
-      "tag": "m49",
+      "tag": "m27",
       "server": "139.162.27.96",
       "server_port": 2096,
       "tls": {
@@ -836,7 +468,7 @@
         "insecure": true,
         "utls": {
           "enabled": true,
-          "fingerprint": "firefox"
+          "fingerprint": "chrome"
         }
       },
       "uuid": "6e59d5c5-7aa3-4c36-a4c4-e3b899525ed2",
@@ -849,96 +481,20 @@
       }
     },
     {
-      "type": "vless",
-      "tag": "m50",
-      "server": "60.248.219.78",
-      "server_port": 443,
+      "type": "trojan",
+      "tag": "m28",
+      "server": "66.23.203.21",
+      "server_port": 59689,
       "tls": {
         "enabled": true,
         "server_name": "ekb.eg",
         "insecure": true
       },
-      "uuid": "c1c04450-bf71-4049-ad0c-9cf6d94d9f1f",
-      "transport": {
-        "type": "ws",
-        "path": "/81574b6b-c9d7-44a0-b83d-dad56e8cb530"
-      }
+      "password": "ae7eb4dwyaz25pxwgq59"
     },
     {
       "type": "trojan",
-      "tag": "m51",
-      "server": "45.32.52.173",
-      "server_port": 8886,
-      "tls": {
-        "enabled": true,
-        "server_name": "ekb.eg",
-        "insecure": true
-      },
-      "password": "e26a229d-e8f2-4ff9-8c7d-58a9d83ee437"
-    },
-    {
-      "type": "trojan",
-      "tag": "m52",
-      "server": "139.180.146.200",
-      "server_port": 8886,
-      "tls": {
-        "enabled": true,
-        "server_name": "ekb.eg",
-        "insecure": true
-      },
-      "password": "e26a229d-e8f2-4ff9-8c7d-58a9d83ee437"
-    },
-    {
-      "type": "trojan",
-      "tag": "m53",
-      "server": "tjmg2.m2k699.com",
-      "server_port": 24999,
-      "tls": {
-        "enabled": true,
-        "server_name": "ekb.eg",
-        "insecure": true
-      },
-      "password": "29086912-33e4-4e06-ba2b-60f1a195864f"
-    },
-    {
-      "type": "trojan",
-      "tag": "m54",
-      "server": "43.156.36.253",
-      "server_port": 443,
-      "tls": {
-        "enabled": true,
-        "server_name": "ekb.eg",
-        "insecure": true
-      },
-      "password": "WvH8ooM9hom4KOOJHFJz1x5umE0aV4R0"
-    },
-    {
-      "type": "trojan",
-      "tag": "m55",
-      "server": "gu232.izzzzzi.com",
-      "server_port": 20052,
-      "tls": {
-        "enabled": true,
-        "server_name": "ekb.eg",
-        "insecure": true
-      },
-      "password": "e56e752c86a640cd"
-    },
-    {
-      "type": "trojan",
-      "tag": "m56",
-      "server": "69.164.240.85",
-      "server_port": 50875,
-      "tls": {
-        "enabled": true,
-        "server_name": "ekb.eg",
-        "insecure": true
-      },
-      "password": "nwilryafgkyvuxauc8pz"
-    },
-    {
-      "type": "trojan",
-      "tag": "m57",
+      "tag": "m29",
       "server": "154.90.62.70",
       "server_port": 56127,
       "tls": {
@@ -950,43 +506,43 @@
     },
     {
       "type": "trojan",
-      "tag": "m58",
-      "server": "uis175.pacemakere.com",
-      "server_port": 20005,
+      "tag": "m30",
+      "server": "45.32.52.173",
+      "server_port": 8886,
       "tls": {
         "enabled": true,
         "server_name": "ekb.eg",
         "insecure": true
       },
-      "password": "7343dd3d00b74cd2"
+      "password": "e26a229d-e8f2-4ff9-8c7d-58a9d83ee437"
     },
     {
       "type": "trojan",
-      "tag": "m59",
-      "server": "tjyg.m2k699.com",
-      "server_port": 24999,
+      "tag": "m31",
+      "server": "66.23.203.21",
+      "server_port": 59689,
       "tls": {
         "enabled": true,
         "server_name": "ekb.eg",
         "insecure": true
       },
-      "password": "29086912-33e4-4e06-ba2b-60f1a195864f"
+      "password": "ae7eb4dwyaz25pxwgq59"
     },
     {
       "type": "trojan",
-      "tag": "m60",
-      "server": "2.27.109.179",
-      "server_port": 45464,
+      "tag": "m32",
+      "server": "66.23.203.21",
+      "server_port": 59689,
       "tls": {
         "enabled": true,
         "server_name": "ekb.eg",
         "insecure": true
       },
-      "password": "XuMweB2PWs"
+      "password": "ae7eb4dwyaz25pxwgq59"
     },
     {
       "type": "vless",
-      "tag": "m61",
+      "tag": "m33",
       "server": "103.148.73.173",
       "server_port": 8443,
       "tls": {
@@ -1001,20 +557,136 @@
       }
     },
     {
-      "type": "vless",
-      "tag": "m62",
-      "server": "60.248.219.54",
+      "type": "trojan",
+      "tag": "m34",
+      "server": "tjxg.m2k699.com",
+      "server_port": 24999,
+      "tls": {
+        "enabled": true,
+        "server_name": "ekb.eg",
+        "insecure": true
+      },
+      "password": "29086912-33e4-4e06-ba2b-60f1a195864f"
+    },
+    {
+      "type": "trojan",
+      "tag": "m35",
+      "server": "216.106.186.33",
       "server_port": 443,
       "tls": {
         "enabled": true,
         "server_name": "ekb.eg",
         "insecure": true
       },
-      "uuid": "06e177f7-240d-4687-bd85-235505801a5e",
-      "transport": {
-        "type": "ws",
-        "path": "/81574b6b-c9d7-44a0-b83d-dad56e8cb530"
-      }
+      "password": "f0eb8c92ce8946aaba856569cff1a16b"
+    },
+    {
+      "type": "trojan",
+      "tag": "m36",
+      "server": "tjadly.m2k699.com",
+      "server_port": 24999,
+      "tls": {
+        "enabled": true,
+        "server_name": "ekb.eg",
+        "insecure": true
+      },
+      "password": "29086912-33e4-4e06-ba2b-60f1a195864f"
+    },
+    {
+      "type": "trojan",
+      "tag": "m37",
+      "server": "2.27.109.179",
+      "server_port": 45464,
+      "tls": {
+        "enabled": true,
+        "server_name": "ekb.eg",
+        "insecure": true
+      },
+      "password": "XuMweB2PWs"
+    },
+    {
+      "type": "trojan",
+      "tag": "m38",
+      "server": "tjflb.m2k699.com",
+      "server_port": 24999,
+      "tls": {
+        "enabled": true,
+        "server_name": "ekb.eg",
+        "insecure": true
+      },
+      "password": "29086912-33e4-4e06-ba2b-60f1a195864f"
+    },
+    {
+      "type": "trojan",
+      "tag": "m39",
+      "server": "tjyn.m2k699.com",
+      "server_port": 24999,
+      "tls": {
+        "enabled": true,
+        "server_name": "ekb.eg",
+        "insecure": true
+      },
+      "password": "29086912-33e4-4e06-ba2b-60f1a195864f"
+    },
+    {
+      "type": "trojan",
+      "tag": "m40",
+      "server": "154.90.62.70",
+      "server_port": 56127,
+      "tls": {
+        "enabled": true,
+        "server_name": "ekb.eg",
+        "insecure": true
+      },
+      "password": "p5jTPcffLgi4gaNOJd2KUTb9YEPBBD5B"
+    },
+    {
+      "type": "trojan",
+      "tag": "m41",
+      "server": "154.90.62.70",
+      "server_port": 56127,
+      "tls": {
+        "enabled": true,
+        "server_name": "ekb.eg",
+        "insecure": true
+      },
+      "password": "p5jTPcffLgi4gaNOJd2KUTb9YEPBBD5B"
+    },
+    {
+      "type": "trojan",
+      "tag": "m42",
+      "server": "resources.findlocaljobnetworkandbuildcommunityconnections.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "ekb.eg",
+        "insecure": true
+      },
+      "password": "f0eb8c92ce8946aaba856569cff1a16b"
+    },
+    {
+      "type": "trojan",
+      "tag": "m43",
+      "server": "www.findlocaljobnetworkandbuildcommunityconnections.com",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "ekb.eg",
+        "insecure": true
+      },
+      "password": "242a3d8eee5e4ed1a6bfa4141d549a25"
+    },
+    {
+      "type": "trojan",
+      "tag": "m44",
+      "server": "tjmg2.m2k699.com",
+      "server_port": 24999,
+      "tls": {
+        "enabled": true,
+        "server_name": "ekb.eg",
+        "insecure": true
+      },
+      "password": "29086912-33e4-4e06-ba2b-60f1a195864f"
     },
     {
       "type": "direct",
